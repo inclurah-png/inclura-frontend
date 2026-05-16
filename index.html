@@ -2,12 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
   <title>Inclura Platform</title>
 
   <link rel="stylesheet" href="style.css" />
 
   <script src="https://unpkg.com/i18next@23.11.5/dist/umd/i18next.min.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axe-core/4.9.1/axe.min.js"></script>
 </head>
 
@@ -15,60 +21,107 @@
 
   <header>
     <h1>Inclura Platform</h1>
-    <p>Accessible social platform powered by AI.</p>
+
+    <p>
+      Accessible social platform powered by AI.
+    </p>
   </header>
 
   <section class="controls">
+
     <select id="languageSwitcher">
+
       <option value="en">English</option>
+
       <option value="fr">French</option>
+
       <option value="ar">Arabic</option>
+
     </select>
 
-    <button onclick="login()">Login with Google</button>
+    <button id="loginBtn">
+      Login with Google
+    </button>
 
-    <button onclick="logoutUser()">Logout</button>
+    <button id="logoutBtn">
+      Logout
+    </button>
 
     <label>
-      <input type="checkbox" id="highContrast" />
+
+      <input
+        type="checkbox"
+        id="highContrast"
+      />
+
       High Contrast
+
     </label>
 
     <label>
-      <input type="checkbox" id="largeText" />
+
+      <input
+        type="checkbox"
+        id="largeText"
+      />
+
       Large Text
+
     </label>
+
   </section>
 
   <section class="profile-section">
+
     <h2>Profile</h2>
 
-    <input type="text" id="displayName" placeholder="Display Name" />
+    <input
+      type="text"
+      id="displayName"
+      placeholder="Display Name"
+    />
 
-    <input type="text" id="imageUrl" placeholder="Profile Image URL" />
+    <input
+      type="text"
+      id="imageUrl"
+      placeholder="Profile Image URL"
+    />
 
     <button id="saveProfileBtn">
       Save Profile
     </button>
 
     <div id="profileOutput"></div>
+
   </section>
 
   <section class="post-section">
+
     <h2>Create Post</h2>
 
-    <textarea id="postInput" placeholder="Write something..."></textarea>
+    <textarea
+      id="postInput"
+      placeholder="Write something..."
+    ></textarea>
 
-    <button onclick="createPost()">Post</button>
+    <button onclick="createPost()">
+      Post
+    </button>
+
   </section>
 
   <section>
+
     <h2>Feed</h2>
+
     <div id="feed"></div>
+
   </section>
 
   <section class="message-section">
+
     <h2>Messages</h2>
+
   </section>
 
   <script type="module" src="app.js"></script>
