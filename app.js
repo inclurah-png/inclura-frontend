@@ -1,3 +1,4 @@
 ```js
-alert("app.js is loading");
+alert("JavaScript is now working");
 ```
+
