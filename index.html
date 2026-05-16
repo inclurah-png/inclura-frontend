@@ -1,4 +1,5 @@
-  <!DOCTYPE html>
+```html
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -44,11 +45,11 @@
 
     </select>
 
-    <button onclick="login()">
+    <button id="loginBtn">
       Login with Google
     </button>
 
-    <button onclick="logoutUser()">
+    <button id="logoutBtn">
       Logout
     </button>
 
@@ -92,7 +93,7 @@
       placeholder="Profile Image URL"
     />
 
-    <button onclick="saveProfile()">
+    <button id="saveProfileBtn">
       Save Profile
     </button>
 
@@ -133,8 +134,12 @@
 
   </section>
 
-  <script type="module" src="app.js"></script>
+  <script
+    type="module"
+    src="app.js"
+  ></script>
 
 </body>
 
 </html>
+```
