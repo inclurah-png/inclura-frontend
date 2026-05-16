@@ -1,6 +1,8 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8" />
 
   <meta
@@ -15,16 +17,19 @@
   <script src="https://unpkg.com/i18next@23.11.5/dist/umd/i18next.min.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axe-core/4.9.1/axe.min.js"></script>
+
 </head>
 
 <body>
 
   <header>
+
     <h1>Inclura Platform</h1>
 
     <p>
       Accessible social platform powered by AI.
     </p>
+
   </header>
 
   <section class="controls">
@@ -39,11 +44,11 @@
 
     </select>
 
-    <button id="loginBtn">
+    <button onclick="login()">
       Login with Google
     </button>
 
-    <button id="logoutBtn">
+    <button onclick="logoutUser()">
       Logout
     </button>
 
@@ -87,7 +92,7 @@
       placeholder="Profile Image URL"
     />
 
-    <button id="saveProfileBtn">
+    <button onclick="saveProfile()">
       Save Profile
     </button>
 
@@ -122,9 +127,14 @@
 
     <h2>Messages</h2>
 
+    <p>
+      Messaging feature coming soon.
+    </p>
+
   </section>
 
   <script type="module" src="app.js"></script>
 
 </body>
+
 </html>
