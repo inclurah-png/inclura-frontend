@@ -5,8 +5,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import {
   getAuth,
   GoogleAuthProvider,
-  signInWithRedirect,
-  getRedirectResult,
+  signInWithPopup,
   signOut,
   onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
@@ -24,11 +23,17 @@ import {
 
 // Firebase configuration
 const firebaseConfig = {
+
   apiKey: "AIzaSyCb7YlZynAbMKjPWAwuOH61D4uUeAVtUlU",
+
   authDomain: "inclura-prod-90734.firebaseapp.com",
+
   projectId: "inclura-prod-90734",
+
   storageBucket: "inclura-prod-90734.appspot.com",
+
   messagingSenderId: "694509989399",
+
   appId: "1:694509989399:web:dda8a2ba4cd25efd4af652"
 };
 
@@ -47,53 +52,50 @@ provider.setCustomParameters({
 });
 
 // LOGIN
-window.login = async function () {
+const loginBtn =
+  document.getElementById("loginBtn");
 
-  try {
+if (loginBtn) {
 
-    await signInWithRedirect(auth, provider);
+  loginBtn.addEventListener("click", async () => {
 
-  } catch (error) {
+    try {
 
-    console.error(error);
-
-    alert(error.message);
-  }
-};
-
-// REDIRECT RESULT
-getRedirectResult(auth)
-  .then((result) => {
-
-    if (result?.user) {
+      await signInWithPopup(auth, provider);
 
       alert("Login successful");
+
+    } catch (error) {
+
+      console.error(error);
+
+      alert(error.message);
     }
-
-  })
-  .catch((error) => {
-
-    console.error(error);
-
-    alert(error.message);
   });
+}
 
 // LOGOUT
-window.logoutUser = async function () {
+const logoutBtn =
+  document.getElementById("logoutBtn");
 
-  try {
+if (logoutBtn) {
 
-    await signOut(auth);
+  logoutBtn.addEventListener("click", async () => {
 
-    alert("Logged out");
+    try {
 
-  } catch (error) {
+      await signOut(auth);
 
-    console.error(error);
+      alert("Logged out");
 
-    alert(error.message);
-  }
-};
+    } catch (error) {
+
+      console.error(error);
+
+      alert(error.message);
+    }
+  });
+}
 
 // AUTH STATE
 onAuthStateChanged(auth, async (user) => {
@@ -118,7 +120,8 @@ if (saveProfileBtn) {
 
   saveProfileBtn.addEventListener("click", async () => {
 
-    const user = auth.currentUser;
+    const user =
+      auth.currentUser;
 
     if (!user) {
 
@@ -283,9 +286,7 @@ async function loadPosts() {
         "10px";
 
       post.innerHTML = `
-
         <p>${data.text}</p>
-
       `;
 
       feed.appendChild(post);
