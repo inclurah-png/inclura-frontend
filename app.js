@@ -1,10 +1,12 @@
+```js
 // Firebase SDK imports
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
   getAuth,
   GoogleAuthProvider,
-  signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
   signOut,
   onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
@@ -49,17 +51,7 @@ window.login = async function () {
 
   try {
 
-    const result =
-      await signInWithPopup(auth, provider);
-
-    if (result.user) {
-
-      alert("Login successful");
-
-      console.log(result.user);
-
-      loadProfile(result.user.uid);
-    }
+    await signInWithRedirect(auth, provider);
 
   } catch (error) {
 
@@ -68,6 +60,23 @@ window.login = async function () {
     alert(error.message);
   }
 };
+
+// REDIRECT RESULT
+getRedirectResult(auth)
+  .then((result) => {
+
+    if (result?.user) {
+
+      alert("Login successful");
+    }
+
+  })
+  .catch((error) => {
+
+    console.error(error);
+
+    alert(error.message);
+  });
 
 // LOGOUT
 window.logoutUser = async function () {
@@ -102,42 +111,50 @@ onAuthStateChanged(auth, async (user) => {
 });
 
 // SAVE PROFILE
-window.saveProfile = async function () {
+const saveProfileBtn =
+  document.getElementById("saveProfileBtn");
 
-  const user = auth.currentUser;
+if (saveProfileBtn) {
 
-  if (!user) {
+  saveProfileBtn.addEventListener("click", async () => {
 
-    alert("Please login first");
+    const user = auth.currentUser;
 
-    return;
-  }
+    if (!user) {
 
-  const displayName =
-    document.getElementById("displayName").value;
+      alert("Please login first");
 
-  const imageUrl =
-    document.getElementById("imageUrl").value;
+      return;
+    }
 
-  try {
+    const displayName =
+      document.getElementById("displayName").value;
 
-    await setDoc(doc(db, "profiles", user.uid), {
-      displayName: displayName,
-      imageUrl: imageUrl,
-      email: user.email
-    });
+    const imageUrl =
+      document.getElementById("imageUrl").value;
 
-    alert("Profile saved");
+    try {
 
-    loadProfile(user.uid);
+      await setDoc(doc(db, "profiles", user.uid), {
 
-  } catch (error) {
+        displayName,
+        imageUrl,
+        email: user.email
 
-    console.error(error);
+      });
 
-    alert(error.message);
-  }
-};
+      alert("Profile saved");
+
+      loadProfile(user.uid);
+
+    } catch (error) {
+
+      console.error(error);
+
+      alert(error.message);
+    }
+  });
+}
 
 // LOAD PROFILE
 async function loadProfile(uid) {
@@ -161,6 +178,7 @@ async function loadProfile(uid) {
         docSnap.data();
 
       profileOutput.innerHTML = `
+
         <div style="margin-top:20px;">
 
           <img
@@ -209,8 +227,10 @@ window.createPost = async function () {
   try {
 
     await addDoc(collection(db, "posts"), {
-      text: text,
+
+      text,
       created: serverTimestamp()
+
     });
 
     input.value = "";
@@ -242,10 +262,10 @@ async function loadPosts() {
     const querySnapshot =
       await getDocs(collection(db, "posts"));
 
-    querySnapshot.forEach((docSnap) => {
+    querySnapshot.forEach((docItem) => {
 
       const data =
-        docSnap.data();
+        docItem.data();
 
       const post =
         document.createElement("div");
@@ -263,7 +283,9 @@ async function loadPosts() {
         "10px";
 
       post.innerHTML = `
+
         <p>${data.text}</p>
+
       `;
 
       feed.appendChild(post);
@@ -279,3 +301,4 @@ async function loadPosts() {
 
 // INITIAL LOAD
 loadPosts();
+```
