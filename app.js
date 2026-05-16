@@ -4,8 +4,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import {
   getAuth,
   GoogleAuthProvider,
-  signInWithRedirect,
-  getRedirectResult,
+  signInWithPopup,
   signOut,
   onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
@@ -15,6 +14,9 @@ import {
   collection,
   addDoc,
   getDocs,
+  doc,
+  setDoc,
+  getDoc,
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
@@ -41,60 +43,149 @@ provider.setCustomParameters({
   prompt: "select_account"
 });
 
-// Login button
+// LOGIN
 const loginBtn = document.getElementById("loginBtn");
 
 if (loginBtn) {
   loginBtn.addEventListener("click", async () => {
     try {
-      await signInWithRedirect(auth, provider);
+
+      const result = await signInWithPopup(auth, provider);
+
+      alert("Login successful");
+
+      console.log(result.user);
+
     } catch (error) {
+
       console.error(error);
+
       alert(error.message);
     }
   });
 }
 
-// Redirect result
-getRedirectResult(auth)
-  .then((result) => {
-    if (result && result.user) {
-      alert("Login successful");
-    }
-  })
-  .catch((error) => {
-    console.error(error);
-    alert(error.message);
-  });
-
-// Auth state
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    console.log("Logged in:", user.email);
-  } else {
-    console.log("No user logged in");
-  }
-});
-
-// Logout
+// LOGOUT
 const logoutBtn = document.getElementById("logoutBtn");
 
 if (logoutBtn) {
   logoutBtn.addEventListener("click", async () => {
+
     try {
+
       await signOut(auth);
+
       alert("Logged out");
+
     } catch (error) {
+
       console.error(error);
+
       alert(error.message);
     }
   });
 }
 
-// Create Post
+// AUTH STATE
+onAuthStateChanged(auth, async (user) => {
+
+  if (user) {
+
+    console.log("Logged in:", user.email);
+
+    loadProfile(user.uid);
+
+  } else {
+
+    console.log("No user logged in");
+  }
+});
+
+// SAVE PROFILE
+const saveProfileBtn = document.getElementById("saveProfileBtn");
+
+if (saveProfileBtn) {
+
+  saveProfileBtn.addEventListener("click", async () => {
+
+    const user = auth.currentUser;
+
+    if (!user) {
+      alert("Please login first");
+      return;
+    }
+
+    const displayName =
+      document.getElementById("displayName").value;
+
+    const imageUrl =
+      document.getElementById("imageUrl").value;
+
+    try {
+
+      await setDoc(doc(db, "profiles", user.uid), {
+        displayName,
+        imageUrl,
+        email: user.email
+      });
+
+      alert("Profile saved");
+
+      loadProfile(user.uid);
+
+    } catch (error) {
+
+      console.error(error);
+
+      alert(error.message);
+    }
+  });
+}
+
+// LOAD PROFILE
+async function loadProfile(uid) {
+
+  const profileOutput =
+    document.getElementById("profileOutput");
+
+  if (!profileOutput) return;
+
+  try {
+
+    const docRef = doc(db, "profiles", uid);
+
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+
+      const data = docSnap.data();
+
+      profileOutput.innerHTML = `
+        <div style="margin-top:20px;">
+          <img
+            src="${data.imageUrl}"
+            width="100"
+            style="border-radius:50%;"
+          />
+
+          <h3>${data.displayName}</h3>
+
+          <p>${data.email}</p>
+        </div>
+      `;
+    }
+
+  } catch (error) {
+
+    console.error(error);
+  }
+}
+
+// CREATE POST
 window.createPost = async function () {
 
-  const input = document.getElementById("postInput");
+  const input =
+    document.getElementById("postInput");
 
   if (!input) {
     alert("Post input not found");
@@ -111,7 +202,7 @@ window.createPost = async function () {
   try {
 
     await addDoc(collection(db, "posts"), {
-      text: text,
+      text,
       created: serverTimestamp()
     });
 
@@ -122,15 +213,18 @@ window.createPost = async function () {
     loadPosts();
 
   } catch (error) {
+
     console.error(error);
+
     alert(error.message);
   }
 };
 
-// Load Posts
+// LOAD POSTS
 async function loadPosts() {
 
-  const feed = document.getElementById("feed");
+  const feed =
+    document.getElementById("feed");
 
   if (!feed) return;
 
@@ -138,13 +232,15 @@ async function loadPosts() {
 
   try {
 
-    const querySnapshot = await getDocs(collection(db, "posts"));
+    const querySnapshot =
+      await getDocs(collection(db, "posts"));
 
     querySnapshot.forEach((doc) => {
 
       const data = doc.data();
 
-      const post = document.createElement("div");
+      const post =
+        document.createElement("div");
 
       post.style.border = "1px solid gray";
       post.style.padding = "10px";
@@ -156,14 +252,15 @@ async function loadPosts() {
       `;
 
       feed.appendChild(post);
-
     });
 
   } catch (error) {
+
     console.error(error);
+
     alert(error.message);
   }
 }
 
-// Load posts immediately
+// INITIAL LOAD
 loadPosts();
