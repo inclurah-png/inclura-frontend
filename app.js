@@ -1,9 +1,11 @@
 // Firebase SDK imports
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
 import {
   getAuth,
   GoogleAuthProvider,
   signInWithRedirect,
+  getRedirectResult,
   signOut
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
@@ -28,56 +30,104 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
 const auth = getAuth(app);
+
 const db = getFirestore(app);
+
 const provider = new GoogleAuthProvider();
 
 // Google Login
 window.login = async function () {
   try {
     await signInWithRedirect(auth, provider);
-    alert("Login successful");
   } catch (error) {
     alert(error.message);
   }
 };
 
+// Handle Redirect Login Result
+getRedirectResult(auth)
+  .then((result) => {
+    if (result && result.user) {
+      alert("Login successful");
+      console.log(result.user);
+    }
+  })
+  .catch((error) => {
+    console.log(error);
+    alert(error.message);
+  });
+
 // Logout
 window.logoutUser = async function () {
-  await signOut(auth);
-  alert("Logged out");
+  try {
+    await signOut(auth);
+    alert("Logged out");
+  } catch (error) {
+    alert(error.message);
+  }
 };
 
 // Create Post
 window.createPost = async function () {
+
   const text = document.getElementById("postInput").value;
 
-  if (!text) return;
+  if (!text) {
+    alert("Please write something");
+    return;
+  }
 
-  await addDoc(collection(db, "posts"), {
-    text: text,
-    created: new Date()
-  });
+  try {
 
-  alert("Post created");
-  loadPosts();
+    await addDoc(collection(db, "posts"), {
+      text: text,
+      created: new Date()
+    });
+
+    alert("Post created");
+
+    document.getElementById("postInput").value = "";
+
+    loadPosts();
+
+  } catch (error) {
+    alert(error.message);
+  }
 };
 
 // Load Posts
 async function loadPosts() {
+
   const feed = document.getElementById("feed");
 
   if (!feed) return;
 
   feed.innerHTML = "";
 
-  const querySnapshot = await getDocs(collection(db, "posts"));
+  try {
 
-  querySnapshot.forEach((doc) => {
-    const post = document.createElement("div");
-    post.innerHTML = `<p>${doc.data().text}</p>`;
-    feed.appendChild(post);
-  });
+    const querySnapshot = await getDocs(collection(db, "posts"));
+
+    querySnapshot.forEach((doc) => {
+
+      const post = document.createElement("div");
+
+      post.className = "post";
+
+      post.innerHTML = `
+        <p>${doc.data().text}</p>
+      `;
+
+      feed.appendChild(post);
+
+    });
+
+  } catch (error) {
+    console.log(error);
+  }
 }
 
+// Load posts on startup
 loadPosts();
