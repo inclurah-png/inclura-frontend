@@ -3,7 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import {
   getAuth,
   GoogleAuthProvider,
-  signInWithPopup,
+  signInWithRedirect,
   signOut
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
@@ -35,7 +35,7 @@ const provider = new GoogleAuthProvider();
 // Google Login
 window.login = async function () {
   try {
-    await signInWithPopup(auth, provider);
+    await signInWithRedirect(auth, provider);
     alert("Login successful");
   } catch (error) {
     alert(error.message);
