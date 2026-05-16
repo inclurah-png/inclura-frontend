@@ -34,7 +34,12 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+// Google provider
 const provider = new GoogleAuthProvider();
+
+provider.setCustomParameters({
+  prompt: "select_account"
+});
 
 // Login button
 const loginBtn = document.getElementById("loginBtn");
@@ -44,6 +49,7 @@ if (loginBtn) {
     try {
       await signInWithRedirect(auth, provider);
     } catch (error) {
+      console.error(error);
       alert(error.message);
     }
   });
@@ -52,11 +58,12 @@ if (loginBtn) {
 // Redirect result
 getRedirectResult(auth)
   .then((result) => {
-    if (result?.user) {
+    if (result && result.user) {
       alert("Login successful");
     }
   })
   .catch((error) => {
+    console.error(error);
     alert(error.message);
   });
 
@@ -64,6 +71,8 @@ getRedirectResult(auth)
 onAuthStateChanged(auth, (user) => {
   if (user) {
     console.log("Logged in:", user.email);
+  } else {
+    console.log("No user logged in");
   }
 });
 
@@ -72,13 +81,19 @@ const logoutBtn = document.getElementById("logoutBtn");
 
 if (logoutBtn) {
   logoutBtn.addEventListener("click", async () => {
-    await signOut(auth);
-    alert("Logged out");
+    try {
+      await signOut(auth);
+      alert("Logged out");
+    } catch (error) {
+      console.error(error);
+      alert(error.message);
+    }
   });
 }
 
 // Create Post
 window.createPost = async function () {
+
   const input = document.getElementById("postInput");
 
   if (!input) {
@@ -94,23 +109,27 @@ window.createPost = async function () {
   }
 
   try {
+
     await addDoc(collection(db, "posts"), {
-      text,
+      text: text,
       created: serverTimestamp()
     });
 
     input.value = "";
 
-    alert("Post created");
+    alert("Post created successfully");
 
     loadPosts();
+
   } catch (error) {
+    console.error(error);
     alert(error.message);
   }
 };
 
 // Load Posts
 async function loadPosts() {
+
   const feed = document.getElementById("feed");
 
   if (!feed) return;
@@ -118,26 +137,33 @@ async function loadPosts() {
   feed.innerHTML = "";
 
   try {
+
     const querySnapshot = await getDocs(collection(db, "posts"));
 
     querySnapshot.forEach((doc) => {
+
+      const data = doc.data();
+
       const post = document.createElement("div");
 
       post.style.border = "1px solid gray";
       post.style.padding = "10px";
       post.style.marginBottom = "10px";
+      post.style.borderRadius = "10px";
 
       post.innerHTML = `
-        <p>${doc.data().text}</p>
+        <p>${data.text}</p>
       `;
 
       feed.appendChild(post);
+
     });
+
   } catch (error) {
+    console.error(error);
     alert(error.message);
   }
 }
 
+// Load posts immediately
 loadPosts();
-
-
