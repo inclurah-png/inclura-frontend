@@ -1,10 +1,12 @@
+```js
 // FIREBASE IMPORTS
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
   getAuth,
   GoogleAuthProvider,
-  signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
   signOut,
   onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
@@ -23,11 +25,17 @@ import {
 
 // FIREBASE CONFIG
 const firebaseConfig = {
+
   apiKey: "AIzaSyCb7YlZynAbMKjPWAwuOH61D4uUeAVtUlU",
+
   authDomain: "inclura-prod-90734.firebaseapp.com",
+
   projectId: "inclura-prod-90734",
+
   storageBucket: "inclura-prod-90734.appspot.com",
+
   messagingSenderId: "694509989399",
+
   appId: "1:694509989399:web:dda8a2ba4cd25efd4af652"
 };
 
@@ -53,11 +61,7 @@ async function login() {
 
   try {
 
-    const result = await signInWithPopup(auth, provider);
-
-    alert("Login successful");
-
-    console.log(result.user);
+    await signInWithRedirect(auth, provider);
 
   } catch (error) {
 
@@ -66,6 +70,26 @@ async function login() {
     alert(error.message);
   }
 }
+
+
+// REDIRECT RESULT
+getRedirectResult(auth)
+  .then((result) => {
+
+    if (result?.user) {
+
+      alert("Login successful");
+
+      console.log(result.user);
+    }
+
+  })
+  .catch((error) => {
+
+    console.error(error);
+
+    alert(error.message);
+  });
 
 
 // LOGOUT FUNCTION
@@ -88,24 +112,33 @@ async function logoutUser() {
 
 // MAKE FUNCTIONS GLOBAL
 window.login = login;
+
 window.logoutUser = logoutUser;
 
 
 // LOGIN BUTTON
-const loginBtn = document.getElementById("loginBtn");
+const loginBtn =
+  document.getElementById("loginBtn");
 
 if (loginBtn) {
 
-  loginBtn.addEventListener("click", login);
+  loginBtn.addEventListener(
+    "click",
+    login
+  );
 }
 
 
 // LOGOUT BUTTON
-const logoutBtn = document.getElementById("logoutBtn");
+const logoutBtn =
+  document.getElementById("logoutBtn");
 
 if (logoutBtn) {
 
-  logoutBtn.addEventListener("click", logoutUser);
+  logoutBtn.addEventListener(
+    "click",
+    logoutUser
+  );
 }
 
 
@@ -128,7 +161,8 @@ onAuthStateChanged(auth, async (user) => {
 // SAVE PROFILE
 async function saveProfile() {
 
-  const user = auth.currentUser;
+  const user =
+    auth.currentUser;
 
   if (!user) {
 
@@ -146,9 +180,11 @@ async function saveProfile() {
   try {
 
     await setDoc(doc(db, "profiles", user.uid), {
+
       displayName,
       imageUrl,
       email: user.email
+
     });
 
     alert("Profile saved");
@@ -199,9 +235,11 @@ async function loadProfile(uid) {
 
     if (docSnap.exists()) {
 
-      const data = docSnap.data();
+      const data =
+        docSnap.data();
 
       profileOutput.innerHTML = `
+
         <div style="margin-top:20px;">
 
           <img
@@ -238,7 +276,8 @@ async function createPost() {
     return;
   }
 
-  const text = input.value.trim();
+  const text =
+    input.value.trim();
 
   if (!text) {
 
@@ -250,8 +289,10 @@ async function createPost() {
   try {
 
     await addDoc(collection(db, "posts"), {
+
       text,
       created: serverTimestamp()
+
     });
 
     input.value = "";
@@ -326,3 +367,4 @@ async function loadPosts() {
 
 // INITIAL LOAD
 loadPosts();
+```
