@@ -23,7 +23,7 @@ import {
 // Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCb7YlZynAbMKjPWAwuOH61D4uUeAVtUlU",
-  authDomain: "inclura-prod-90734.firebaseapp.com",
+  authDomain: "inclura-frontend.inclurah.workers.dev",
   projectId: "inclura-prod-90734",
   storageBucket: "inclura-prod-90734.appspot.com",
   messagingSenderId: "694509989399",
