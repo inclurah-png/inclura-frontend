@@ -10,6 +10,7 @@
   <script src="https://unpkg.com/i18next@23.11.5/dist/umd/i18next.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axe-core/4.9.1/axe.min.js"></script>
 </head>
+
 <body>
 
   <header>
@@ -24,8 +25,9 @@
       <option value="ar">Arabic</option>
     </select>
 
-    <button id="loginBtn">Login with Google</button>
-    <button id="logoutBtn">Logout</button>
+    <button onclick="login()">Login with Google</button>
+
+    <button onclick="logoutUser()">Logout</button>
 
     <label>
       <input type="checkbox" id="highContrast" />
@@ -39,13 +41,13 @@
   </section>
 
   <section class="profile-section">
-    <h2 data-i18n="profile">Profile</h2>
+    <h2>Profile</h2>
 
     <input type="text" id="displayName" placeholder="Display Name" />
 
     <input type="text" id="imageUrl" placeholder="Profile Image URL" />
 
-    <button id="saveProfileBtn" data-i18n="save_profile">
+    <button id="saveProfileBtn">
       Save Profile
     </button>
 
@@ -53,18 +55,23 @@
   </section>
 
   <section class="post-section">
-    <h2 data-i18n="create_post">Create Post</h2>
+    <h2>Create Post</h2>
 
-    <textarea id="postContent" placeholder="Write something..."></textarea>
+    <textarea id="postInput" placeholder="Write something..."></textarea>
 
-    <button id="postBtn" data-i18n="post">Post</button>
+    <button onclick="createPost()">Post</button>
   </section>
 
   <section>
-    <h2 data-i18n="feed">Feed</h2>
+    <h2>Feed</h2>
     <div id="feed"></div>
   </section>
 
   <section class="message-section">
-    <h2 data-i18n="messages">Messages</h2>
+    <h2>Messages</h2>
+  </section>
+
+  <script type="module" src="app.js"></script>
+
+</body>
 </html>
