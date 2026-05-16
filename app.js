@@ -1,11 +1,9 @@
-// Firebase SDK imports
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
   getAuth,
   GoogleAuthProvider,
-  signInWithRedirect,
-  getRedirectResult,
+  signInWithPopup,
   signOut
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
@@ -16,7 +14,6 @@ import {
   getDocs
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCb7YlZynAbMKjPWAwuOH61D4uUeAVtUlU",
   authDomain: "inclura-prod-90734.firebaseapp.com",
@@ -28,7 +25,6 @@ const firebaseConfig = {
   measurementId: "G-H5YMTQ3FPP"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
@@ -37,45 +33,48 @@ const db = getFirestore(app);
 
 const provider = new GoogleAuthProvider();
 
-// Google Login
 window.login = async function () {
-  try {
-    await signInWithRedirect(auth, provider);
-  } catch (error) {
-    alert(error.message);
-  }
-};
 
-// Handle Redirect Login Result
-getRedirectResult(auth)
-  .then((result) => {
-    if (result && result.user) {
+  try {
+
+    const result = await signInWithPopup(auth, provider);
+
+    if (result.user) {
       alert("Login successful");
-      console.log(result.user);
     }
-  })
-  .catch((error) => {
-    console.log(error);
-    alert(error.message);
-  });
 
-// Logout
-window.logoutUser = async function () {
-  try {
-    await signOut(auth);
-    alert("Logged out");
   } catch (error) {
+
+    console.log(error);
+
     alert(error.message);
+
   }
+
 };
 
-// Create Post
+window.logoutUser = async function () {
+
+  try {
+
+    await signOut(auth);
+
+    alert("Logged out");
+
+  } catch (error) {
+
+    alert(error.message);
+
+  }
+
+};
+
 window.createPost = async function () {
 
   const text = document.getElementById("postInput").value;
 
   if (!text) {
-    alert("Please write something");
+    alert("Write something");
     return;
   }
 
@@ -93,11 +92,15 @@ window.createPost = async function () {
     loadPosts();
 
   } catch (error) {
+
+    console.log(error);
+
     alert(error.message);
+
   }
+
 };
 
-// Load Posts
 async function loadPosts() {
 
   const feed = document.getElementById("feed");
@@ -114,8 +117,6 @@ async function loadPosts() {
 
       const post = document.createElement("div");
 
-      post.className = "post";
-
       post.innerHTML = `
         <p>${doc.data().text}</p>
       `;
@@ -125,9 +126,17 @@ async function loadPosts() {
     });
 
   } catch (error) {
+
     console.log(error);
+
   }
+
 }
 
-// Load posts on startup
 loadPosts();
+
+document.getElementById("loginBtn").addEventListener("click", window.login);
+
+document.getElementById("logoutBtn").addEventListener("click", window.logoutUser);
+
+document.getElementById("postBtn").addEventListener("click", window.createPost);  
