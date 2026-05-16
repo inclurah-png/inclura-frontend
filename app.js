@@ -34,6 +34,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
+
 const db = getFirestore(app);
 
 // Google provider
@@ -44,47 +45,46 @@ provider.setCustomParameters({
 });
 
 // LOGIN
-const loginBtn = document.getElementById("loginBtn");
+window.login = async function () {
 
-if (loginBtn) {
-  loginBtn.addEventListener("click", async () => {
-    try {
+  try {
 
-      const result = await signInWithPopup(auth, provider);
+    const result =
+      await signInWithPopup(auth, provider);
+
+    if (result.user) {
 
       alert("Login successful");
 
       console.log(result.user);
 
-    } catch (error) {
-
-      console.error(error);
-
-      alert(error.message);
+      loadProfile(result.user.uid);
     }
-  });
-}
+
+  } catch (error) {
+
+    console.error(error);
+
+    alert(error.message);
+  }
+};
 
 // LOGOUT
-const logoutBtn = document.getElementById("logoutBtn");
+window.logoutUser = async function () {
 
-if (logoutBtn) {
-  logoutBtn.addEventListener("click", async () => {
+  try {
 
-    try {
+    await signOut(auth);
 
-      await signOut(auth);
+    alert("Logged out");
 
-      alert("Logged out");
+  } catch (error) {
 
-    } catch (error) {
+    console.error(error);
 
-      console.error(error);
-
-      alert(error.message);
-    }
-  });
-}
+    alert(error.message);
+  }
+};
 
 // AUTH STATE
 onAuthStateChanged(auth, async (user) => {
@@ -102,45 +102,42 @@ onAuthStateChanged(auth, async (user) => {
 });
 
 // SAVE PROFILE
-const saveProfileBtn = document.getElementById("saveProfileBtn");
+window.saveProfile = async function () {
 
-if (saveProfileBtn) {
+  const user = auth.currentUser;
 
-  saveProfileBtn.addEventListener("click", async () => {
+  if (!user) {
 
-    const user = auth.currentUser;
+    alert("Please login first");
 
-    if (!user) {
-      alert("Please login first");
-      return;
-    }
+    return;
+  }
 
-    const displayName =
-      document.getElementById("displayName").value;
+  const displayName =
+    document.getElementById("displayName").value;
 
-    const imageUrl =
-      document.getElementById("imageUrl").value;
+  const imageUrl =
+    document.getElementById("imageUrl").value;
 
-    try {
+  try {
 
-      await setDoc(doc(db, "profiles", user.uid), {
-        displayName,
-        imageUrl,
-        email: user.email
-      });
+    await setDoc(doc(db, "profiles", user.uid), {
+      displayName: displayName,
+      imageUrl: imageUrl,
+      email: user.email
+    });
 
-      alert("Profile saved");
+    alert("Profile saved");
 
-      loadProfile(user.uid);
+    loadProfile(user.uid);
 
-    } catch (error) {
+  } catch (error) {
 
-      console.error(error);
+    console.error(error);
 
-      alert(error.message);
-    }
-  });
-}
+    alert(error.message);
+  }
+};
 
 // LOAD PROFILE
 async function loadProfile(uid) {
@@ -152,16 +149,20 @@ async function loadProfile(uid) {
 
   try {
 
-    const docRef = doc(db, "profiles", uid);
+    const docRef =
+      doc(db, "profiles", uid);
 
-    const docSnap = await getDoc(docRef);
+    const docSnap =
+      await getDoc(docRef);
 
     if (docSnap.exists()) {
 
-      const data = docSnap.data();
+      const data =
+        docSnap.data();
 
       profileOutput.innerHTML = `
         <div style="margin-top:20px;">
+
           <img
             src="${data.imageUrl}"
             width="100"
@@ -171,6 +172,7 @@ async function loadProfile(uid) {
           <h3>${data.displayName}</h3>
 
           <p>${data.email}</p>
+
         </div>
       `;
     }
@@ -188,21 +190,26 @@ window.createPost = async function () {
     document.getElementById("postInput");
 
   if (!input) {
+
     alert("Post input not found");
+
     return;
   }
 
-  const text = input.value.trim();
+  const text =
+    input.value.trim();
 
   if (!text) {
+
     alert("Write something first");
+
     return;
   }
 
   try {
 
     await addDoc(collection(db, "posts"), {
-      text,
+      text: text,
       created: serverTimestamp()
     });
 
@@ -235,17 +242,25 @@ async function loadPosts() {
     const querySnapshot =
       await getDocs(collection(db, "posts"));
 
-    querySnapshot.forEach((doc) => {
+    querySnapshot.forEach((docSnap) => {
 
-      const data = doc.data();
+      const data =
+        docSnap.data();
 
       const post =
         document.createElement("div");
 
-      post.style.border = "1px solid gray";
-      post.style.padding = "10px";
-      post.style.marginBottom = "10px";
-      post.style.borderRadius = "10px";
+      post.style.border =
+        "1px solid gray";
+
+      post.style.padding =
+        "10px";
+
+      post.style.marginBottom =
+        "10px";
+
+      post.style.borderRadius =
+        "10px";
 
       post.innerHTML = `
         <p>${data.text}</p>
