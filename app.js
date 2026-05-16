@@ -1,108 +1,116 @@
+// Firebase SDK imports
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
   getAuth,
   GoogleAuthProvider,
-  signInWithPopup,
-  signOut
+  signInWithRedirect,
+  getRedirectResult,
+  signOut,
+  onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 import {
   getFirestore,
   collection,
   addDoc,
-  getDocs
+  getDocs,
+  serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCb7YlZynAbMKjPWAwuOH61D4uUeAVtUlU",
   authDomain: "inclura-prod-90734.firebaseapp.com",
-  databaseURL: "https://inclura-prod-90734-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "inclura-prod-90734",
-  storageBucket: "inclura-prod-90734.firebasestorage.app",
+  storageBucket: "inclura-prod-90734.appspot.com",
   messagingSenderId: "694509989399",
-  appId: "1:694509989399:web:dda8a2ba4cd25efd4af652",
-  measurementId: "G-H5YMTQ3FPP"
+  appId: "1:694509989399:web:dda8a2ba4cd25efd4af652"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
-
 const db = getFirestore(app);
 
 const provider = new GoogleAuthProvider();
 
-window.login = async function () {
+// Login button
+const loginBtn = document.getElementById("loginBtn");
 
-  try {
+if (loginBtn) {
+  loginBtn.addEventListener("click", async () => {
+    try {
+      await signInWithRedirect(auth, provider);
+    } catch (error) {
+      alert(error.message);
+    }
+  });
+}
 
-    const result = await signInWithPopup(auth, provider);
-
-    if (result.user) {
+// Redirect result
+getRedirectResult(auth)
+  .then((result) => {
+    if (result?.user) {
       alert("Login successful");
     }
-
-  } catch (error) {
-
-    console.log(error);
-
+  })
+  .catch((error) => {
     alert(error.message);
+  });
 
+// Auth state
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log("Logged in:", user.email);
   }
+});
 
-};
+// Logout
+const logoutBtn = document.getElementById("logoutBtn");
 
-window.logoutUser = async function () {
-
-  try {
-
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", async () => {
     await signOut(auth);
-
     alert("Logged out");
+  });
+}
 
-  } catch (error) {
+// Create Post
+window.createPost = async function () {
+  const input = document.getElementById("postInput");
 
-    alert(error.message);
-
+  if (!input) {
+    alert("Post input not found");
+    return;
   }
 
-};
-
-window.createPost = async function () {
-
-  const text = document.getElementById("postInput").value;
+  const text = input.value.trim();
 
   if (!text) {
-    alert("Write something");
+    alert("Write something first");
     return;
   }
 
   try {
-
     await addDoc(collection(db, "posts"), {
-      text: text,
-      created: new Date()
+      text,
+      created: serverTimestamp()
     });
+
+    input.value = "";
 
     alert("Post created");
 
-    document.getElementById("postInput").value = "";
-
     loadPosts();
-
   } catch (error) {
-
-    console.log(error);
-
     alert(error.message);
-
   }
-
 };
 
+// Load Posts
 async function loadPosts() {
-
   const feed = document.getElementById("feed");
 
   if (!feed) return;
@@ -110,33 +118,26 @@ async function loadPosts() {
   feed.innerHTML = "";
 
   try {
-
     const querySnapshot = await getDocs(collection(db, "posts"));
 
     querySnapshot.forEach((doc) => {
-
       const post = document.createElement("div");
+
+      post.style.border = "1px solid gray";
+      post.style.padding = "10px";
+      post.style.marginBottom = "10px";
 
       post.innerHTML = `
         <p>${doc.data().text}</p>
       `;
 
       feed.appendChild(post);
-
     });
-
   } catch (error) {
-
-    console.log(error);
-
+    alert(error.message);
   }
-
 }
 
 loadPosts();
 
-document.getElementById("loginBtn").addEventListener("click", window.login);
 
-document.getElementById("logoutBtn").addEventListener("click", window.logoutUser);
-
-document.getElementById("postBtn").addEventListener("click", window.createPost);  
