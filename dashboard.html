@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <meta charset="UTF-8" />
@@ -11,175 +12,32 @@
 
   <title>Inclura Dashboard</title>
 
-  <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="style.css"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
 
 </head>
 
 <body class="dashboard-body">
 
-  <!-- TOP NAVIGATION -->
+  <!-- SIDEBAR -->
 
-  <header class="dashboard-header">
-
-    <div class="logo">
-      Inclura
-    </div>
-
-    <div class="search-box">
-
-      <input
-        type="text"
-        placeholder="Search Inclura..."
-      />
-
-    </div>
-
-    <div class="nav-icons">
-
-      <button onclick="location.href='feed.html'">
-        🏠
-      </button>
-
-      <button onclick="location.href='messages.html'">
-        💬
-      </button>
-
-      <button onclick="logoutUser()">
-        🚪
-      </button>
-
-    </div>
-
-  </header>
-
-
-  <!-- COVER PHOTO -->
-
-  <section class="cover-section">
-
-    <img
-      src="https://picsum.photos/1200/300"
-      class="cover-photo"
-    />
-
-    <button class="edit-cover-btn">
-      Edit Cover Photo
-    </button>
-
-  </section>
-
-
-  <!-- PROFILE SECTION -->
-
-  <section class="profile-card">
-
-    <img
-      src="https://picsum.photos/150"
-      class="profile-avatar"
-    />
-
-    <div class="profile-info">
-
-      <h1 id="dashboardName">
-        Inclura User
-      </h1>
-
-      <p id="dashboardEmail">
-        user@email.com
-      </p>
-
-      <button>
-        ✏ Edit Profile
-      </button>
-
-    </div>
-
-  </section>
-
-
-  <!-- STATS -->
-
-  <section class="stats-grid">
-
-    <div class="stat-box">
-      <h2>120</h2>
-      <p>Friends</p>
-    </div>
-
-    <div class="stat-box">
-      <h2>4.5K</h2>
-      <p>Followers</p>
-    </div>
-
-    <div class="stat-box">
-      <h2>680</h2>
-      <p>Following</p>
-    </div>
-
-    <div class="stat-box">
-      <h2>$230</h2>
-      <p>Total Earned</p>
-    </div>
-
-  </section>
-
-
-  <!-- FEATURES -->
-
-  <section class="features-grid">
-
-    <button onclick="location.href='profile.html'">
-      📝 Posts
-    </button>
-
-    <button onclick="location.href='reels.html'">
-      🎬 Reels
-    </button>
-
-    <button onclick="location.href='market.html'">
-      🛒 Market
-    </button>
-
-    <button>
-      🏷 Tagged
-    </button>
-
-    <button onclick="location.href='about.html'">
-      ℹ About
-    </button>
-
-    <button>
-      🏆 Badges
-    </button>
-
-    <button>
-      📋 Resume
-    </button>
-
-    <button>
-      🚨 Emergency
-    </button>
-
-    <button>
-      🤝 Care Gigs
-    </button>
-
-    <button>
-      🧭 Mentor Hub
-    </button>
-
-    <button>
-      📤 Cross-Post
-    </button>
-
-    <button>
-      📡 Pay & Top-Up
-    </button>
-
-  </section>
-
-
-  <script type="module" src="app.js"></script>
-
-</body>
-</html>
+  <aside
+    class="
