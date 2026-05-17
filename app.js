@@ -4,7 +4,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import {
   getAuth,
   GoogleAuthProvider,
-  signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
   signOut,
   onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
@@ -53,11 +54,7 @@ async function login() {
 
   try {
 
-    const result = await signInWithPopup(auth, provider);
-
-    alert("Login successful");
-
-    console.log(result.user);
+    await signInWithRedirect(auth, provider);
 
   } catch (error) {
 
@@ -66,6 +63,27 @@ async function login() {
     alert(error.message);
   }
 }
+
+
+// HANDLE REDIRECT RESULT
+getRedirectResult(auth)
+  .then((result) => {
+
+    if (result && result.user) {
+
+      console.log("Login successful");
+
+      alert("Login successful");
+    }
+
+  })
+  .catch((error) => {
+
+    console.error(error);
+
+    alert(error.message);
+
+  });
 
 
 // LOGOUT FUNCTION
@@ -108,26 +126,7 @@ if (logoutBtn) {
   logoutBtn.addEventListener("click", logoutUser);
 }
 
-// HANDLE LOGIN RESULT
-getRedirectResult(auth)
-  .then((result) => {
 
-    if (result && result.user) {
-
-      console.log("Login successful");
-
-      alert("Login successful");
-
-    }
-
-  })
-  .catch((error) => {
-
-    console.error(error);
-
-    alert(error.message);
-
-  });
 // AUTH STATE
 onAuthStateChanged(auth, async (user) => {
 
