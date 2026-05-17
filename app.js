@@ -1,12 +1,11 @@
-```js
-// FIREBASE IMPORTS
+```js id="8h8t8v"
+// FIREBASE SDK IMPORTS
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
   getAuth,
   GoogleAuthProvider,
-  signInWithRedirect,
-  getRedirectResult,
+  signInWithPopup,
   signOut,
   onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
@@ -56,89 +55,54 @@ provider.setCustomParameters({
 });
 
 
-// LOGIN FUNCTION
-async function login() {
-
-  try {
-
-    await signInWithRedirect(auth, provider);
-
-  } catch (error) {
-
-    console.error(error);
-
-    alert(error.message);
-  }
-}
-
-
-// REDIRECT RESULT
-getRedirectResult(auth)
-  .then((result) => {
-
-    if (result?.user) {
-
-      alert("Login successful");
-
-      console.log(result.user);
-    }
-
-  })
-  .catch((error) => {
-
-    console.error(error);
-
-    alert(error.message);
-  });
-
-
-// LOGOUT FUNCTION
-async function logoutUser() {
-
-  try {
-
-    await signOut(auth);
-
-    alert("Logged out");
-
-  } catch (error) {
-
-    console.error(error);
-
-    alert(error.message);
-  }
-}
-
-
-// MAKE FUNCTIONS GLOBAL
-window.login = login;
-
-window.logoutUser = logoutUser;
-
-
-// LOGIN BUTTON
+// LOGIN
 const loginBtn =
   document.getElementById("loginBtn");
 
 if (loginBtn) {
 
-  loginBtn.addEventListener(
-    "click",
-    login
-  );
+  loginBtn.addEventListener("click", async () => {
+
+    try {
+
+      const result =
+        await signInWithPopup(auth, provider);
+
+      alert("Login successful");
+
+      console.log(result.user);
+
+    } catch (error) {
+
+      console.error(error);
+
+      alert(error.message);
+    }
+  });
 }
 
 
-// LOGOUT BUTTON
+// LOGOUT
 const logoutBtn =
   document.getElementById("logoutBtn");
 
 if (logoutBtn) {
 
-  logoutBtn.addEventListener(
-    "click",
-    logoutUser
-  );
+  logoutBtn.addEventListener("click", async () => {
+
+    try {
+
+      await signOut(auth);
+
+      alert("Logged out");
+
+    } catch (error) {
+
+      console.error(error);
+
+      alert(error.message);
+    }
+  });
 }
 
 
@@ -159,61 +123,50 @@ onAuthStateChanged(auth, async (user) => {
 
 
 // SAVE PROFILE
-async function saveProfile() {
-
-  const user =
-    auth.currentUser;
-
-  if (!user) {
-
-    alert("Please login first");
-
-    return;
-  }
-
-  const displayName =
-    document.getElementById("displayName").value;
-
-  const imageUrl =
-    document.getElementById("imageUrl").value;
-
-  try {
-
-    await setDoc(doc(db, "profiles", user.uid), {
-
-      displayName,
-      imageUrl,
-      email: user.email
-
-    });
-
-    alert("Profile saved");
-
-    loadProfile(user.uid);
-
-  } catch (error) {
-
-    console.error(error);
-
-    alert(error.message);
-  }
-}
-
-
-// MAKE GLOBAL
-window.saveProfile = saveProfile;
-
-
-// SAVE PROFILE BUTTON
 const saveProfileBtn =
   document.getElementById("saveProfileBtn");
 
 if (saveProfileBtn) {
 
-  saveProfileBtn.addEventListener(
-    "click",
-    saveProfile
-  );
+  saveProfileBtn.addEventListener("click", async () => {
+
+    const user =
+      auth.currentUser;
+
+    if (!user) {
+
+      alert("Please login first");
+
+      return;
+    }
+
+    const displayName =
+      document.getElementById("displayName").value;
+
+    const imageUrl =
+      document.getElementById("imageUrl").value;
+
+    try {
+
+      await setDoc(doc(db, "profiles", user.uid), {
+
+        displayName,
+        imageUrl,
+        email: user.email
+
+      });
+
+      alert("Profile saved");
+
+      loadProfile(user.uid);
+
+    } catch (error) {
+
+      console.error(error);
+
+      alert(error.message);
+    }
+  });
 }
 
 
@@ -264,7 +217,7 @@ async function loadProfile(uid) {
 
 
 // CREATE POST
-async function createPost() {
+window.createPost = async function () {
 
   const input =
     document.getElementById("postInput");
@@ -307,11 +260,7 @@ async function createPost() {
 
     alert(error.message);
   }
-}
-
-
-// MAKE GLOBAL
-window.createPost = createPost;
+};
 
 
 // LOAD POSTS
