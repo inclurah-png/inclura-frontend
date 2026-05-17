@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inclura — Sign Up / Sign In</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --primary:#1a6bff;--primary-dark:#0047cc;--primary-xlight:#e8f0ff;
+  --secondary:#00c4a7;--navy:#0d1b3e;--navy2:#1a3060;--gold:#f5a623;
+  --bg:#f4f6fb;--surface:#fff;--surface2:#f7f9ff;
+  --text:#0d1b3e;--text2:#3d5080;--text3:#7b92b8;
+  --border:rgba(26,107,255,0.12);--danger:#ff4545;
+  --shadow-lg:0 20px 60px rgba(26,107,255,0.15);
+  --radius:18px;--radius-sm:12px;
+  --font-head:'Sora',sans-serif;--font-body:'Plus Jakarta Sans',sans-serif;
+}
+html,body{font-family:var(--font-body);color:var(--text);background:var(--bg);min-height:100vh}
+.page{display:none;min-height:100vh}
+.page.active{display:flex}
+
+/* ── LOGIN PAGE ── */
+#page-login{align-items:stretch}
+.login-left{flex:1;background:linear-gradient(160deg,var(--navy),var(--navy2));display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 40px;position:relative;overflow:hidden}
+.login-left::before{content:'';position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(26,107,255,0.2),transparent 70%);top:-100px;right:-100px;pointer-events:none}
+.ll-logo{display:flex;align-items:center;gap:12px;margin-bottom:40px;position:relative;z-index:1}
+.ll-logo-mark{width:48px;height:48px;background:var(--primary);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#fff}
+.ll-logo-name{font-family:var(--font-head);font-size:28px;font-weight:800;color:#fff}
+.ll-title{font-family:var(--font-head);font-size:32px;font-weight:800;color:#fff;margin-bottom:12px;line-height:1.2;position:relative;z-index:1}
+.ll-sub{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:40px;max-width:340px;position:relative;z-index:1}
+.ll-features{display:flex;flex-direction:column;gap:14px;position:relative;z-index:1}
+.ll-feat{display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(255,255,255,0.75)}
+.ll-feat-icon{width:34px;height:34px;border-radius:9px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.login-right{flex:1;display:flex;align-items:center;justify-content:center;padding:40px 24px;background:var(--bg)}
+.auth-card{background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);padding:36px 32px;width:100%;max-width:420px;box-shadow:var(--shadow-lg)}
+.auth-title{font-family:var(--font-head);font-size:24px;font-weight:800;color:var(--navy);margin-bottom:4px}
+.auth-sub{font-size:14px;color:var(--text3);margin-bottom:26px}
+.auth-sub a{color:var(--primary);font-weight:600;text-decoration:none;cursor:pointer}
+.form-group{margin-bottom:16px}
+.form-label{display:block;font-size:12px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.form-input{width:100%;padding:13px 16px;border-radius:var(--radius-sm);border:1.5px solid var(--border);background:var(--surface2);font-family:var(--font-body);font-size:14px;color:var(--text);outline:none;transition:all 0.2s}
+.form-input:focus{border-color:var(--primary);background:#fff;box-shadow:0 0 0 3px rgba(26,107,255,0.08)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn-full{width:100%;padding:14px;border-radius:var(--radius-sm);border:none;font-family:var(--font-head);font-size:15px;font-weight:700;cursor:pointer;transition:all 0.2s;margin-bottom:12px}
+.btn-blue{background:var(--primary);color:#fff}
+.btn-blue:hover{background:var(--primary-dark)}
+.btn-google{background:var(--surface2);color:var(--text);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;gap:10px}
+.btn-google:hover{border-color:var(--primary);background:var(--primary-xlight)}
+.divider{display:flex;align-items:center;gap:12px;margin:16px 0}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
+.divider span{font-size:12px;color:var(--text3);font-weight:500}
+.forgot-link{font-size:12px;color:var(--primary);font-weight:600;cursor:pointer;text-align:right;display:block;margin-top:-8px;margin-bottom:16px;text-decoration:none}
+.access-opts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.access-opt{padding:6px 14px;border-radius:50px;border:1.5px solid var(--border);background:var(--surface2);font-size:12px;font-weight:600;color:var(--text3);cursor:pointer;transition:all 0.15s;font-family:var(--font-body)}
+.access-opt.selected{border-color:var(--primary);color:var(--primary);background:var(--primary-xlight)}
+.back-home{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text3);text-decoration:none;margin-bottom:20px;transition:color 0.15s}
+.back-home:hover{color:var(--primary)}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);color:#fff;padding:12px 24px;border-radius:50px;font-size:14px;font-weight:600;z-index:9999;box-shadow:0 8px 32px rgba(0,0,0,0.2);pointer-events:none;white-space:nowrap;animation:toastIn 0.3s ease;max-width:90vw;text-align:center}
+@keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+
+@media(max-width:768px){
+  #page-login{flex-direction:column}
+  .login-left{padding:40px 24px;min-height:auto}
+  .ll-features{display:none}
+  .ll-title{font-size:24px}
+  .login-right{padding:24px 16px}
+  .auth-card{padding:24px 20px}
+  .form-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN PAGE -->
+<div class="page active" id="page-login">
+  <div class="login-left">
+    <div class="ll-logo">
+      <div class="ll-logo-mark">I</div>
+      <div class="ll-logo-name">Inclura</div>
+    </div>
+    <div class="ll-title">Welcome back to the most accessible network</div>
+    <div class="ll-sub">Connect, create and thrive — no matter who you are or how you communicate.</div>
+    <div class="ll-features">
+      <div class="ll-feat"><div class="ll-feat-icon">🤟</div>Sign language support on every post</div>
+      <div class="ll-feat"><div class="ll-feat-icon">♿</div>Built for every ability and need</div>
+      <div class="ll-feat"><div class="ll-feat-icon">🏆</div>Earn XP for helping others</div>
+      <div class="ll-feat"><div class="ll-feat-icon">🛒</div>Inclusive marketplace & VTU top-up</div>
+    </div>
+  </div>
+  <div class="login-right">
+    <div class="auth-card">
+      <a href="index.html" class="back-home">← Back to Home</a>
+      <div class="auth-title">Welcome Back 👋</div>
+      <div class="auth-sub">Don't have an account? <a onclick="showSignup()">Create one free →</a></div>
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input class="form-input" type="email" id="li-email" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input class="form-input" type="password" id="li-pw" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
+      </div>
+      <a class="forgot-link" onclick="doForgot()">Forgot password?</a>
+      <button class="btn-full btn-blue" id="login-btn" onclick="doLogin()">Sign In →</button>
+      <div class="divider"><span>or</span></div>
+      <button class="btn-full btn-google" onclick="doGoogle()">
+        <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.7 2.3 30.2 0 24 0 14.6 0 6.6 5.4 2.6 13.3l7.8 6C12.4 13 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4 7.1-10 7.1-17z"/><path fill="#FBBC05" d="M10.4 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A24 24 0 0 0 0 24c0 3.9.9 7.5 2.6 10.7l7.8-6z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7.5-5.8c-2 1.4-4.6 2.2-7.7 2.2-6.3 0-11.6-4.2-13.5-9.9l-7.9 6.1C6.6 42.6 14.6 48 24 48z"/></svg>
+        Continue with Google
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- SIGNUP PAGE -->
+<div class="page" id="page-signup">
+  <div class="login-left">
+    <div class="ll-logo">
+      <div class="ll-logo-mark">I</div>
+      <div class="ll-logo-name">Inclura</div>
+    </div>
+    <div class="ll-title">Join the world's most inclusive social network</div>
+    <div class="ll-sub">Free forever. Built for every human. No accessibility need left behind.</div>
+    <div class="ll-features">
+      <div class="ll-feat"><div class="ll-feat-icon">🤟</div>Full sign language support</div>
+      <div class="ll-feat"><div class="ll-feat-icon">📋</div>Adaptive Resume — get hired inclusively</div>
+      <div class="ll-feat"><div class="ll-feat-icon">🧭</div>Mentor matching for your exact journey</div>
+      <div class="ll-feat"><div class="ll-feat-icon">💳</div>Airtime, data & bills in one place</div>
+    </div>
+  </div>
+  <div class="login-right">
+    <div class="auth-card">
+      <a href="index.html" class="back-home">← Back to Home</a>
+      <div class="auth-title">Create Your Account 🚀</div>
+      <div class="auth-sub">Already a member? <a onclick="showLogin()">Sign in →</a></div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First Name</label>
+          <input class="form-input" type="text" id="su-first" placeholder="Grace">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last Name</label>
+          <input class="form-input" type="text" id="su-last" placeholder="Okafor">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input class="form-input" type="email" id="su-email" placeholder="grace@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password (min 8 characters)</label>
+        <input class="form-input" type="password" id="su-pw" placeholder="Create a strong password">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your Accessibility Needs (optional — select all that apply)</label>
+        <div class="access-opts">
+          <button class="access-opt" onclick="this.classList.toggle('selected')">🦻 Deaf/HoH</button>
+          <button class="access-opt" onclick="this.classList.toggle('selected')">👁 Blind/Low Vision</button>
+          <button class="access-opt" onclick="this.classList.toggle('selected')">♿ Wheelchair</button>
+          <button class="access-opt" onclick="this.classList.toggle('selected')">🗣 Non-verbal</button>
+          <button class="access-opt" onclick="this.classList.toggle('selected')">🤲 Motor Impaired</button>
+          <button class="access-opt" onclick="this.classList.toggle('selected')">🧠 Neurodivergent</button>
+          <button class="access-opt" onclick="this.classList.toggle('selected')">💪 No disability</button>
+        </div>
+      </div>
+      <button class="btn-full btn-blue" id="signup-btn" onclick="doSignup()">Create Account →</button>
+      <div class="divider"><span>or</span></div>
+      <button class="btn-full btn-google" onclick="doGoogle()">
+        <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.7 2.3 30.2 0 24 0 14.6 0 6.6 5.4 2.6 13.3l7.8 6C12.4 13 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4 7.1-10 7.1-17z"/><path fill="#FBBC05" d="M10.4 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A24 24 0 0 0 0 24c0 3.9.9 7.5 2.6 10.7l7.8-6z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7.5-5.8c-2 1.4-4.6 2.2-7.7 2.2-6.3 0-11.6-4.2-13.5-9.9l-7.9 6.1C6.6 42.6 14.6 48 24 48z"/></svg>
+        Continue with Google
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── PAGE SWITCHING ─────────────────────────────
+function showLogin() {
+  document.getElementById('page-login').classList.add('active');
+  document.getElementById('page-signup').classList.remove('active');
+}
+function showSignup() {
+  document.getElementById('page-signup').classList.add('active');
+  document.getElementById('page-login').classList.remove('active');
+}
+
+// ── TOAST ──────────────────────────────────────
+function showToast(msg, type) {
+  document.querySelectorAll('.toast').forEach(t => t.remove());
+  const colors = { success:'#00c4a7', error:'#ff4545', info:'#1a6bff' };
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.style.background = colors[type] || colors.info;
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => { t.style.opacity = '0'; t.style.transition = 'opacity 0.3s'; setTimeout(() => t.remove(), 300); }, 3000);
+}
+
+// ── LOGIN ──────────────────────────────────────
+async function doLogin() {
+  const email = document.getElementById('li-email').value.trim();
+  const pw    = document.getElementById('li-pw').value;
+  if (!email || !pw) { showToast('⚠ Enter your email and password', 'error'); return; }
+  if (!window.firebaseLogin) {
+    showToast('⚠ Still loading — please try again in a moment', 'error'); return;
+  }
+  const btn = document.getElementById('login-btn');
+  btn.textContent = 'Signing in...'; btn.disabled = true;
+  try {
+    await window.firebaseLogin(email, pw);
+  } catch (e) {
+    showToast('⚠ ' + (e.message || 'Login error'), 'error');
+  } finally {
+    btn.textContent = 'Sign In →'; btn.disabled = false;
+  }
+}
+
+// ── SIGNUP ─────────────────────────────────────
+async function doSignup() {
+  const first = document.getElementById('su-first').value.trim();
+  const last  = document.getElementById('su-last').value.trim();
+  const email = document.getElementById('su-email').value.trim();
+  const pw    = document.getElementById('su-pw').value;
+  if (!first || !email || !pw) { showToast('⚠ Fill in name, email and password', 'error'); return; }
+  if (pw.length < 8) { showToast('⚠ Password needs at least 8 characters', 'error'); return; }
+  if (!window.firebaseSignup) {
+    showToast('⚠ Still loading — please try again in a moment', 'error'); return;
+  }
+  const btn = document.getElementById('signup-btn');
+  btn.textContent = 'Creating account...'; btn.disabled = true;
+  const access = Array.from(document.querySelectorAll('.access-opt.selected')).map(el => el.textContent.trim());
+  try {
+    await window.firebaseSignup(first, last, email, pw, access);
+  } catch (e) {
+    showToast('⚠ ' + (e.message || 'Sign up error'), 'error');
+  } finally {
+    btn.textContent = 'Create Account →'; btn.disabled = false;
+  }
+}
+
+// ── GOOGLE ─────────────────────────────────────
+function doGoogle() { window.firebaseGoogle(); }
+
+// ── FORGOT PASSWORD ────────────────────────────
+async function doForgot() {
+  const emailEl = document.getElementById('li-email');
+  const email = emailEl ? emailEl.value.trim() : '';
+  if (!email) {
+    showToast('⚠ Type your email in the Email field above, then click Forgot Password', 'error');
+    if (emailEl) emailEl.focus();
+    return;
+  }
+  if (!window.firebaseForgot) {
+    showToast('⚠ Still loading — please try again in a moment', 'error'); return;
+  }
+  showToast('📧 Sending reset email...', 'info');
+  await window.firebaseForgot(email);
+}
+</script>
+
+<!-- ═══════════════════════════════════════
+     FIREBASE — REPLACE 3 VALUES BELOW
+     Get from: console.firebase.google.com
+     → inclura-prod → ⚙ → Project settings
+     → Your apps → </> → copy firebaseConfig
+═══════════════════════════════════════ -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
+  onAuthStateChanged, updateProfile, sendPasswordResetEmail,
+  GoogleAuthProvider, signInWithRedirect, getRedirectResult }
+  from "https://www.gstatic.com/firebasejs/11.0.0/firebase-auth.js";
+import { getFirestore, doc, setDoc, getDoc, serverTimestamp }
+  from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey:            "AIzaSyCb7YlZynAbMKjPWAwuOH61D4uUeAVtUlU",
+  authDomain:        "inclura.netlify.app",
+  projectId:         "inclura-prod-90734",
+  storageBucket:     "inclura-prod-90734.firebasestorage.app",
+  messagingSenderId: "694509989399",
+  appId:             "1:694509989399:web:dda8a2ba4cd25efd4af652"
+};
+
+const app  = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db   = getFirestore(app);
+
+// Track whether Google redirect was just handled (prevents double-redirect)
+let _googleRedirectHandled = false;
+
+// Check for Google redirect result on page load
+getRedirectResult(auth).then(async (result) => {
+  if (result && result.user) {
+    _googleRedirectHandled = true;
+    const user = result.user;
+    const snap = await getDoc(doc(db, 'users', user.uid));
+    if (!snap.exists()) {
+      const n = (user.displayName || '').split(' ');
+      await setDoc(doc(db, 'users', user.uid), {
+        uid: user.uid, firstName: n[0] || '', lastName: n.slice(1).join(' ') || '',
+        displayName: user.displayName || '', email: user.email,
+        photoURL: user.photoURL || '', coverURL: '', bio: '',
+        username: user.email.split('@')[0] + Math.floor(Math.random() * 999),
+        location: '', accessibilityNeeds: [], socialLinks: {},
+        stats: { friends:0, followers:0, following:0, posts:0, totalEarned:0 },
+        xp: 0, xpLevel: 1, badges: [], isVerified: false, isCreator: false,
+        role: 'member', subscription: { plan:'free', status:'active' },
+        createdAt: serverTimestamp(), lastLoginAt: serverTimestamp()
+      });
+    }
+    showToast('👋 Signed in with Google!', 'success');
+    setTimeout(() => { window.location.href = 'profile.html'; }, 1000);
+  }
+}).catch((err) => {
+  // Ignore 'no-auth-event' which fires normally when no redirect happened
+  if (err.code && err.code !== 'auth/no-auth-event') {
+    showToast('⚠ Google sign-in failed: ' + err.message, 'error');
+  }
+});
+
+// If already logged in, go straight to profile (skip if Google redirect handled)
+onAuthStateChanged(auth, (user) => {
+  if (user && !_googleRedirectHandled) window.location.href = 'profile.html';
+});
+
+// SIGN UP
+window.firebaseSignup = async function(first, last, email, pw, access) {
+  try {
+    const cred = await createUserWithEmailAndPassword(auth, email, pw);
+    await updateProfile(cred.user, { displayName: first + ' ' + last });
+    await setDoc(doc(db, 'users', cred.user.uid), {
+      uid: cred.user.uid, firstName: first, lastName: last,
+      displayName: first + ' ' + last, email,
+      photoURL: '', coverURL: '', bio: '',
+      username: first.toLowerCase() + Math.floor(Math.random() * 9999),
+      location: '', accessibilityNeeds: access || [], socialLinks: {},
+      stats: { friends:0, followers:0, following:0, posts:0, totalEarned:0 },
+      xp: 0, xpLevel: 1, badges: [], isVerified: false, isCreator: false,
+      role: 'member', subscription: { plan:'free', status:'active' },
+      createdAt: serverTimestamp(), lastLoginAt: serverTimestamp()
+    });
+    await setDoc(doc(db, 'userXP', cred.user.uid), {
+      userId: cred.user.uid, totalXP: 0, level: 1,
+      weeklyXP: 0, badges: [], tasksCompleted: [], updatedAt: serverTimestamp()
+    });
+    showToast('🎉 Welcome to Inclura, ' + first + '!', 'success');
+    setTimeout(() => { window.location.href = 'profile.html'; }, 1200);
+  } catch (err) {
+    const m = {
+      'auth/email-already-in-use': '⚠ Email already registered — sign in instead.',
+      'auth/invalid-email': '⚠ Invalid email address.',
+      'auth/weak-password': '⚠ Password too weak — use 8+ characters.'
+    };
+    showToast(m[err.code] || '⚠ ' + err.message, 'error');
+  }
+};
+
+// LOGIN
+window.firebaseLogin = async function(email, pw) {
+  try {
+    await signInWithEmailAndPassword(auth, email, pw);
+    showToast('👋 Welcome back!', 'success');
+    setTimeout(() => { window.location.href = 'profile.html'; }, 1000);
+  } catch (err) {
+    const m = {
+      'auth/user-not-found': '⚠ No account found with this email.',
+      'auth/wrong-password': '⚠ Incorrect password.',
+      'auth/invalid-credential': '⚠ Email or password is incorrect.',
+      'auth/too-many-requests': '⚠ Too many attempts. Wait a moment.'
+    };
+    showToast(m[err.code] || '⚠ ' + err.message, 'error');
+  }
+};
+
+// GOOGLE (redirect-based — works on all domains without OAuth origin config)
+window.firebaseGoogle = async function() {
+  try {
+    await signInWithRedirect(auth, new GoogleAuthProvider());
+    // Page redirects to Google — result is handled by getRedirectResult on return
+  } catch (err) {
+    showToast('⚠ Google sign-in failed: ' + err.message, 'error');
+  }
+};
+
+// FORGOT PASSWORD
+window.firebaseForgot = async function(email) {
+  try {
+    await sendPasswordResetEmail(auth, email);
+    showToast('📧 Reset email sent to ' + email + '! Check your inbox.', 'success');
+  } catch (err) {
+    const m = {
+      'auth/user-not-found':    '⚠ No account found with that email. Did you sign up with Google instead?',
+      'auth/invalid-email':     '⚠ That email looks invalid. Check for typos.',
+      'auth/too-many-requests': '⚠ Too many attempts. Please wait a few minutes.'
+    };
+    showToast(m[err.code] || '⚠ ' + err.message, 'error');
+  }
+};
+</script>
+
+<!-- Inclura Accessibility & Open Source Library -->
+
+</body>
+</html>
