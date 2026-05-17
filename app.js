@@ -136,6 +136,15 @@ onAuthStateChanged(auth, async (user) => {
 
     loadProfile(user.uid);
 
+    // GO TO DASHBOARD
+    if (
+      window.location.pathname.includes("index.html") ||
+      window.location.pathname === "/"
+    ) {
+
+      window.location.href = "dashboard.html";
+    }
+
   } else {
 
     console.log("No user logged in");
