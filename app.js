@@ -1,5 +1,4 @@
-```js id="8h8t8v"
-// FIREBASE SDK IMPORTS
+// FIREBASE IMPORTS
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
@@ -24,17 +23,11 @@ import {
 
 // FIREBASE CONFIG
 const firebaseConfig = {
-
   apiKey: "AIzaSyCb7YlZynAbMKjPWAwuOH61D4uUeAVtUlU",
-
   authDomain: "inclura-prod-90734.firebaseapp.com",
-
   projectId: "inclura-prod-90734",
-
   storageBucket: "inclura-prod-90734.appspot.com",
-
   messagingSenderId: "694509989399",
-
   appId: "1:694509989399:web:dda8a2ba4cd25efd4af652"
 };
 
@@ -55,54 +48,64 @@ provider.setCustomParameters({
 });
 
 
-// LOGIN
-const loginBtn =
-  document.getElementById("loginBtn");
+// LOGIN FUNCTION
+async function login() {
 
-if (loginBtn) {
+  try {
 
-  loginBtn.addEventListener("click", async () => {
+    const result = await signInWithPopup(auth, provider);
 
-    try {
+    alert("Login successful");
 
-      const result =
-        await signInWithPopup(auth, provider);
+    console.log(result.user);
 
-      alert("Login successful");
+  } catch (error) {
 
-      console.log(result.user);
+    console.error(error);
 
-    } catch (error) {
-
-      console.error(error);
-
-      alert(error.message);
-    }
-  });
+    alert(error.message);
+  }
 }
 
 
-// LOGOUT
-const logoutBtn =
-  document.getElementById("logoutBtn");
+// LOGOUT FUNCTION
+async function logoutUser() {
+
+  try {
+
+    await signOut(auth);
+
+    alert("Logged out");
+
+  } catch (error) {
+
+    console.error(error);
+
+    alert(error.message);
+  }
+}
+
+
+// MAKE FUNCTIONS GLOBAL
+window.login = login;
+window.logoutUser = logoutUser;
+
+
+// LOGIN BUTTON
+const loginBtn = document.getElementById("loginBtn");
+
+if (loginBtn) {
+
+  loginBtn.addEventListener("click", login);
+}
+
+
+// LOGOUT BUTTON
+const logoutBtn = document.getElementById("logoutBtn");
 
 if (logoutBtn) {
 
-  logoutBtn.addEventListener("click", async () => {
-
-    try {
-
-      await signOut(auth);
-
-      alert("Logged out");
-
-    } catch (error) {
-
-      console.error(error);
-
-      alert(error.message);
-    }
-  });
+  logoutBtn.addEventListener("click", logoutUser);
 }
 
 
@@ -123,50 +126,58 @@ onAuthStateChanged(auth, async (user) => {
 
 
 // SAVE PROFILE
+async function saveProfile() {
+
+  const user = auth.currentUser;
+
+  if (!user) {
+
+    alert("Please login first");
+
+    return;
+  }
+
+  const displayName =
+    document.getElementById("displayName").value;
+
+  const imageUrl =
+    document.getElementById("imageUrl").value;
+
+  try {
+
+    await setDoc(doc(db, "profiles", user.uid), {
+      displayName,
+      imageUrl,
+      email: user.email
+    });
+
+    alert("Profile saved");
+
+    loadProfile(user.uid);
+
+  } catch (error) {
+
+    console.error(error);
+
+    alert(error.message);
+  }
+}
+
+
+// MAKE GLOBAL
+window.saveProfile = saveProfile;
+
+
+// SAVE PROFILE BUTTON
 const saveProfileBtn =
   document.getElementById("saveProfileBtn");
 
 if (saveProfileBtn) {
 
-  saveProfileBtn.addEventListener("click", async () => {
-
-    const user =
-      auth.currentUser;
-
-    if (!user) {
-
-      alert("Please login first");
-
-      return;
-    }
-
-    const displayName =
-      document.getElementById("displayName").value;
-
-    const imageUrl =
-      document.getElementById("imageUrl").value;
-
-    try {
-
-      await setDoc(doc(db, "profiles", user.uid), {
-
-        displayName,
-        imageUrl,
-        email: user.email
-
-      });
-
-      alert("Profile saved");
-
-      loadProfile(user.uid);
-
-    } catch (error) {
-
-      console.error(error);
-
-      alert(error.message);
-    }
-  });
+  saveProfileBtn.addEventListener(
+    "click",
+    saveProfile
+  );
 }
 
 
@@ -188,11 +199,9 @@ async function loadProfile(uid) {
 
     if (docSnap.exists()) {
 
-      const data =
-        docSnap.data();
+      const data = docSnap.data();
 
       profileOutput.innerHTML = `
-
         <div style="margin-top:20px;">
 
           <img
@@ -217,7 +226,7 @@ async function loadProfile(uid) {
 
 
 // CREATE POST
-window.createPost = async function () {
+async function createPost() {
 
   const input =
     document.getElementById("postInput");
@@ -229,8 +238,7 @@ window.createPost = async function () {
     return;
   }
 
-  const text =
-    input.value.trim();
+  const text = input.value.trim();
 
   if (!text) {
 
@@ -242,10 +250,8 @@ window.createPost = async function () {
   try {
 
     await addDoc(collection(db, "posts"), {
-
       text,
       created: serverTimestamp()
-
     });
 
     input.value = "";
@@ -260,7 +266,11 @@ window.createPost = async function () {
 
     alert(error.message);
   }
-};
+}
+
+
+// MAKE GLOBAL
+window.createPost = createPost;
 
 
 // LOAD POSTS
@@ -316,4 +326,3 @@ async function loadPosts() {
 
 // INITIAL LOAD
 loadPosts();
-```
