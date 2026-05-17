@@ -108,7 +108,26 @@ if (logoutBtn) {
   logoutBtn.addEventListener("click", logoutUser);
 }
 
+// HANDLE LOGIN RESULT
+getRedirectResult(auth)
+  .then((result) => {
 
+    if (result && result.user) {
+
+      console.log("Login successful");
+
+      alert("Login successful");
+
+    }
+
+  })
+  .catch((error) => {
+
+    console.error(error);
+
+    alert(error.message);
+
+  });
 // AUTH STATE
 onAuthStateChanged(auth, async (user) => {
 
