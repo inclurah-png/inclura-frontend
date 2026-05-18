@@ -1,1 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8" />
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
+
+<title>Inclura Admin Ad Manager</title>
+
+<link
+rel="stylesheet"
+href="style-v2.css"
+/>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet"
+/>
+
+<style>
+
+.admin-hero{
+background:
+linear-gradient(
+135deg,
+rgba(255,80,80,0.16),
+rgba(47,124,255,0.18)
+);
+
+padding:40px;
+border-radius:35px;
+margin-bottom:35px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.admin-hero h1{
+font-size:52px;
+margin-bottom:18px;
+}
+
+.admin-hero p{
+font-size:18px;
+line-height:1.8;
+max-width:900px;
+color:#d7e4ff;
+}
+
+.admin-section{
+margin-top:50px;
+}
+
+.admin-section h2{
+font-size:36px;
+margin-bottom:25px;
+}
+
+.control-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
+
+gap:24px;
+}
+
+.control-card{
+background:
+rgba(255,255,255,0.08);
+
+padding:30px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.control-card h3{
+font-size:24px;
+margin-bottom:22px;
+}
+
+.form-group{
+display:flex;
+flex-direction:column;
+gap:10px;
+margin-bottom:20px;
+}
+
+.form-group label{
+color:#d7e4ff;
+font-size:14px;
+}
+
+.form-group input,
+.form-group select{
+padding:16px;
+border:none;
+border-radius:18px;
+background:rgba(255,255,255,0.08);
+color:white;
+outline:none;
+font-size:15px;
+}
+
+.save-btn{
+margin-top:12px;
+padding:16px 24px;
+border:none;
+border-radius:18px;
+
+background:
+linear-gradient(
+135deg,
+#2f7cff,
+#00d4ff
+);
+
+color:white;
+font-size:15px;
+font-weight:700;
+cursor:pointer;
+}
+
+.warning-box{
+background:
+rgba(255,80,80,0.12);
+
+padding:24px;
+border-radius:24px;
+border:1px solid rgba(255,80,80,0.22);
+
+margin-top:30px;
+}
+
+.warning-box h3{
+margin-bottom:14px;
+color:#ffb3b3;
+}
+
+.table-wrapper{
+overflow-x:auto;
+}
+
+.admin-table{
+width:100%;
+border-collapse:collapse;
+margin-top:25px;
+}
+
+.admin-table th,
+.admin-table td{
+padding:18px;
+text-align:left;
+border-bottom:
+1px solid rgba(255,255,255,0.08);
+}
+
+.admin-table th{
+color:#8fd3ff;
+}
+
+</style>
+
+</head>
+
+<body class="dashboard-body">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="sidebar-logo">
+
+<img
+src="inclura-logo.svg"
+alt="Inclura Logo"
+class="sidebar-logo-image"
+/>
+
+<h1>Inclura</h1>
+
+</div>
+
+<nav class="sidebar-nav">
+
+<a href="dashboard.html">🏠 Dashboard</a>
+
+<a href="admanager.html">📢 Ad Manager</a>
+
+<a href="admin-admanager.html">🛡 Admin Monetization</a>
+
+<a href="analytics.html">📊 Analytics</a>
+
+<a href="wallet.html">💳 Wallet</a>
+
+<a href="enterprise.html">🏢 Enterprise</a>
+
+<a href="compliance.html">⚖ Compliance</a>
+
+<a href="settings.html">⚙ Settings</a>
+
+</nav>
+
+</aside>
+
+<!-- MAIN -->
+
+<main class="main-content">
+
+<!-- HERO -->
+
+<section class="admin-hero">
+
+<h1>
+🛡 Inclura Economic Engine
+</h1>
+
+<p>
+
+Manage platform-wide monetization,
+creator payouts,
+global tax systems,
+accessibility subsidies,
+regional pricing,
+verification fees,
+currency conversion,
+enterprise billing,
+compliance enforcement
+and economic governance.
+
+</p>
+
+</section>
+
+<!-- PLATFORM PRICING -->
+
+<section class="admin-section">
+
+<h2>
+💰 Platform Pricing Controls
+</h2>
+
+<div class="control-grid">
+
+<!-- BOOSTS -->
+
+<div class="control-card">
+
+<h3>
+📢 Promotion Pricing
+</h3>
+
+<div class="form-group">
+<label>Boost Post Fee ($)</label>
+<input type="number" value="5" />
+</div>
+
+<div class="form-group">
+<label>Boost Reel Fee ($)</label>
+<input type="number" value="10" />
+</div>
+
+<div class="form-group">
+<label>Video Promotion Fee ($)</label>
+<input type="number" value="20" />
+</div>
+
+<div class="form-group">
+<label>Marketplace Ad Fee (%)</label>
+<input type="number" value="5" />
+</div>
+
+<button class="save-btn">
+Save Pricing
+</button>
+
+</div>
+
+<!-- VERIFICATION -->
+
+<div class="control-card">
+
+<h3>
+✔ Verification Controls
+</h3>
+
+<div class="form-group">
+<label>Individual Badge Fee ($)</label>
+<input type="number" value="25" />
+</div>
+
+<div class="form-group">
+<label>Business Verification Fee ($)</label>
+<input type="number" value="80" />
+</div>
+
+<div class="form-group">
+<label>Organization Verification Fee ($)</label>
+<input type="number" value="150" />
+</div>
+
+<div class="form-group">
+<label>Verification Renewal (%)</label>
+<input type="number" value="15" />
+</div>
+
+<button class="save-btn">
+Save Verification
+</button>
+
+</div>
+
+<!-- CREATOR -->
+
+<div class="control-card">
+
+<h3>
+🎥 Creator Economy
+</h3>
+
+<div class="form-group">
+<label>Creator Revenue Split (%)</label>
+<input type="number" value="70" />
+</div>
+
+<div class="form-group">
+<label>Platform Commission (%)</label>
+<input type="number" value="30" />
+</div>
+
+<div class="form-group">
+<label>Donation Fee (%)</label>
+<input type="number" value="5" />
+</div>
+
+<div class="form-group">
+<label>Subscription Fee (%)</label>
+<input type="number" value="10" />
+</div>
+
+<button class="save-btn">
+Save Creator Economy
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ACCESSIBILITY -->
+
+<section class="admin-section">
+
+<h2>
+♿ Accessibility Subsidy Controls
+</h2>
+
+<div class="control-grid">
+
+<div class="control-card">
+
+<h3>
+🌍 Accessibility Discounts
+</h3>
+
+<div class="form-group">
+<label>Disabled Creator Discount (%)</label>
+<input type="number" value="50" />
+</div>
+
+<div class="form-group">
+<label>NGO Campaign Discount (%)</label>
+<input type="number" value="40" />
+</div>
+
+<div class="form-group">
+<label>Accessibility Grant Pool ($)</label>
+<input type="number" value="10000" />
+</div>
+
+<div class="form-group">
+<label>Inclusion Sponsorship Budget ($)</label>
+<input type="number" value="25000" />
+</div>
+
+<button class="save-btn">
+Save Accessibility Controls
+</button>
+
+</div>
+
+<div class="control-card">
+
+<h3>
+🎓 Mentor & Care Gig Economy
+</h3>
+
+<div class="form-group">
+<label>Mentorship Commission (%)</label>
+<input type="number" value="12" />
+</div>
+
+<div class="form-group">
+<label>Care Gig Booking Fee (%)</label>
+<input type="number" value="8" />
+</div>
+
+<div class="form-group">
+<label>Urgent Visibility Boost Fee ($)</label>
+<input type="number" value="15" />
+</div>
+
+<div class="form-group">
+<label>Marketplace Transaction Fee (%)</label>
+<input type="number" value="5" />
+</div>
+
+<button class="save-btn">
+Save Service Economy
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CURRENCY -->
+
+<section class="admin-section">
+
+<h2>
+💱 Currency Conversion Engine
+</h2>
+
+<div class="table-wrapper">
+
+<table class="admin-table">
+
+<tr>
+
+<th>
+Conversion
+</th>
+
+<th>
+Fee %
+</th>
+
+<th>
+Status
+</th>
+
+</tr>
+
+<tr>
+<td>USD → EUR</td>
+<td><input type="number" value="1.0"></td>
+<td>Active</td>
+</tr>
+
+<tr>
+<td>USD → GBP</td>
+<td><input type="number" value="1.5"></td>
+<td>Active</td>
+</tr>
+
+<tr>
+<td>USD → NGN</td>
+<td><input type="number" value="2.0"></td>
+<td>Active</td>
+</tr>
+
+<tr>
+<td>EUR → USD</td>
+<td><input type="number" value="1.5"></td>
+<td>Active</td>
+</tr>
+
+<tr>
+<td>EUR → NGN</td>
+<td><input type="number" value="2.5"></td>
+<td>Active</td>
+</tr>
+
+<tr>
+<td>NGN → USD</td>
+<td><input type="number" value="3.0"></td>
+<td>Active</td>
+</tr>
+
+<tr>
+<td>NGN → EUR</td>
+<td><input type="number" value="3.0"></td>
+<td>Active</td>
+</tr>
+
+</table>
+
+</div>
+
+<button class="save-btn" style="margin-top:25px;">
+Save Currency Engine
+</button>
+
+</section>
+
+<!-- ENTERPRISE -->
+
+<section class="admin-section">
+
+<h2>
+🏢 Enterprise Billing Controls
+</h2>
+
+<div class="control-grid">
+
+<div class="control-card">
+
+<h3>
+🔗 Business Integrations
+</h3>
+
+<div class="form-group">
+<label>HubSpot Integration ($/mo)</label>
+<input type="number" value="45" />
+</div>
+
+<div class="form-group">
+<label>Canva Pro Add-on ($/mo)</label>
+<input type="number" value="13" />
+</div>
+
+<div class="form-group">
+<label>Business Tools Suite ($/mo)</label>
+<input type="number" value="25" />
+</div>
+
+<div class="form-group">
+<label>Analytics Pro ($/mo)</label>
+<input type="number" value="20" />
+</div>
+
+<button class="save-btn">
+Save Enterprise Billing
+</button>
+
+</div>
+
+<div class="control-card">
+
+<h3>
+🌍 Regional Tax & VAT
+</h3>
+
+<div class="form-group">
+<label>UK VAT (%)</label>
+<input type="number" value="20" />
+</div>
+
+<div class="form-group">
+<label>Nigeria VAT (%)</label>
+<input type="number" value="7.5" />
+</div>
+
+<div class="form-group">
+<label>Canada DST (%)</label>
+<input type="number" value="2" />
+</div>
+
+<div class="form-group">
+<label>Australia DST (%)</label>
+<input type="number" value="3" />
+</div>
+
+<button class="save-btn">
+Save Tax System
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- LEGAL -->
+
+<section class="admin-section">
+
+<h2>
+⚖ Compliance & Legal Controls
+</h2>
+
+<div class="warning-box">
+
+<h3>
+🔞 Global Age Enforcement
+</h3>
+
+<p
+style="
+line-height:1.9;
+color:#ffdada;
+"
+>
+
+Inclura enforces a strict minimum age of 18 globally
+for advertising,
+monetization,
+profiling,
+targeting,
+campaign access
+and creator economy participation.
+
+Supported regulations include:
+GDPR Art. 8,
+COPPA,
+UK GDPR,
+NDPR,
+POPIA,
+PIPEDA
+and other regional data-protection frameworks.
+
+</p>
+
+</div>
+
+<div class="control-grid" style="margin-top:30px;">
+
+<div class="control-card">
+
+<h3>
+🌍 Audience Age Sets
+</h3>
+
+<div class="form-group">
+<label>Ad Set A</label>
+<input value="18-34" />
+</div>
+
+<div class="form-group">
+<label>Ad Set B</label>
+<input value="20-35" />
+</div>
+
+<div class="form-group">
+<label>Ad Set C</label>
+<input value="24-40" />
+</div>
+
+<div class="form-group">
+<label>Ad Set D</label>
+<input value="35-50" />
+</div>
+
+<button class="save-btn">
+Save Audience Controls
+</button>
+
+</div>
+
+<div class="control-card">
+
+<h3>
+🚫 Restriction Engine
+</h3>
+
+<div class="form-group">
+<label>Underage Ad Blocking</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Accessibility Enforcement</label>
+
+<select>
+<option>Strict</option>
+<option>Moderate</option>
+<option>Flexible</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Regional Compliance Mode</label>
+
+<select>
+<option>Automatic</option>
+<option>Manual</option>
+</select>
+
+</div>
+
+<button class="save-btn">
+Save Restrictions
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<button class="floating-button">
++
+</button>
+
+</main>
+
+</body>
+</html>
