@@ -2,150 +2,255 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inclura Dashboard</title>
 
-<style>
+<meta charset="UTF-8" />
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-body{
-  background:#071120;
-  color:white;
-  font-family:Arial,sans-serif;
-}
-
-.wrapper{
-  display:flex;
-  min-height:100vh;
-}
-
-.sidebar{
-  width:260px;
-  background:#0b1730;
-  padding:20px;
-}
-
-.logo{
-  font-size:32px;
-  font-weight:bold;
-  margin-bottom:30px;
-}
-
-.menu a{
-  display:block;
-  color:white;
-  text-decoration:none;
-  padding:14px;
-  margin-bottom:10px;
-  background:#13213d;
-  border-radius:10px;
-}
-
-.main{
-  flex:1;
-  padding:20px;
-}
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
-  margin-top:20px;
-}
-
-.card{
-  background:#13213d;
-  padding:25px;
-  border-radius:14px;
-}
-
-.icon{
-  font-size:40px;
-  margin-bottom:10px;
-}
-
-@media(max-width:900px){
-
-  .wrapper{
-    flex-direction:column;
-  }
-
-  .sidebar{
-    width:100%;
-  }
-
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="wrapper">
-
-<div class="sidebar">
-
-<img
-  src="inclura-logo.png"
-  alt="Inclura Logo"
-  class="sidebar-logo-image"
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
 />
 
-<div class="menu">
+<title>Inclura Dashboard</title>
 
-<a href="#">🏠 Dashboard</a>
+<link
+rel="stylesheet"
+href="style-v2.css"
+/>
 
-<a href="#">👥 Friends</a>
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet"
+/>
 
-<a href="#">🎥 Reels</a>
+</head>
 
-<a href="#">💬 Messages</a>
+<body class="dashboard-body">
 
-<a href="#">⚙ Settings</a>
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="sidebar-logo">
+
+<img
+src="inclura-logo.png"
+alt="Inclura Logo"
+class="sidebar-logo-image"
+/>
+
+<h1>Inclura</h1>
+
+</div>
+
+<nav class="sidebar-nav">
+
+<a href="dashboard.html">🏠 Dashboard</a>
+
+<a href="posts.html">📝 Posts</a>
+
+<a href="reels.html">🎬 Reels</a>
+
+<a href="videos.html">📺 Videos</a>
+
+<a href="market.html">🛒 Marketplace</a>
+
+<a href="mentorhub.html">🧭 Mentor Hub</a>
+
+<a href="caregigs.html">🤝 Care Gigs</a>
+
+<a href="resume.html">📋 Resume</a>
+
+<a href="wallet.html">💳 Wallet</a>
+
+<a href="analytics.html">📊 Analytics</a>
+
+<a href="creatorstudio.html">🎥 Creator Studio</a>
+
+<a href="admanager.html">📡 Ad Manager</a>
+
+<a href="emergency.html">🚨 Emergency</a>
+
+<a href="notifications.html">🔔 Notifications</a>
+
+<a href="settings.html">⚙ Settings</a>
+
+</nav>
+
+</aside>
+
+<!-- MAIN CONTENT -->
+
+<main class="main-content">
+
+<!-- TOPBAR -->
+
+<div class="dashboard-topbar">
+
+<div class="search-bar">
+
+<input
+type="text"
+placeholder="Search creators, videos, gigs..."
+/>
+
+</div>
+
+<div class="topbar-actions">
+
+<button class="topbar-btn">🔔</button>
+
+<button class="topbar-btn">🌙</button>
+
+<button class="topbar-btn">♿</button>
 
 </div>
 
 </div>
 
-<div class="main">
+<!-- HERO -->
 
-<h1>Welcome to Inclura</h1>
+<section class="hero-profile">
 
-<p>Your dashboard is now working.</p>
+<div class="hero-left">
 
-<div class="cards">
+<img
+src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800"
+class="hero-avatar"
+/>
 
-<div class="card">
-<div class="icon">📊</div>
-<h2>Analytics</h2>
+<div class="hero-user-info">
+
+<h2>Inclura Creator</h2>
+
+<p>
+Accessibility Advocate • Creator • Mentor
+</p>
+
+<p>
+Connect Without Limits, Includes Everyone.
+</p>
+
 </div>
 
-<div class="card">
-<div class="icon">📁</div>
-<h2>Files</h2>
 </div>
 
-<div class="card">
-<div class="icon">🔔</div>
-<h2>Notifications</h2>
+<button class="topbar-btn">
+✏️
+</button>
+
+</section>
+
+<!-- STATS -->
+
+<section class="stats-grid">
+
+<div class="stat-card">
+
+<h3>Followers</h3>
+
+<h1>24.8K</h1>
+
 </div>
 
-<div class="card">
-<div class="icon">💰</div>
+<div class="stat-card">
+
+<h3>Posts</h3>
+
+<h1>1,240</h1>
+
+</div>
+
+<div class="stat-card">
+
+<h3>Total Earned</h3>
+
+<h1>$18.4K</h1>
+
+</div>
+
+<div class="stat-card">
+
+<h3>Seller Rating</h3>
+
+<h1>⭐ 4.9</h1>
+
+</div>
+
+</section>
+
+<!-- QUICK GRID -->
+
+<section class="quick-grid">
+
+<div class="quick-card">
+
+<div class="icon">📝</div>
+
+<h2>Posts</h2>
+
+<p>Create accessible creator posts.</p>
+
+</div>
+
+<div class="quick-card">
+
+<div class="icon">🎬</div>
+
+<h2>Reels</h2>
+
+<p>Short-form accessibility videos.</p>
+
+</div>
+
+<div class="quick-card">
+
+<div class="icon">📺</div>
+
+<h2>Videos</h2>
+
+<p>Long-form creator experiences.</p>
+
+</div>
+
+<div class="quick-card">
+
+<div class="icon">🛒</div>
+
+<h2>Marketplace</h2>
+
+<p>Buy and sell products/services.</p>
+
+</div>
+
+<div class="quick-card">
+
+<div class="icon">💳</div>
+
 <h2>Wallet</h2>
-</div>
+
+<p>Payments, payouts and monetization.</p>
 
 </div>
 
-</div>
+<div class="quick-card">
+
+<div class="icon">📊</div>
+
+<h2>Analytics</h2>
+
+<p>Creator growth and performance.</p>
 
 </div>
+
+</section>
+
+<button class="floating-button">
++
+</button>
+
+</main>
+
+<script src="dashboard.js"></script>
 
 </body>
 </html>
