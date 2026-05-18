@@ -1,1 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8" />
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
+
+<title>Inclura Admin Wallet</title>
+
+<link
+rel="stylesheet"
+href="style-v2.css"
+/>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet"
+/>
+
+<style>
+
+.finance-hero{
+background:
+linear-gradient(
+135deg,
+rgba(255,180,0,0.16),
+rgba(47,124,255,0.16)
+);
+
+padding:40px;
+border-radius:35px;
+margin-bottom:35px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.finance-hero h1{
+font-size:52px;
+margin-bottom:18px;
+}
+
+.finance-hero p{
+font-size:18px;
+line-height:1.8;
+max-width:900px;
+color:#d7e4ff;
+}
+
+.finance-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:24px;
+margin-bottom:40px;
+}
+
+.finance-card{
+background:
+rgba(255,255,255,0.08);
+
+padding:30px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.finance-card h3{
+margin-bottom:14px;
+color:#b9d4ff;
+}
+
+.finance-card h1{
+font-size:38px;
+}
+
+.admin-section{
+margin-top:55px;
+}
+
+.admin-section h2{
+font-size:36px;
+margin-bottom:25px;
+}
+
+.control-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
+
+gap:24px;
+}
+
+.control-card{
+background:
+rgba(255,255,255,0.08);
+
+padding:30px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.control-card h3{
+font-size:24px;
+margin-bottom:22px;
+}
+
+.form-group{
+display:flex;
+flex-direction:column;
+gap:10px;
+margin-bottom:20px;
+}
+
+.form-group label{
+font-size:14px;
+color:#d7e4ff;
+}
+
+.form-group input,
+.form-group select{
+padding:16px;
+border:none;
+border-radius:18px;
+background:rgba(255,255,255,0.08);
+color:white;
+outline:none;
+font-size:15px;
+}
+
+.save-btn{
+margin-top:14px;
+padding:16px 24px;
+border:none;
+border-radius:18px;
+
+background:
+linear-gradient(
+135deg,
+#2f7cff,
+#00d4ff
+);
+
+color:white;
+font-size:15px;
+font-weight:700;
+cursor:pointer;
+}
+
+.table-wrapper{
+overflow-x:auto;
+}
+
+.admin-table{
+width:100%;
+border-collapse:collapse;
+margin-top:25px;
+}
+
+.admin-table th,
+.admin-table td{
+padding:18px;
+text-align:left;
+border-bottom:
+1px solid rgba(255,255,255,0.08);
+}
+
+.admin-table th{
+color:#8fd3ff;
+}
+
+.warning-box{
+background:
+rgba(255,80,80,0.12);
+
+padding:24px;
+border-radius:24px;
+border:1px solid rgba(255,80,80,0.22);
+
+margin-top:25px;
+}
+
+.warning-box h3{
+margin-bottom:14px;
+color:#ffb3b3;
+}
+
+</style>
+
+</head>
+
+<body class="dashboard-body">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="sidebar-logo">
+
+<img
+src="inclura-logo.svg"
+alt="Inclura Logo"
+class="sidebar-logo-image"
+/>
+
+<h1>Inclura</h1>
+
+</div>
+
+<nav class="sidebar-nav">
+
+<a href="dashboard.html">🏠 Dashboard</a>
+
+<a href="wallet.html">💳 Wallet</a>
+
+<a href="admin-wallet.html">🛡 Admin Wallet</a>
+
+<a href="admin-admanager.html">📢 Admin Ads</a>
+
+<a href="analytics.html">📊 Analytics</a>
+
+<a href="enterprise.html">🏢 Enterprise</a>
+
+<a href="compliance.html">⚖ Compliance</a>
+
+<a href="settings.html">⚙ Settings</a>
+
+</nav>
+
+</aside>
+
+<!-- MAIN -->
+
+<main class="main-content">
+
+<!-- HERO -->
+
+<section class="finance-hero">
+
+<h1>
+🛡 Inclura Financial Headquarters
+</h1>
+
+<p>
+
+Manage global transactions,
+creator payouts,
+treasury reserves,
+payment gateways,
+crypto systems,
+compliance enforcement,
+fraud prevention,
+taxation,
+liquidity
+and financial governance across the entire Inclura ecosystem.
+
+</p>
+
+</section>
+
+<!-- TREASURY -->
+
+<section class="finance-grid">
+
+<div class="finance-card">
+
+<h3>
+💰 Treasury Balance
+</h3>
+
+<h1>
+$4.8M
+</h1>
+
+</div>
+
+<div class="finance-card">
+
+<h3>
+🌍 Creator Payout Reserve
+</h3>
+
+<h1>
+$1.9M
+</h1>
+
+</div>
+
+<div class="finance-card">
+
+<h3>
+🪙 Crypto Liquidity
+</h3>
+
+<h1>
+₿14.2
+</h1>
+
+</div>
+
+<div class="finance-card">
+
+<h3>
+📈 Monthly Revenue
+</h3>
+
+<h1>
+$820K
+</h1>
+
+</div>
+
+</section>
+
+<!-- PAYMENT GATEWAYS -->
+
+<section class="admin-section">
+
+<h2>
+🌍 Payment Gateway Controls
+</h2>
+
+<div class="control-grid">
+
+<div class="control-card">
+
+<h3>
+💳 Global Gateways
+</h3>
+
+<div class="form-group">
+<label>Stripe</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>PayPal</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Flutterwave</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Paystack</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<button class="save-btn">
+Save Gateways
+</button>
+
+</div>
+
+<div class="control-card">
+
+<h3>
+📱 Mobile Money Systems
+</h3>
+
+<div class="form-group">
+<label>MTN Mobile Money</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>M-Pesa</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Airtel Money</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Bank Transfers</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<button class="save-btn">
+Save Mobile Money
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CRYPTO -->
+
+<section class="admin-section">
+
+<h2>
+🪙 Crypto & Digital Assets
+</h2>
+
+<div class="control-grid">
+
+<div class="control-card">
+
+<h3>
+🪙 Supported Assets
+</h3>
+
+<div class="form-group">
+<label>Bitcoin (BTC)</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Ethereum (ETH)</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>USDT</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Solana</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<button class="save-btn">
+Save Crypto Assets
+</button>
+
+</div>
+
+<div class="control-card">
+
+<h3>
+💱 Exchange Management
+</h3>
+
+<div class="form-group">
+<label>Exchange Fee (%)</label>
+<input type="number" value="2" />
+</div>
+
+<div class="form-group">
+<label>Liquidity Reserve (%)</label>
+<input type="number" value="20" />
+</div>
+
+<div class="form-group">
+<label>Auto Conversion</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Risk Monitoring</label>
+
+<select>
+<option>Strict</option>
+<option>Moderate</option>
+</select>
+
+</div>
+
+<button class="save-btn">
+Save Exchange Controls
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PAYOUTS -->
+
+<section class="admin-section">
+
+<h2>
+💸 Creator Payout Controls
+</h2>
+
+<div class="control-grid">
+
+<div class="control-card">
+
+<h3>
+🎥 Creator Withdrawals
+</h3>
+
+<div class="form-group">
+<label>Minimum Withdrawal ($)</label>
+<input type="number" value="25" />
+</div>
+
+<div class="form-group">
+<label>Payout Processing Fee (%)</label>
+<input type="number" value="3" />
+</div>
+
+<div class="form-group">
+<label>Withdrawal Approval</label>
+
+<select>
+<option>Manual</option>
+<option>Automatic</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Large Withdrawal Alert ($)</label>
+<input type="number" value="5000" />
+</div>
+
+<button class="save-btn">
+Save Payout Controls
+</button>
+
+</div>
+
+<div class="control-card">
+
+<h3>
+🚨 Fraud & Risk Systems
+</h3>
+
+<div class="form-group">
+<label>Fraud Detection</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>AML Monitoring</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>KYC Verification</label>
+
+<select>
+<option>Required</option>
+<option>Optional</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Wallet Freeze System</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<button class="save-btn">
+Save Risk Controls
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TRANSACTION TABLE -->
+
+<section class="admin-section">
+
+<h2>
+📜 Live Financial Transactions
+</h2>
+
+<div class="table-wrapper">
+
+<table class="admin-table">
+
+<tr>
+
+<th>
+Transaction
+</th>
+
+<th>
+Amount
+</th>
+
+<th>
+Type
+</th>
+
+<th>
+Status
+</th>
+
+<th>
+Date
+</th>
+
+</tr>
+
+<tr>
+<td>Creator Withdrawal</td>
+<td>$2,400</td>
+<td>Payout</td>
+<td>Pending</td>
+<td>May 18</td>
+</tr>
+
+<tr>
+<td>Marketplace Purchase</td>
+<td>₦85,000</td>
+<td>Commerce</td>
+<td>Completed</td>
+<td>May 18</td>
+</tr>
+
+<tr>
+<td>Crypto Deposit</td>
+<td>0.14 BTC</td>
+<td>Crypto</td>
+<td>Processing</td>
+<td>May 17</td>
+</tr>
+
+<tr>
+<td>Enterprise Subscription</td>
+<td>$400</td>
+<td>Subscription</td>
+<td>Completed</td>
+<td>May 17</td>
+</tr>
+
+<tr>
+<td>Donation to Creator</td>
+<td>$120</td>
+<td>Funding</td>
+<td>Completed</td>
+<td>May 16</td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- TAX -->
+
+<section class="admin-section">
+
+<h2>
+⚖ Tax & Financial Compliance
+</h2>
+
+<div class="warning-box">
+
+<h3>
+🌍 Global Financial Regulations
+</h3>
+
+<p
+style="
+line-height:1.9;
+color:#ffdada;
+"
+>
+
+Inclura financial systems comply with:
+AML regulations,
+KYC frameworks,
+VAT systems,
+DST regulations,
+consumer finance protections,
+anti-fraud systems,
+regional taxation laws,
+digital payment regulations
+and international creator-economy compliance standards.
+
+</p>
+
+</div>
+
+<div class="control-grid" style="margin-top:30px;">
+
+<div class="control-card">
+
+<h3>
+🌍 Regional Tax Rates
+</h3>
+
+<div class="form-group">
+<label>UK VAT (%)</label>
+<input type="number" value="20" />
+</div>
+
+<div class="form-group">
+<label>Nigeria VAT (%)</label>
+<input type="number" value="7.5" />
+</div>
+
+<div class="form-group">
+<label>Canada DST (%)</label>
+<input type="number" value="2" />
+</div>
+
+<div class="form-group">
+<label>Australia GST (%)</label>
+<input type="number" value="3" />
+</div>
+
+<button class="save-btn">
+Save Tax Controls
+</button>
+
+</div>
+
+<div class="control-card">
+
+<h3>
+🔐 Financial Governance
+</h3>
+
+<div class="form-group">
+<label>Transaction Audit Logs</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Reserve Protection</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Emergency Freeze System</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Global Compliance Mode</label>
+
+<select>
+<option>Strict</option>
+<option>Moderate</option>
+</select>
+
+</div>
+
+<button class="save-btn">
+Save Governance
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<button class="floating-button">
++
+</button>
+
+</main>
+
+</body>
+                              </html>
