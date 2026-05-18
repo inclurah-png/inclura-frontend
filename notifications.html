@@ -1,1 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8" />
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
+
+<title>Inclura Notifications</title>
+
+<link
+rel="stylesheet"
+href="style-v2.css"
+/>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet"
+/>
+
+<style>
+
+.notification-hero{
+background:
+linear-gradient(
+135deg,
+rgba(47,124,255,0.18),
+rgba(0,212,255,0.12)
+);
+
+padding:40px;
+border-radius:35px;
+margin-bottom:35px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.notification-hero h1{
+font-size:52px;
+margin-bottom:18px;
+}
+
+.notification-hero p{
+font-size:18px;
+line-height:1.8;
+max-width:900px;
+color:#d7e4ff;
+}
+
+.notification-section{
+margin-top:50px;
+}
+
+.notification-section h2{
+font-size:34px;
+margin-bottom:25px;
+}
+
+.notification-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(320px,1fr));
+
+gap:24px;
+}
+
+.notification-card{
+background:
+rgba(255,255,255,0.08);
+
+padding:30px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,0.08);
+
+transition:0.3s;
+cursor:pointer;
+}
+
+.notification-card:hover{
+transform:translateY(-8px);
+}
+
+.notification-card .icon{
+font-size:46px;
+margin-bottom:18px;
+}
+
+.notification-card h2{
+font-size:24px;
+margin-bottom:14px;
+}
+
+.notification-card p{
+line-height:1.8;
+color:#d7e4ff;
+}
+
+.alert-box{
+background:
+rgba(255,255,255,0.08);
+
+padding:28px;
+border-radius:28px;
+border:1px solid rgba(255,255,255,0.08);
+
+margin-top:24px;
+}
+
+.alert-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:14px;
+gap:20px;
+}
+
+.alert-header h3{
+font-size:22px;
+}
+
+.alert-time{
+color:#8fd3ff;
+font-size:14px;
+}
+
+.alert-box p{
+line-height:1.8;
+color:#d7e4ff;
+}
+
+.priority{
+display:inline-block;
+padding:8px 14px;
+border-radius:14px;
+font-size:13px;
+font-weight:700;
+margin-top:18px;
+}
+
+.high
