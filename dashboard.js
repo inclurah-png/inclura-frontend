@@ -1,222 +1,102 @@
-// ========================================
-// INCLURA DASHBOARD SYSTEM
-// ========================================
+document.addEventListener("DOMContentLoaded", () => {
 
-// MOBILE SIDEBAR TOGGLE
-const menuToggle = document.getElementById("menuToggle");
-const sidebar = document.getElementById("sidebar");
+  // SIDEBAR TOGGLE
 
-if (menuToggle && sidebar) {
+  const menuToggle = document.getElementById("menuToggle");
+  const sidebar = document.querySelector(".sidebar");
 
-  menuToggle.addEventListener("click", () => {
+  if (menuToggle && sidebar) {
 
-    sidebar.classList.toggle("show-sidebar");
+    menuToggle.addEventListener("click", () => {
+      sidebar.classList.toggle("show-sidebar");
+    });
 
-  });
-
-}
+  }
 
 
-// CLOSE SIDEBAR ON MOBILE
-const closeSidebar = document.getElementById("closeSidebar");
+  // QUICK CARD NAVIGATION
 
-if (closeSidebar && sidebar) {
+  const quickCards = document.querySelectorAll(".quick-card");
 
-  closeSidebar.addEventListener("click", () => {
+  quickCards.forEach(card => {
 
-    sidebar.classList.remove("show-sidebar");
+    card.addEventListener("click", () => {
 
-  });
+      const link = card.getAttribute("data-link");
 
-}
+      if (link) {
+        window.location.href = link;
+      }
 
-
-// ACCESSIBILITY TOGGLE
-const accessibilityToggle =
-  document.getElementById("accessibilityToggle");
-
-if (accessibilityToggle) {
-
-  accessibilityToggle.addEventListener("click", () => {
-
-    document.body.classList.toggle("high-accessibility");
+    });
 
   });
 
-}
+
+  // FLOATING BUTTON
+
+  const fabButton = document.getElementById("fabButton");
+
+  if (fabButton) {
+
+    fabButton.addEventListener("click", () => {
+
+      alert(
+        "Create new content feature coming soon on Inclura."
+      );
+
+    });
+
+  }
 
 
-// DARK/LIGHT MODE
-const themeToggle =
-  document.getElementById("themeToggle");
+  // THEME TOGGLE
 
-if (themeToggle) {
+  const themeToggle = document.getElementById("themeToggle");
 
-  themeToggle.addEventListener("click", () => {
+  if (themeToggle) {
 
-    document.body.classList.toggle("light-mode");
+    themeToggle.addEventListener("click", () => {
 
-  });
+      document.body.classList.toggle("light-mode");
 
-}
+    });
 
-
-// NOTIFICATION PANEL
-const notificationBtn =
-  document.getElementById("notificationBtn");
-
-const notificationPanel =
-  document.getElementById("notificationPanel");
-
-if (notificationBtn && notificationPanel) {
-
-  notificationBtn.addEventListener("click", () => {
-
-    notificationPanel.classList.toggle("show-notifications");
-
-  });
-
-}
+  }
 
 
-// SEARCH BAR
-const dashboardSearch =
-  document.getElementById("dashboardSearch");
+  // ACCESSIBILITY BUTTON
 
-if (dashboardSearch) {
+  const accessibilityToggle =
+    document.getElementById("accessibilityToggle");
 
-  dashboardSearch.addEventListener("keyup", (e) => {
+  if (accessibilityToggle) {
 
-    console.log("Searching:", e.target.value);
+    accessibilityToggle.addEventListener("click", () => {
 
-  });
+      alert(
+        "Accessibility controls panel coming soon."
+      );
 
-}
+    });
 
-
-// FLOATING ACTION BUTTON
-const fabButton =
-  document.getElementById("fabButton");
-
-if (fabButton) {
-
-  fabButton.addEventListener("click", () => {
-
-    window.location.href = "posts.html";
-
-  });
-
-}
+  }
 
 
-// QUICK NAVIGATION CARDS
-const quickCards =
-  document.querySelectorAll(".quick-card");
+  // NOTIFICATION BUTTON
 
-quickCards.forEach((card) => {
+  const notificationBtn =
+    document.getElementById("notificationBtn");
 
-  card.addEventListener("click", () => {
+  if (notificationBtn) {
 
-    const target =
-      card.getAttribute("data-link");
+    notificationBtn.addEventListener("click", () => {
 
-    if (target) {
+      window.location.href =
+        "notifications.html";
 
-      window.location.href = target;
+    });
 
-    }
-
-  });
+  }
 
 });
-
-
-// DASHBOARD WELCOME
-window.addEventListener("load", () => {
-
-  console.log("Inclura Dashboard Loaded");
-
-});
-
-
-// FAKE LIVE NOTIFICATION COUNT
-const notificationCount =
-  document.getElementById("notificationCount");
-
-if (notificationCount) {
-
-  let count = 4;
-
-  setInterval(() => {
-
-    count++;
-
-    notificationCount.innerText = count;
-
-  }, 45000);
-
-}
-
-
-// FLOATING ANIMATION EFFECT
-const floatingCards =
-  document.querySelectorAll(".floating-card");
-
-floatingCards.forEach((card, index) => {
-
-  card.style.animationDelay =
-    `${index * 0.2}s`;
-
-});
-
-
-// PROFILE DROPDOWN
-const profileButton =
-  document.getElementById("profileButton");
-
-const profileDropdown =
-  document.getElementById("profileDropdown");
-
-if (profileButton && profileDropdown) {
-
-  profileButton.addEventListener("click", () => {
-
-    profileDropdown.classList.toggle("show-profile-dropdown");
-
-  });
-
-}
-
-
-// EMERGENCY BUTTON
-const emergencyButton =
-  document.getElementById("emergencyButton");
-
-if (emergencyButton) {
-
-  emergencyButton.addEventListener("click", () => {
-
-    alert(
-      "Emergency accessibility system activated."
-    );
-
-  });
-
-}
-
-
-// AI ASSIST BUTTON
-const aiAssistButton =
-  document.getElementById("aiAssistButton");
-
-if (aiAssistButton) {
-
-  aiAssistButton.addEventListener("click", () => {
-
-    alert(
-      "Inclura AI Assistant coming soon."
-    );
-
-  });
-
-                                   }
