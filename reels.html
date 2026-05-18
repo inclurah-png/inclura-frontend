@@ -1,1 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8" />
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
+
+<title>Inclura Reels</title>
+
+<link
+rel="stylesheet"
+href="style-v2.css"
+/>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet"
+/>
+
+<style>
+
+.reels-container{
+display:flex;
+justify-content:center;
+align-items:center;
+padding:30px;
+}
+
+.reel-card{
+position:relative;
+width:380px;
+height:720px;
+border-radius:35px;
+overflow:hidden;
+background:#000;
+box-shadow:
+0 25px 60px rgba(0,0,0,0.4);
+}
+
+.reel-video{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.reel-overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+linear-gradient(
+to top,
+rgba(0,0,0,0.85),
+rgba(0,0,0,0.15),
+transparent
+);
+display:flex;
+justify-content:space-between;
+padding:25px;
+}
+
+.reel-left{
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+max-width:70%;
+}
+
+.reel-user{
+display:flex;
+align-items:center;
+gap:12px;
+margin-bottom:18px;
+}
+
+.reel-user img{
+width:58px;
+height:58px;
+border-radius:18px;
+object-fit:cover;
+}
+
+.reel-user h3{
+font-size:18px;
+}
+
+.reel-caption{
+line-height:1.7;
+margin-bottom:18px;
+color:#d7e4ff;
+}
+
+.reel-tags{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.reel-tags span{
+padding:8px 14px;
+background:rgba(255,255,255,0.12);
+border-radius:14px;
+font-size:13px;
+}
+
+.reel-right{
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+align-items:center;
+gap:18px;
+}
+
+.reel-action{
+width:60px;
+height:60px;
+border-radius:18px;
+border:none;
+background:rgba(255,255,255,0.12);
+color:white;
+font-size:24px;
+cursor:pointer;
+backdrop-filter:blur(10px);
+transition:0.3s;
+}
+
+.reel-action:hover{
+transform:scale(1.08);
+background:#2f7cff;
+}
+
+.reel-stats{
+font-size:13px;
+color:#d7e4ff;
+text-align:center;
+}
+
+.reel-topbar{
+position:absolute;
+top:20px;
+left:20px;
+right:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:10;
+}
+
+.reel-topbar h2{
+font-size:24px;
+font-weight:700;
+}
+
+.reel-progress{
+position:absolute;
+top:0;
+left:0;
+height:5px;
+width:40%;
+background:#00d4ff;
+z-index:20;
+}
+
+@media(max-width:900px){
+
+.reel-card{
+width:100%;
+height:100vh;
+border-radius:0;
+}
+
+.reels-container{
+padding:0;
+}
+
+}
+
+</style>
+
+</head>
+
+<body class="dashboard-body">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="sidebar-logo">
+
+<img
+src="inclura-logo.svg"
+alt="Inclura Logo"
+class="sidebar-logo-image"
+/>
+
+<h1>Inclura</h1>
+
+</div>
+
+<nav class="sidebar-nav">
+
+<a href="dashboard.html">🏠 Dashboard</a>
+
+<a href="posts.html">📝 Posts</a>
+
+<a href="reels.html">🎬 Reels</a>
+
+<a href="videos.html">📺 Videos</a>
+
+<a href="market.html">🛒 Marketplace</a>
+
+<a href="wallet.html">💳 Wallet</a>
+
+<a href="notifications.html">🔔 Notifications</a>
+
+<a href="settings.html">⚙ Settings</a>
+
+</nav>
+
+</aside>
+
+<!-- MAIN -->
+
+<main class="main-content">
+
+<div class="reels-container">
+
+<div class="reel-card">
+
+<div class="reel-progress"></div>
+
+<!-- VIDEO -->
+
+<video
+class="reel-video"
+autoplay
+muted
+loop
+playsinline
+>
+
+<source
+src="https://www.w3schools.com/html/mov_bbb.mp4"
+type="video/mp4"
+>
+
+</video>
+
+<!-- TOPBAR -->
+
+<div class="reel-topbar">
+
+<h2>Reels</h2>
+
+<button class="topbar-btn">
+🔍
+</button>
+
+</div>
+
+<!-- OVERLAY -->
+
+<div class="reel-overlay">
+
+<!-- LEFT -->
+
+<div class="reel-left">
+
+<div class="reel-user">
+
+<img
+src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800"
+/>
+
+<div>
+
+<h3>Inclura Creator</h3>
+
+<p style="color:#9fc2ff;">
+Accessibility Advocate
+</p>
+
+</div>
+
+</div>
+
+<p class="reel-caption">
+
+Accessibility-first short videos are transforming
+how creators communicate globally 🌍♿
+
+</p>
+
+<div class="reel-tags">
+
+<span>#Accessibility</span>
+
+<span>#Inclura</span>
+
+<span>#Creators</span>
+
+<span>#InclusiveTech</span>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="reel-right">
+
+<div>
+
+<button class="reel-action">
+❤️
+</button>
+
+<p class="reel-stats">
+24.8K
+</p>
+
+</div>
+
+<div>
+
+<button class="reel-action">
+💬
+</button>
+
+<p class="reel-stats">
+8.2K
+</p>
+
+</div>
+
+<div>
+
+<button class="reel-action">
+🔁
+</button>
+
+<p class="reel-stats">
+3.1K
+</p>
+
+</div>
+
+<div>
+
+<button class="reel-action">
+📤
+</button>
+
+<p class="reel-stats">
+Share
+</p>
+
+</div>
+
+<div>
+
+<button class="reel-action">
+♿
+</button>
+
+<p class="reel-stats">
+Access
+</p>
+
+</div>
+
+<div>
+
+<button class="reel-action">
+💰
+</button>
+
+<p class="reel-stats">
+Tip
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+</body>
+</html>
