@@ -1,1 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8" />
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
+
+<title>Inclura Wallet</title>
+
+<link
+rel="stylesheet"
+href="style-v2.css"
+/>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet"
+/>
+
+<style>
+
+.wallet-balance{
+background:
+linear-gradient(
+135deg,
+rgba(47,124,255,0.25),
+rgba(0,212,255,0.15)
+);
+
+border-radius:35px;
+padding:40px;
+margin-bottom:35px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.wallet-balance h1{
+font-size:56px;
+margin-top:15px;
+margin-bottom:15px;
+}
+
+.wallet-balance p{
+color:#d7e4ff;
+font-size:17px;
+}
+
+.wallet-actions{
+display:flex;
+gap:18px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.wallet-btn{
+padding:16px 26px;
+border:none;
+border-radius:18px;
+background:
+linear-gradient(
+135deg,
+#2f7cff,
+#00d4ff
+);
+color:white;
+font-size:15px;
+font-weight:600;
+cursor:pointer;
+}
+
+.wallet-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(240px,1fr));
+gap:25px;
+margin-bottom:40px;
+}
+
+.wallet-card{
+background:
+rgba(255,255,255,0.08);
+
+border-radius:28px;
+padding:28px;
+border:1px solid rgba(255,255,255,0.08);
+transition:0.3s;
+}
+
+.wallet-card:hover{
+transform:translateY(-6px);
+}
+
+.wallet-card h3{
+font-size:18px;
+margin-bottom:12px;
+color:#b9d4ff;
+}
+
+.wallet-card h2{
+font-size:34px;
+}
+
+.transaction-section{
+margin-top:30px;
+}
+
+.transaction-section h2{
+font-size:32px;
+margin-bottom:25px;
+}
+
+.transaction-list{
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.transaction-item{
+background:
+rgba(255,255,255,0.08);
+
+border-radius:24px;
+padding:24px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:20px;
+
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.transaction-left{
+display:flex;
+align-items:center;
+gap:18px;
+}
+
+.transaction-icon{
+width:60px;
+height:60px;
+border-radius:18px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+
+background:
+linear-gradient(
+135deg,
+#2f7cff,
+#00d4ff
+);
+}
+
+.transaction-info h3{
+margin-bottom:8px;
+}
+
+.transaction-info p{
+color:#9fc2ff;
+font-size:14px;
+}
+
+.transaction-amount{
+font-size:22px;
+font-weight:700;
+}
+
+.green{
+color:#00e676;
+}
+
+.red{
+color:#ff5f6d;
+}
+
+.accessibility-support{
+margin-top:40px;
+background:
+linear-gradient(
+135deg,
+rgba(0,212,255,0.12),
+rgba(47,124,255,0.18)
+);
+
+padding:35px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.accessibility-support h2{
+margin-bottom:18px;
+font-size:32px;
+}
+
+.accessibility-support p{
+line-height:1.8;
+color:#d7e4ff;
+margin-bottom:20px;
+}
+
+</style>
+
+</head>
+
+<body class="dashboard-body">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="sidebar-logo">
+
+<img
+src="inclura-logo.svg"
+alt="Inclura Logo"
+class="sidebar-logo-image"
+/>
+
+<h1>Inclura</h1>
+
+</div>
+
+<nav class="sidebar-nav">
+
+<a href="dashboard.html">🏠 Dashboard</a>
+
+<a href="posts.html">📝 Posts</a>
+
+<a href="reels.html">🎬 Reels</a>
+
+<a href="videos.html">📺 Videos</a>
+
+<a href="wallet.html">💳 Wallet</a>
+
+<a href="creatorstudio.html">🎥 Creator Studio</a>
+
+<a href="analytics.html">📊 Analytics</a>
+
+<a href="notifications.html">🔔 Notifications</a>
+
+<a href="settings.html">⚙ Settings</a>
+
+</nav>
+
+</aside>
+
+<!-- MAIN CONTENT -->
+
+<main class="main-content">
+
+<!-- TOPBAR -->
+
+<div class="dashboard-topbar">
+
+<div class="search-bar">
+
+<input
+type="text"
+placeholder="Search transactions, payouts, transfers..."
+/>
+
+</div>
+
+<div class="topbar-actions">
+
+<button class="topbar-btn">
+💳
+</button>
+
+<button class="topbar-btn">
+🔔
+</button>
+
+<button class="topbar-btn">
+♿
+</button>
+
+</div>
+
+</div>
+
+<!-- BALANCE -->
+
+<section class="wallet-balance">
+
+<p>
+Available Balance
+</p>
+
+<h1>
+$18,420.50
+</h1>
+
+<p>
+Creator earnings, marketplace revenue,
+tips and accessibility support payouts.
+</p>
+
+<div class="wallet-actions">
+
+<button class="wallet-btn">
+Withdraw
+</button>
+
+<button class="wallet-btn">
+Transfer
+</button>
+
+<button class="wallet-btn">
+Top Up
+</button>
+
+<button class="wallet-btn">
+Add Card
+</button>
+
+</div>
+
+</section>
+
+<!-- WALLET STATS -->
+
+<section class="wallet-grid">
+
+<div class="wallet-card">
+
+<h3>
+Total Earnings
+</h3>
+
+<h2>
+$42.8K
+</h2>
+
+</div>
+
+<div class="wallet-card">
+
+<h3>
+Pending Payout
+</h3>
+
+<h2>
+$3.4K
+</h2>
+
+</div>
+
+<div class="wallet-card">
+
+<h3>
+Ad Revenue
+</h3>
+
+<h2>
+$9.2K
+</h2>
+
+</div>
+
+<div class="wallet-card">
+
+<h3>
+Tips & Donations
+</h3>
+
+<h2>
+$5.7K
+</h2>
+
+</div>
+
+</section>
+
+<!-- TRANSACTIONS -->
+
+<section class="transaction-section">
+
+<h2>
+Recent Transactions
+</h2>
+
+<div class="transaction-list">
+
+<!-- ITEM -->
+
+<div class="transaction-item">
+
+<div class="transaction-left">
+
+<div class="transaction-icon">
+💰
+</div>
+
+<div class="transaction-info">
+
+<h3>
+Creator Payout
+</h3>
+
+<p>
+2 hours ago
+</p>
+
+</div>
+
+</div>
+
+<div class="transaction-amount green">
++$1,240
+</div>
+
+</div>
+
+<!-- ITEM -->
+
+<div class="transaction-item">
+
+<div class="transaction-left">
+
+<div class="transaction-icon">
+📡
+</div>
+
+<div class="transaction-info">
+
+<h3>
+Ad Campaign Payment
+</h3>
+
+<p>
+Yesterday
+</p>
+
+</div>
+
+</div>
+
+<div class="transaction-amount red">
+-$120
+</div>
+
+</div>
+
+<!-- ITEM -->
+
+<div class="transaction-item">
+
+<div class="transaction-left">
+
+<div class="transaction-icon">
+🤝
+</div>
+
+<div class="transaction-info">
+
+<h3>
+Care Gig Earnings
+</h3>
+
+<p>
+2 days ago
+</p>
+
+</div>
+
+</div>
+
+<div class="transaction-amount green">
++$820
+</div>
+
+</div>
+
+<!-- ITEM -->
+
+<div class="transaction-item">
+
+<div class="transaction-left">
+
+<div class="transaction-icon">
+🎁
+</div>
+
+<div class="transaction-info">
+
+<h3>
+Accessibility Donation
+</h3>
+
+<p>
+3 days ago
+</p>
+
+</div>
+
+</div>
+
+<div class="transaction-amount green">
++$320
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ACCESSIBILITY SUPPORT -->
+
+<section class="accessibility-support">
+
+<h2>
+♿ Accessibility Support System
+</h2>
+
+<p>
+
+Inclura supports inclusive monetization through
+creator grants, accessibility sponsorships,
+care support funding and inclusion initiatives.
+
+</p>
+
+<button class="wallet-btn">
+Apply For Accessibility Grant
+</button>
+
+</section>
+
+<button class="floating-button">
++
+</button>
+
+</main>
+
+</body>
+</html>
