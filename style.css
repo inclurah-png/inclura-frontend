@@ -27,6 +27,7 @@
     background:#2f7cff;
     color:white;
     font-size:22px;
+    cursor:pointer;
   }
 
   .sidebar{
@@ -74,6 +75,3 @@
   }
 
 }
-```
-
----
