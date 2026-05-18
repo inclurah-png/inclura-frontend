@@ -1,1 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8" />
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
+
+<title>Inclura Settings</title>
+
+<link
+rel="stylesheet"
+href="style-v2.css"
+/>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet"
+/>
+
+<style>
+
+.settings-hero{
+background:
+linear-gradient(
+135deg,
+rgba(47,124,255,0.18),
+rgba(0,212,255,0.10)
+);
+
+padding:40px;
+border-radius:35px;
+margin-bottom:35px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.settings-hero h1{
+font-size:52px;
+margin-bottom:18px;
+}
+
+.settings-hero p{
+font-size:18px;
+line-height:1.8;
+max-width:850px;
+color:#d7e4ff;
+}
+
+.settings-section{
+margin-top:55px;
+}
+
+.settings-section h2{
+font-size:36px;
+margin-bottom:25px;
+}
+
+.settings-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(320px,1fr));
+
+gap:24px;
+}
+
+.settings-card{
+background:
+rgba(255,255,255,0.08);
+
+padding:30px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.settings-card h3{
+font-size:24px;
+margin-bottom:22px;
+}
+
+.form-group{
+display:flex;
+flex-direction:column;
+gap:10px;
+margin-bottom:20px;
+}
+
+.form-group label{
+font-size:14px;
+color:#d7e4ff;
+}
+
+.form-group input,
+.form-group select{
+padding:16px;
+border:none;
+border-radius:18px;
+background:rgba(255,255,255,0.08);
+color:white;
+outline:none;
+font-size:15px;
+}
+
+.save-btn{
+margin-top:14px;
+padding:16px 24px;
+border:none;
+border-radius:18px;
+
+background:
+linear-gradient(
+135deg,
+#2f7cff,
+#00d4ff
+);
+
+color:white;
+font-size:15px;
+font-weight:700;
+cursor:pointer;
+}
+
+.language-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(160px,1fr));
+
+gap:16px;
+margin-top:25px;
+}
+
+.language-card{
+background:
+rgba(255,255,255,0.08);
+
+padding:20px;
+border-radius:22px;
+text-align:center;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.warning-box{
+background:
+rgba(255,80,80,0.12);
+
+padding:24px;
+border-radius:24px;
+border:1px solid rgba(255,80,80,0.22);
+
+margin-top:30px;
+}
+
+.warning-box h3{
+margin-bottom:14px;
+color:#ffb3b3;
+}
+
+</style>
+
+</head>
+
+<body class="dashboard-body">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="sidebar-logo">
+
+<img
+src="inclura-logo.svg"
+alt="Inclura Logo"
+class="sidebar-logo-image"
+/>
+
+<h1>Inclura</h1>
+
+</div>
+
+<nav class="sidebar-nav">
+
+<a href="dashboard.html">🏠 Dashboard</a>
+
+<a href="settings.html">⚙ Settings</a>
+
+<a href="wallet.html">💳 Wallet</a>
+
+<a href="analytics.html">📊 Analytics</a>
+
+<a href="subscriptions.html">💎 Subscriptions</a>
+
+<a href="marketplace.html">🛒 Marketplace</a>
+
+<a href="mentorship.html">🎓 Mentorship</a>
+
+<a href="caregigs.html">🤝 Care Gigs</a>
+
+<a href="verification.html">✔ Verification</a>
+
+</nav>
+
+</aside>
+
+<!-- MAIN -->
+
+<main class="main-content">
+
+<!-- HERO -->
+
+<section class="settings-hero">
+
+<h1>
+⚙ Inclura Settings
+</h1>
+
+<p>
+
+Manage your account,
+privacy,
+security,
+languages,
+accessibility,
+notifications,
+creator controls,
+wallet preferences
+and personalized platform experience across Inclura.
+
+</p>
+
+</section>
+
+<!-- ACCOUNT -->
+
+<section class="settings-section">
+
+<h2>
+👤 Account Settings
+</h2>
+
+<div class="settings-grid">
+
+<div class="settings-card">
+
+<h3>
+📝 Profile Information
+</h3>
+
+<div class="form-group">
+<label>Full Name</label>
+<input type="text" value="Inclura User" />
+</div>
+
+<div class="form-group">
+<label>Email Address</label>
+<input type="email" value="user@inclura.com" />
+</div>
+
+<div class="form-group">
+<label>Username</label>
+<input type="text" value="@inclurauser" />
+</div>
+
+<div class="form-group">
+<label>Phone Number</label>
+<input type="text" value="+234..." />
+</div>
+
+<button class="save-btn">
+Save Profile
+</button>
+
+</div>
+
+<div class="settings-card">
+
+<h3>
+🔐 Security Settings
+</h3>
+
+<div class="form-group">
+<label>Change Password</label>
+<input type="password" placeholder="New Password" />
+</div>
+
+<div class="form-group">
+<label>Two-Factor Authentication</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Login Alerts</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Biometric Login</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<button class="save-btn">
+Save Security
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- LANGUAGE -->
+
+<section class="settings-section">
+
+<h2>
+🌍 Languages & Localization
+</h2>
+
+<div class="language-grid">
+
+<div class="language-card">
+🇺🇸 English
+</div>
+
+<div class="language-card">
+🇫🇷 French
+</div>
+
+<div class="language-card">
+🇪🇸 Spanish
+</div>
+
+<div class="language-card">
+🇩🇪 German
+</div>
+
+<div class="language-card">
+🇳🇬 Hausa
+</div>
+
+<div class="language-card">
+🇳🇬 Yoruba
+</div>
+
+<div class="language-card">
+🇳🇬 Igbo
+</div>
+
+<div class="language-card">
+🇨🇳 Chinese
+</div>
+
+<div class="language-card">
+🇯🇵 Japanese
+</div>
+
+<div class="language-card">
+🇸🇦 Arabic
+</div>
+
+<div class="language-card">
+🇮🇳 Hindi
+</div>
+
+<div class="language-card">
+🇧🇷 Portuguese
+</div>
+
+</div>
+
+</section>
+
+<!-- ACCESSIBILITY -->
+
+<section class="settings-section">
+
+<h2>
+♿ Accessibility Settings
+</h2>
+
+<div class="settings-grid">
+
+<div class="settings-card">
+
+<h3>
+🧠 Inclusive Accessibility
+</h3>
+
+<div class="form-group">
+<label>Screen Reader Support</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Voice Navigation</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Captioning</label>
+
+<select>
+<option>Automatic</option>
+<option>Manual</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>High Contrast Mode</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<button class="save-btn">
+Save Accessibility
+</button>
+
+</div>
+
+<div class="settings-card">
+
+<h3>
+🦾 Cognitive & Visual Support
+</h3>
+
+<div class="form-group">
+<label>Text Scaling</label>
+
+<select>
+<option>100%</option>
+<option>125%</option>
+<option>150%</option>
+<option>175%</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Reduced Motion</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Dyslexia-Friendly Font</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Audio Assistance</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<button class="save-btn">
+Save Support Settings
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- NOTIFICATIONS -->
+
+<section class="settings-section">
+
+<h2>
+🔔 Notification Preferences
+</h2>
+
+<div class="settings-grid">
+
+<div class="settings-card">
+
+<h3>
+📩 Platform Notifications
+</h3>
+
+<div class="form-group">
+<label>Push Notifications</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Email Notifications</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>SMS Alerts</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Creator Updates</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<button class="save-btn">
+Save Notifications
+</button>
+
+</div>
+
+<div class="settings-card">
+
+<h3>
+💰 Financial Alerts
+</h3>
+
+<div class="form-group">
+<label>Wallet Alerts</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Payout Notifications</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Marketplace Purchases</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Subscription Renewals</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<button class="save-btn">
+Save Financial Alerts
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CREATOR SETTINGS -->
+
+<section class="settings-section">
+
+<h2>
+🎥 Creator Controls
+</h2>
+
+<div class="settings-grid">
+
+<div class="settings-card">
+
+<h3>
+📢 Monetization Settings
+</h3>
+
+<div class="form-group">
+<label>Enable Monetization</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Allow Donations</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Enable Subscriptions</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Ad Revenue Sharing</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<button class="save-btn">
+Save Monetization
+</button>
+
+</div>
+
+<div class="settings-card">
+
+<h3>
+🛡 Privacy Controls
+</h3>
+
+<div class="form-group">
+<label>Private Profile</label>
+
+<select>
+<option>Disabled</option>
+<option>Enabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Allow Direct Messages</label>
+
+<select>
+<option>Everyone</option>
+<option>Followers Only</option>
+<option>Nobody</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Search Visibility</label>
+
+<select>
+<option>Public</option>
+<option>Private</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Activity Visibility</label>
+
+<select>
+<option>Public</option>
+<option>Followers Only</option>
+<option>Private</option>
+</select>
+
+</div>
+
+<button class="save-btn">
+Save Privacy
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- LEGAL -->
+
+<section class="settings-section">
+
+<h2>
+⚖ Legal & Compliance
+</h2>
+
+<div class="warning-box">
+
+<h3>
+🔞 Platform Compliance Notice
+</h3>
+
+<p
+style="
+line-height:1.9;
+color:#ffdada;
+"
+>
+
+Inclura complies with global privacy,
+accessibility,
+creator-economy,
+financial
+and data-protection regulations including:
+GDPR,
+COPPA,
+NDPR,
+POPIA,
+PIPEDA
+and international accessibility standards.
+
+Users under 18 are restricted from monetization,
+advertising
+and financial participation systems.
+
+</p>
+
+</div>
+
+</section>
+
+<button class="floating-button">
++
+</button>
+
+</main>
+
+</body>
+  </html>
