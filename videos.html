@@ -1,1 +1,572 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8" />
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
+
+<title>Inclura Videos</title>
+
+<link
+rel="stylesheet"
+href="style-v2.css"
+/>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet"
+/>
+
+<style>
+
+.video-hero{
+position:relative;
+width:100%;
+height:500px;
+border-radius:35px;
+overflow:hidden;
+margin-bottom:35px;
+background:#000;
+}
+
+.video-hero video{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.video-overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+linear-gradient(
+to top,
+rgba(0,0,0,0.9),
+rgba(0,0,0,0.2),
+transparent
+);
+display:flex;
+align-items:flex-end;
+padding:40px;
+}
+
+.video-overlay-content{
+max-width:700px;
+}
+
+.video-overlay-content h1{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.video-overlay-content p{
+font-size:18px;
+line-height:1.8;
+color:#d7e4ff;
+margin-bottom:25px;
+}
+
+.video-buttons{
+display:flex;
+gap:16px;
+flex-wrap:wrap;
+}
+
+.video-btn{
+padding:16px 28px;
+border:none;
+border-radius:18px;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+background:
+linear-gradient(
+135deg,
+#2f7cff,
+#00d4ff
+);
+color:white;
+}
+
+.video-section{
+margin-bottom:45px;
+}
+
+.video-section h2{
+font-size:30px;
+margin-bottom:22px;
+}
+
+.video-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.video-card{
+background:
+rgba(255,255,255,0.08);
+border-radius:28px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,0.08);
+transition:0.3s;
+}
+
+.video-card:hover{
+transform:translateY(-8px);
+}
+
+.video-thumb{
+position:relative;
+height:200px;
+overflow:hidden;
+}
+
+.video-thumb img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.video-duration{
+position:absolute;
+right:12px;
+bottom:12px;
+background:rgba(0,0,0,0.8);
+padding:6px 10px;
+border-radius:10px;
+font-size:13px;
+}
+
+.video-info{
+padding:22px;
+}
+
+.video-info h3{
+font-size:20px;
+margin-bottom:12px;
+line-height:1.5;
+}
+
+.video-meta{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:14px;
+color:#9fc2ff;
+font-size:14px;
+}
+
+.accessibility-tags{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:12px;
+}
+
+.accessibility-tags span{
+padding:8px 12px;
+background:rgba(255,255,255,0.08);
+border-radius:12px;
+font-size:12px;
+}
+
+@media(max-width:900px){
+
+.video-hero{
+height:420px;
+}
+
+.video-overlay-content h1{
+font-size:34px;
+}
+
+.video-overlay{
+padding:25px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body class="dashboard-body">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="sidebar-logo">
+
+<img
+src="inclura-logo.svg"
+alt="Inclura Logo"
+class="sidebar-logo-image"
+/>
+
+<h1>Inclura</h1>
+
+</div>
+
+<nav class="sidebar-nav">
+
+<a href="dashboard.html">🏠 Dashboard</a>
+
+<a href="posts.html">📝 Posts</a>
+
+<a href="reels.html">🎬 Reels</a>
+
+<a href="videos.html">📺 Videos</a>
+
+<a href="market.html">🛒 Marketplace</a>
+
+<a href="wallet.html">💳 Wallet</a>
+
+<a href="notifications.html">🔔 Notifications</a>
+
+<a href="settings.html">⚙ Settings</a>
+
+</nav>
+
+</aside>
+
+<!-- MAIN CONTENT -->
+
+<main class="main-content">
+
+<!-- TOPBAR -->
+
+<div class="dashboard-topbar">
+
+<div class="search-bar">
+
+<input
+type="text"
+placeholder="Search videos, podcasts, creators..."
+/>
+
+</div>
+
+<div class="topbar-actions">
+
+<button class="topbar-btn">
+📤
+</button>
+
+<button class="topbar-btn">
+🔔
+</button>
+
+<button class="topbar-btn">
+♿
+</button>
+
+</div>
+
+</div>
+
+<!-- HERO VIDEO -->
+
+<section class="video-hero">
+
+<video
+autoplay
+muted
+loop
+playsinline
+>
+
+<source
+src="https://www.w3schools.com/html/mov_bbb.mp4"
+type="video/mp4"
+>
+
+</video>
+
+<div class="video-overlay">
+
+<div class="video-overlay-content">
+
+<h1>
+Inclusive Content For Everyone
+</h1>
+
+<p>
+
+Discover accessibility-first videos,
+creator education, mentorship content,
+care support tutorials and global inclusive storytelling.
+
+</p>
+
+<div class="video-buttons">
+
+<button class="video-btn">
+▶ Watch Now
+</button>
+
+<button class="video-btn">
+📚 Explore Library
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TRENDING -->
+
+<section class="video-section">
+
+<h2>
+🔥 Trending Videos
+</h2>
+
+<div class="video-grid">
+
+<!-- CARD -->
+
+<div class="video-card">
+
+<div class="video-thumb">
+
+<img
+src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200"
+/>
+
+<div class="video-duration">
+12:48
+</div>
+
+</div>
+
+<div class="video-info">
+
+<h3>
+Accessibility Technology Changing The World
+</h3>
+
+<div class="video-meta">
+
+<span>
+Inclura Media
+</span>
+
+<span>
+248K Views
+</span>
+
+</div>
+
+<p>
+Explore how accessibility innovation is transforming communication globally.
+</p>
+
+<div class="accessibility-tags">
+
+<span>Subtitles</span>
+
+<span>Voice Assist</span>
+
+<span>Audio Enhanced</span>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="video-card">
+
+<div class="video-thumb">
+
+<img
+src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200"
+/>
+
+<div class="video-duration">
+18:22
+</div>
+
+</div>
+
+<div class="video-info">
+
+<h3>
+Creator Economy & Inclusive Monetization
+</h3>
+
+<div class="video-meta">
+
+<span>
+Creator Studio
+</span>
+
+<span>
+126K Views
+</span>
+
+</div>
+
+<p>
+Learn how creators monetize inclusively through Inclura systems.
+</p>
+
+<div class="accessibility-tags">
+
+<span>Captions</span>
+
+<span>Accessibility Mode</span>
+
+<span>Transcript</span>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="video-card">
+
+<div class="video-thumb">
+
+<img
+src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200"
+/>
+
+<div class="video-duration">
+32:10
+</div>
+
+</div>
+
+<div class="video-info">
+
+<h3>
+Mentorship, AI & Future Digital Communities
+</h3>
+
+<div class="video-meta">
+
+<span>
+Mentor Hub
+</span>
+
+<span>
+98K Views
+</span>
+
+</div>
+
+<p>
+The future of global mentorship and inclusive digital communities.
+</p>
+
+<div class="accessibility-tags">
+
+<span>Sign Overlay</span>
+
+<span>Audio Boost</span>
+
+<span>Subtitles</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- EDUCATION -->
+
+<section class="video-section">
+
+<h2>
+📚 Accessibility Education
+</h2>
+
+<div class="video-grid">
+
+<div class="video-card">
+
+<div class="video-thumb">
+
+<img
+src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200"
+/>
+
+<div class="video-duration">
+25:16
+</div>
+
+</div>
+
+<div class="video-info">
+
+<h3>
+Building Accessible Products & Platforms
+</h3>
+
+<div class="video-meta">
+
+<span>
+Inclura Academy
+</span>
+
+<span>
+64K Views
+</span>
+
+</div>
+
+<p>
+Practical accessibility design systems for developers and creators.
+</p>
+
+<div class="accessibility-tags">
+
+<span>Transcript</span>
+
+<span>Captions</span>
+
+<span>Accessibility UI</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<button class="floating-button">
++
+</button>
+
+</main>
+
+</body>
+</html>
