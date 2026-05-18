@@ -355,3 +355,81 @@ body{
   }
 
 }
+/* =========================================
+   FINAL MOBILE FIX
+========================================= */
+
+.mobile-topbar{
+  display:none;
+}
+
+@media(max-width:900px){
+
+  .mobile-topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 20px;
+    background:#071120;
+    position:sticky;
+    top:0;
+    z-index:5000;
+  }
+
+  .mobile-menu-btn{
+    width:48px;
+    height:48px;
+    border:none;
+    border-radius:14px;
+    background:#2f7cff;
+    color:white;
+    font-size:24px;
+    cursor:pointer;
+  }
+
+  .sidebar{
+    position:fixed;
+    top:0;
+    left:-320px;
+    width:280px;
+    height:100vh;
+    transition:0.3s;
+    z-index:4000;
+  }
+
+  .sidebar.show-sidebar{
+    left:0;
+  }
+
+  .main-content{
+    margin-left:0;
+    width:100%;
+    padding:20px;
+  }
+
+  .dashboard-topbar{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .hero-profile{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .hero-left{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .hero-avatar{
+    width:90px;
+    height:90px;
+  }
+
+  .stats-grid,
+  .quick-grid{
+    grid-template-columns:1fr;
+  }
+
+}
