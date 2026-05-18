@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 80" width="340" height="80">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a6bff"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="80" height="80" rx="18" fill="url(#grad)"/>
+  <text x="40" y="54" font-family="Arial Black, Arial, sans-serif" font-weight="900"
+        font-size="42" fill="white" text-anchor="middle">I</text>
+  <text x="100" y="54" font-family="Arial Black, Arial, sans-serif" font-weight="900"
+        font-size="38" fill="#ffffff" text-anchor="start" letter-spacing="-0.5">Inclura</text>
+</svg>
