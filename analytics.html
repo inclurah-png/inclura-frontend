@@ -1,1 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8" />
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
+
+<title>Inclura Analytics</title>
+
+<link
+rel="stylesheet"
+href="style-v2.css"
+/>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet"
+/>
+
+<style>
+
+.analytics-hero{
+background:
+linear-gradient(
+135deg,
+rgba(47,124,255,0.22),
+rgba(0,212,255,0.12)
+);
+
+padding:40px;
+border-radius:35px;
+margin-bottom:35px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.analytics-hero h1{
+font-size:50px;
+margin-bottom:18px;
+}
+
+.analytics-hero p{
+font-size:18px;
+line-height:1.8;
+max-width:850px;
+color:#d7e4ff;
+}
+
+.analytics-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(240px,1fr));
+
+gap:24px;
+margin-bottom:40px;
+}
+
+.analytics-card{
+background:
+rgba(255,255,255,0.08);
+
+padding:30px;
+border-radius:28px;
+border:1px solid rgba(255,255,255,0.08);
+transition:0.3s;
+}
+
+.analytics-card:hover{
+transform:translateY(-8px);
+}
+
+.analytics-card h3{
+font-size:17px;
+margin-bottom:14px;
+color:#b9d4ff;
+}
+
+.analytics-card h1{
+font-size:40px;
+margin-bottom:12px;
+}
+
+.analytics-card p{
+color:#8fd3ff;
+}
+
+.section-title{
+font-size:34px;
+margin-bottom:25px;
+margin-top:45px;
+}
+
+.chart-placeholder{
+background:
+rgba(255,255,255,0.08);
+
+border-radius:30px;
+padding:35px;
+border:1px solid rgba(255,255,255,0.08);
+margin-bottom:40px;
+}
+
+.chart-bars{
+display:flex;
+align-items:flex-end;
+gap:18px;
+height:240px;
+margin-top:35px;
+}
+
+.bar{
+flex:1;
+border-radius:18px 18px 0 0;
+background:
+linear-gradient(
+180deg,
+#00d4ff,
+#2f7cff
+);
+position:relative;
+}
+
+.bar span{
+position:absolute;
+bottom:-35px;
+left:50%;
+transform:translateX(-50%);
+font-size:14px;
+color:#d7e4ff;
+}
+
+.audience-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:24px;
+}
+
+.audience-card{
+background:
+rgba(255,255,255,0.08);
+
+padding:30px;
+border-radius:28px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.audience-card h3{
+margin-bottom:20px;
+font-size:24px;
+}
+
+.language-list{
+display:flex;
+flex-direction:column;
+gap:14px;
+}
+
+.language-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:14px 16px;
+background:rgba(255,255,255,0.05);
+border-radius:16px;
+}
+
+.accessibility-section{
+margin-top:50px;
+background:
+linear-gradient(
+135deg,
+rgba(0,212,255,0.12),
+rgba(47,124,255,0.16)
+);
+
+padding:35px;
+border-radius:35px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.accessibility-section h2{
+font-size:34px;
+margin-bottom:25px;
+}
+
+.accessibility-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(240px,1fr));
+
+gap:24px;
+}
+
+.accessibility-card{
+background:
+rgba(255,255,255,0.08);
+
+padding:26px;
+border-radius:24px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.accessibility-card h3{
+margin-bottom:14px;
+}
+
+.accessibility-card p{
+line-height:1.7;
+color:#d7e4ff;
+}
+
+</style>
+
+</head>
+
+<body class="dashboard-body">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="sidebar-logo">
+
+<img
+src="inclura-logo.svg"
+alt="Inclura Logo"
+class="sidebar-logo-image"
+/>
+
+<h1>Inclura</h1>
+
+</div>
+
+<nav class="sidebar-nav">
+
+<a href="dashboard.html">🏠 Dashboard</a>
+
+<a href="posts.html">📝 Posts</a>
+
+<a href="reels.html">🎬 Reels</a>
+
+<a href="videos.html">📺 Videos</a>
+
+<a href="wallet.html">💳 Wallet</a>
+
+<a href="creatorstudio.html">🎥 Creator Studio</a>
+
+<a href="analytics.html">📊 Analytics</a>
+
+<a href="notifications.html">🔔 Notifications</a>
+
+<a href="settings.html">⚙ Settings</a>
+
+</nav>
+
+</aside>
+
+<!-- MAIN CONTENT -->
+
+<main class="main-content">
+
+<!-- TOPBAR -->
+
+<div class="dashboard-topbar">
+
+<div class="search-bar">
+
+<input
+type="text"
+placeholder="Search analytics, regions, accessibility insights..."
+/>
+
+</div>
+
+<div class="topbar-actions">
+
+<button class="topbar-btn">
+🌍
+</button>
+
+<button class="topbar-btn">
+📈
+</button>
+
+<button class="topbar-btn">
+♿
+</button>
+
+</div>
+
+</div>
+
+<!-- HERO -->
+
+<section class="analytics-hero">
+
+<h1>
+📊 Creator Analytics
+</h1>
+
+<p>
+
+Track global performance, multilingual audiences,
+accessibility engagement, monetization growth
+and creator impact across the Inclura ecosystem.
+
+</p>
+
+</section>
+
+<!-- STATS -->
+
+<section class="analytics-grid">
+
+<div class="analytics-card">
+
+<h3>
+Total Reach
+</h3>
+
+<h1>
+8.2M
+</h1>
+
+<p>
++24% this month
+</p>
+
+</div>
+
+<div class="analytics-card">
+
+<h3>
+Watch Time
+</h3>
+
+<h1>
+42K hrs
+</h1>
+
+<p>
++12% audience retention
+</p>
+
+</div>
+
+<div class="analytics-card">
+
+<h3>
+Accessibility Engagement
+</h3>
+
+<h1>
+94%
+</h1>
+
+<p>
+Captions & voice navigation usage
+</p>
+
+</div>
+
+<div class="analytics-card">
+
+<h3>
+Revenue Growth
+</h3>
+
+<h1>
++$18K
+</h1>
+
+<p>
+Creator monetization increase
+</p>
+
+</div>
+
+</section>
+
+<!-- CONTENT PERFORMANCE -->
+
+<h2 class="section-title">
+📈 Weekly Performance
+</h2>
+
+<section class="chart-placeholder">
+
+<h3>
+Views Across All Content
+</h3>
+
+<div class="chart-bars">
+
+<div
+class="bar"
+style="height:120px;"
+>
+<span>Mon</span>
+</div>
+
+<div
+class="bar"
+style="height:170px;"
+>
+<span>Tue</span>
+</div>
+
+<div
+class="bar"
+style="height:210px;"
+>
+<span>Wed</span>
+</div>
+
+<div
+class="bar"
+style="height:150px;"
+>
+<span>Thu</span>
+</div>
+
+<div
+class="bar"
+style="height:230px;"
+>
+<span>Fri</span>
+</div>
+
+<div
+class="bar"
+style="height:190px;"
+>
+<span>Sat</span>
+</div>
+
+<div
+class="bar"
+style="height:240px;"
+>
+<span>Sun</span>
+</div>
+
+</div>
+
+</section>
+
+<!-- AUDIENCE -->
+
+<h2 class="section-title">
+🌍 Global Audience Insights
+</h2>
+
+<section class="audience-grid">
+
+<!-- LANGUAGES -->
+
+<div class="audience-card">
+
+<h3>
+Most Used Languages
+</h3>
+
+<div class="language-list">
+
+<div class="language-item">
+<span>English 🇬🇧</span>
+<span>38%</span>
+</div>
+
+<div class="language-item">
+<span>Spanish 🇪🇸</span>
+<span>18%</span>
+</div>
+
+<div class="language-item">
+<span>French 🇫🇷</span>
+<span>12%</span>
+</div>
+
+<div class="language-item">
+<span>Arabic 🇸🇦</span>
+<span>9%</span>
+</div>
+
+<div class="language-item">
+<span>Chinese 🇨🇳</span>
+<span>8%</span>
+</div>
+
+<div class="language-item">
+<span>Hindi 🇮🇳</span>
+<span>7%</span>
+</div>
+
+<div class="language-item">
+<span>Portuguese 🇵🇹</span>
+<span>5%</span>
+</div>
+
+<div class="language-item">
+<span>Others 🌐</span>
+<span>3%</span>
+</div>
+
+</div>
+
+</div>
+
+<!-- COUNTRIES -->
+
+<div class="audience-card">
+
+<h3>
+Top Countries
+</h3>
+
+<div class="language-list">
+
+<div class="language-item">
+<span>United States 🇺🇸</span>
+<span>22%</span>
+</div>
+
+<div class="language-item">
+<span>Nigeria 🇳🇬</span>
+<span>16%</span>
+</div>
+
+<div class="language-item">
+<span>India 🇮🇳</span>
+<span>14%</span>
+</div>
+
+<div class="language-item">
+<span>Brazil 🇧🇷</span>
+<span>11%</span>
+</div>
+
+<div class="language-item">
+<span>United Kingdom 🇬🇧</span>
+<span>9%</span>
+</div>
+
+<div class="language-item">
+<span>Canada 🇨🇦</span>
+<span>7%</span>
+</div>
+
+<div class="language-item">
+<span>Germany 🇩🇪</span>
+<span>5%</span>
+</div>
+
+<div class="language-item">
+<span>Others 🌎</span>
+<span>16%</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ACCESSIBILITY -->
+
+<section class="accessibility-section">
+
+<h2>
+♿ Accessibility Analytics
+</h2>
+
+<div class="accessibility-grid">
+
+<div class="accessibility-card">
+
+<h3>
+Caption Usage
+</h3>
+
+<p>
+82% of viewers enabled captions or subtitles.
+</p>
+
+</div>
+
+<div class="accessibility-card">
+
+<h3>
+Voice Navigation
+</h3>
+
+<p>
+41% of users interacted using voice-based accessibility tools.
+</p>
+
+</div>
+
+<div class="accessibility-card">
+
+<h3>
+Transcript Opens
+</h3>
+
+<p>
+Over 280K transcripts accessed globally.
+</p>
+
+</div>
+
+<div class="accessibility-card">
+
+<h3>
+Sign-Language Engagement
+</h3>
+
+<p>
+Sign-language overlays increased engagement by 37%.
+</p>
+
+</div>
+
+<div class="accessibility-card">
+
+<h3>
+Screen Reader Support
+</h3>
+
+<p>
+Accessibility reader compatibility improved session duration.
+</p>
+
+</div>
+
+<div class="accessibility-card">
+
+<h3>
+Inclusive Reach
+</h3>
+
+<p>
+Your content reached multilingual accessibility-focused audiences worldwide.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<button class="floating-button">
++
+</button>
+
+</main>
+
+</body>
+  </html>
