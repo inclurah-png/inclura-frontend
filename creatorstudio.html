@@ -1,1 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8" />
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
+
+<title>Inclura Creator Studio</title>
+
+<link
+rel="stylesheet"
+href="style-v2.css"
+/>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet"
+/>
+
+<style>
+
+.studio-hero{
+background:
+linear-gradient(
+135deg,
+rgba(47,124,255,0.25),
+rgba(0,212,255,0.12)
+);
+
+padding:40px;
+border-radius:35px;
+margin-bottom:35px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.studio-hero h1{
+font-size:48px;
+margin-bottom:18px;
+}
+
+.studio-hero p{
+font-size:18px;
+line-height:1.8;
+color:#d7e4ff;
+max-width:800px;
+}
+
+.studio-actions{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(240px,1fr));
+
+gap:24px;
+margin-top:40px;
+}
+
+.studio-action-card{
+background:
+rgba(255,255,255,0.08);
+
+padding:28px;
+border-radius:28px;
+border:1px solid rgba(255,255,255,0.08);
+
+transition:0.3s;
+cursor:pointer;
+}
+
+.studio-action-card:hover{
+transform:translateY(-8px);
+}
+
+.studio-action-card .icon{
+font-size:42px;
+margin-bottom:18px;
+}
+
+.studio-action-card h2{
+margin-bottom:12px;
+font-size:24px;
+}
+
+.studio-action-card p{
+color:#bdd7ff;
+line-height:1.7;
+}
+
+.creator-stats{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:24px;
+margin-bottom:40px;
+}
+
+.creator-stat-card{
+background:
+rgba(255,255,255,0.08);
+
+padding:28px;
+border-radius:28px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.creator-stat-card h3{
+color:#b9d4ff;
+margin-bottom:12px;
+font-size:17px;
+}
+
+.creator-stat-card h1{
+font-size:38px;
+}
+
+.content-section{
+margin-top:40px;
+}
+
+.content-section h2{
+font-size:34px;
+margin-bottom:25px;
+}
+
+.content-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
+
+gap:25px;
+}
+
+.content-card{
+background:
+rgba(255,255,255,0.08);
+
+border-radius:28px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,0.08);
+transition:0.3s;
+}
+
+.content-card:hover{
+transform:translateY(-8px);
+}
+
+.content-card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.content-info{
+padding:24px;
+}
+
+.content-info h3{
+font-size:22px;
+margin-bottom:14px;
+}
+
+.content-meta{
+display:flex;
+justify-content:space-between;
+margin-bottom:14px;
+color:#9fc2ff;
+font-size:14px;
+}
+
+.accessibility-tools{
+margin-top:50px;
+background:
+linear-gradient(
+135deg,
+rgba(0,212,255,0.12),
+rgba(47,124,255,0.16)
+);
+
+padding:35px;
+border-radius:35px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.accessibility-tools h2{
+font-size:34px;
+margin-bottom:20px;
+}
+
+.tools-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:22px;
+margin-top:30px;
+}
+
+.tool-card{
+background:
+rgba(255,255,255,0.08);
+
+padding:24px;
+border-radius:24px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.tool-card h3{
+margin-bottom:12px;
+}
+
+.tool-card p{
+line-height:1.7;
+color:#d7e4ff;
+}
+
+</style>
+
+</head>
+
+<body class="dashboard-body">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="sidebar-logo">
+
+<img
+src="inclura-logo.svg"
+alt="Inclura Logo"
+class="sidebar-logo-image"
+/>
+
+<h1>Inclura</h1>
+
+</div>
+
+<nav class="sidebar-nav">
+
+<a href="dashboard.html">🏠 Dashboard</a>
+
+<a href="posts.html">📝 Posts</a>
+
+<a href="reels.html">🎬 Reels</a>
+
+<a href="videos.html">📺 Videos</a>
+
+<a href="wallet.html">💳 Wallet</a>
+
+<a href="creatorstudio.html">🎥 Creator Studio</a>
+
+<a href="analytics.html">📊 Analytics</a>
+
+<a href="notifications.html">🔔 Notifications</a>
+
+<a href="settings.html">⚙ Settings</a>
+
+</nav>
+
+</aside>
+
+<!-- MAIN CONTENT -->
+
+<main class="main-content">
+
+<!-- TOPBAR -->
+
+<div class="dashboard-topbar">
+
+<div class="search-bar">
+
+<input
+type="text"
+placeholder="Search content, uploads, creator tools..."
+/>
+
+</div>
+
+<div class="topbar-actions">
+
+<button class="topbar-btn">
+📤
+</button>
+
+<button class="topbar-btn">
+🔔
+</button>
+
+<button class="topbar-btn">
+♿
+</button>
+
+</div>
+
+</div>
+
+<!-- HERO -->
+
+<section class="studio-hero">
+
+<h1>
+🎥 Creator Studio
+</h1>
+
+<p>
+
+Manage your content, accessibility tools,
+creator monetization, uploads, performance
+and audience engagement all in one professional dashboard.
+
+</p>
+
+<div class="studio-actions">
+
+<div class="studio-action-card">
+
+<div class="icon">
+📝
+</div>
+
+<h2>
+Create Post
+</h2>
+
+<p>
+Publish accessible posts and social content.
+</p>
+
+</div>
+
+<div class="studio-action-card">
+
+<div class="icon">
+🎬
+</div>
+
+<h2>
+Upload Reel
+</h2>
+
+<p>
+Short-form accessible creator video system.
+</p>
+
+</div>
+
+<div class="studio-action-card">
+
+<div class="icon">
+📺
+</div>
+
+<h2>
+Upload Video
+</h2>
+
+<p>
+Long-form creator and educational content.
+</p>
+
+</div>
+
+<div class="studio-action-card">
+
+<div class="icon">
+💰
+</div>
+
+<h2>
+Monetization
+</h2>
+
+<p>
+Manage earnings, ads, subscriptions and payouts.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- STATS -->
+
+<section class="creator-stats">
+
+<div class="creator-stat-card">
+
+<h3>
+Total Views
+</h3>
+
+<h1>
+2.4M
+</h1>
+
+</div>
+
+<div class="creator-stat-card">
+
+<h3>
+Followers
+</h3>
+
+<h1>
+84K
+</h1>
+
+</div>
+
+<div class="creator-stat-card">
+
+<h3>
+Content Uploaded
+</h3>
+
+<h1>
+1,240
+</h1>
+
+</div>
+
+<div class="creator-stat-card">
+
+<h3>
+Revenue Generated
+</h3>
+
+<h1>
+$42K
+</h1>
+
+</div>
+
+</section>
+
+<!-- CONTENT -->
+
+<section class="content-section">
+
+<h2>
+📂 Recent Content
+</h2>
+
+<div class="content-grid">
+
+<!-- CARD -->
+
+<div class="content-card">
+
+<img
+src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200"
+/>
+
+<div class="content-info">
+
+<h3>
+Future of Accessibility Platforms
+</h3>
+
+<div class="content-meta">
+
+<span>
+248K Views
+</span>
+
+<span>
+Video
+</span>
+
+</div>
+
+<p>
+Educational accessibility-focused creator content.
+</p>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="content-card">
+
+<img
+src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200"
+/>
+
+<div class="content-info">
+
+<h3>
+Creator Economy Growth Strategies
+</h3>
+
+<div class="content-meta">
+
+<span>
+118K Views
+</span>
+
+<span>
+Reel
+</span>
+
+</div>
+
+<p>
+Short-form creator monetization insights.
+</p>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="content-card">
+
+<img
+src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200"
+/>
+
+<div class="content-info">
+
+<h3>
+Building Inclusive Communities
+</h3>
+
+<div class="content-meta">
+
+<span>
+94K Views
+</span>
+
+<span>
+Post
+</span>
+
+</div>
+
+<p>
+Community inclusion and mentorship discussions.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ACCESSIBILITY -->
+
+<section class="accessibility-tools">
+
+<h2>
+♿ Accessibility Creator Tools
+</h2>
+
+<div class="tools-grid">
+
+<div class="tool-card">
+
+<h3>
+Auto Captions
+</h3>
+
+<p>
+Generate subtitles and captions automatically.
+</p>
+
+</div>
+
+<div class="tool-card">
+
+<h3>
+Transcript Generator
+</h3>
+
+<p>
+Create readable transcripts for every upload.
+</p>
+
+</div>
+
+<div class="tool-card">
+
+<h3>
+Audio Enhancement
+</h3>
+
+<p>
+Improve voice clarity for accessibility support.
+</p>
+
+</div>
+
+<div class="tool-card">
+
+<h3>
+Sign Language Overlay
+</h3>
+
+<p>
+Add sign-language accessibility to videos.
+</p>
+
+</div>
+
+<div class="tool-card">
+
+<h3>
+Accessibility Scoring
+</h3>
+
+<p>
+Measure how inclusive your content is.
+</p>
+
+</div>
+
+<div class="tool-card">
+
+<h3>
+Voice Navigation
+</h3>
+
+<p>
+Enable voice-based creator interactions.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<button class="floating-button">
++
+</button>
+
+</main>
+
+</body>
+  </html>
