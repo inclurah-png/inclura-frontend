@@ -62,7 +62,12 @@ body{
   font-size:24px;
   font-weight:800;
 }
-
+.sidebar-logo-image{
+  width:55px;
+  height:55px;
+  object-fit:cover;
+  border-radius:18px;
+}
 .sidebar-logo h1{
   font-size:28px;
   font-weight:800;
