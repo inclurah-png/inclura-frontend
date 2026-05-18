@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8" />
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inclura Dashboard</title>
 
-  <link
-    rel="stylesheet"
-    href="style.css"
-  />
+  <link rel="stylesheet" href="style.css" />
 
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
-
 </head>
 
 <body class="dashboard-body">
 
+  <!-- MOBILE TOPBAR -->
+
+  <div class="mobile-topbar">
+
+    <button class="mobile-menu-btn" id="menuToggle">
+      ☰
+    </button>
+
+    <h2>Inclura</h2>
+
+  </div>
+
+
   <!-- SIDEBAR -->
 
-  <aside class="sidebar">
+  <aside class="sidebar" id="sidebar">
 
     <div class="sidebar-logo">
 
@@ -40,67 +42,24 @@
 
     </div>
 
+
     <nav class="sidebar-nav">
 
-      <a href="dashboard.html">
-        🏠 Dashboard
-      </a>
-
-      <a href="posts.html">
-        📝 Posts
-      </a>
-
-      <a href="reels.html">
-        🎬 Reels
-      </a>
-
-      <a href="videos.html">
-        📺 Videos
-      </a>
-
-      <a href="market.html">
-        🛒 Marketplace
-      </a>
-
-      <a href="resume.html">
-        📋 Resume
-      </a>
-
-      <a href="mentorhub.html">
-        🧭 Mentor Hub
-      </a>
-
-      <a href="caregigs.html">
-        🤝 Care Gigs
-      </a>
-
-      <a href="wallet.html">
-        💳 Wallet
-      </a>
-
-      <a href="analytics.html">
-        📊 Analytics
-      </a>
-
-      <a href="creatorstudio.html">
-        🎥 Creator Studio
-      </a>
-
-      <a href="admanager.html">
-        📡 Ad Manager
-      </a>
-
-      <a href="emergency.html">
-        🚨 Emergency
-      </a>
-
-      <a href="notifications.html">
-        🔔 Notifications
-      </a>
-
-      <a href="settings.html">
-        ⚙️ Settings
-      </a>
+      <a href="dashboard.html">🏠 Dashboard</a>
+      <a href="posts.html">📝 Posts</a>
+      <a href="reels.html">🎬 Reels</a>
+      <a href="videos.html">📺 Videos</a>
+      <a href="market.html">🛒 Marketplace</a>
+      <a href="resume.html">📋 Resume</a>
+      <a href="mentorhub.html">🧭 Mentor Hub</a>
+      <a href="caregigs.html">🤝 Care Gigs</a>
+      <a href="wallet.html">💳 Wallet</a>
+      <a href="analytics.html">📊 Analytics</a>
+      <a href="creatorstudio.html">🎥 Creator Studio</a>
+      <a href="admanager.html">📡 Ad Manager</a>
+      <a href="emergency.html">🚨 Emergency</a>
+      <a href="notifications.html">🔔 Notifications</a>
+      <a href="settings.html">⚙️ Settings</a>
 
     </nav>
 
@@ -115,43 +74,27 @@
 
     <div class="dashboard-topbar">
 
-      <button
-        class="topbar-btn"
-        id="menuToggle"
-      >
-        ☰
-      </button>
-
       <div class="search-bar">
 
         <input
           type="text"
-          id="dashboardSearch"
-          placeholder="Search creators, videos, gigs, mentors..."
+          placeholder="Search creators, gigs, videos..."
         />
 
       </div>
 
+
       <div class="topbar-actions">
 
-        <button
-          class="topbar-btn"
-          id="notificationBtn"
-        >
+        <button class="topbar-btn">
           🔔
         </button>
 
-        <button
-          class="topbar-btn"
-          id="themeToggle"
-        >
+        <button class="topbar-btn">
           🌙
         </button>
 
-        <button
-          class="topbar-btn"
-          id="accessibilityToggle"
-        >
+        <button class="topbar-btn">
           ♿
         </button>
 
@@ -160,7 +103,7 @@
     </div>
 
 
-    <!-- HERO PROFILE -->
+    <!-- HERO -->
 
     <section class="hero-profile">
 
@@ -171,14 +114,13 @@
           class="hero-avatar"
         />
 
+
         <div class="hero-user-info">
 
-          <h2>
-            Inclura Creator
-          </h2>
+          <h2>Inclura Creator</h2>
 
           <p>
-            Accessibility Advocate • Creator • Mentor
+            Accessibility Advocate • Mentor • Creator
           </p>
 
           <p>
@@ -189,213 +131,91 @@
 
       </div>
 
-      <div>
 
-        <button class="topbar-btn">
-          ✏️
-        </button>
-
-      </div>
+      <button class="topbar-btn">
+        ✏️
+      </button>
 
     </section>
 
 
-    <!-- STATS GRID -->
+    <!-- STATS -->
 
     <section class="stats-grid">
 
       <div class="stat-card">
-
         <h3>Followers</h3>
-
         <h1>24.8K</h1>
-
       </div>
 
       <div class="stat-card">
-
         <h3>Posts</h3>
-
         <h1>1,240</h1>
-
       </div>
 
       <div class="stat-card">
-
         <h3>Total Earned</h3>
-
         <h1>$18.4K</h1>
-
       </div>
 
       <div class="stat-card">
-
         <h3>Seller Rating</h3>
-
         <h1>⭐ 4.9</h1>
-
       </div>
 
     </section>
 
 
-    <!-- QUICK ACTION GRID -->
+    <!-- QUICK ACTIONS -->
 
     <section class="quick-grid">
 
       <div class="quick-card" data-link="posts.html">
-
         <div class="icon">📝</div>
-
         <h2>Posts</h2>
-
-        <p>
-          Create accessible posts and creator content.
-        </p>
-
+        <p>Create accessible posts and creator content.</p>
       </div>
-
 
       <div class="quick-card" data-link="reels.html">
-
         <div class="icon">🎬</div>
-
         <h2>Reels</h2>
-
-        <p>
-          Upload short videos with accessibility support.
-        </p>
-
+        <p>Upload short creator videos.</p>
       </div>
-
 
       <div class="quick-card" data-link="videos.html">
-
         <div class="icon">📺</div>
-
         <h2>Videos</h2>
-
-        <p>
-          Long-form creator video experiences.
-        </p>
-
+        <p>Long-form creator experiences.</p>
       </div>
-
 
       <div class="quick-card" data-link="market.html">
-
         <div class="icon">🛒</div>
-
         <h2>Marketplace</h2>
-
-        <p>
-          Buy, sell and promote products and services.
-        </p>
-
+        <p>Buy and sell products or services.</p>
       </div>
-
 
       <div class="quick-card" data-link="mentorhub.html">
-
         <div class="icon">🧭</div>
-
         <h2>Mentor Hub</h2>
-
-        <p>
-          Connect with mentors and professionals.
-        </p>
-
+        <p>Connect with mentors globally.</p>
       </div>
-
 
       <div class="quick-card" data-link="caregigs.html">
-
         <div class="icon">🤝</div>
-
         <h2>Care Gigs</h2>
-
-        <p>
-          Accessibility-focused caregiving opportunities.
-        </p>
-
+        <p>Accessibility-focused opportunities.</p>
       </div>
-
 
       <div class="quick-card" data-link="wallet.html">
-
         <div class="icon">💳</div>
-
         <h2>Wallet</h2>
-
-        <p>
-          Earnings, payouts and top-up system.
-        </p>
-
+        <p>Payouts, earnings and top-ups.</p>
       </div>
-
 
       <div class="quick-card" data-link="analytics.html">
-
         <div class="icon">📊</div>
-
         <h2>Analytics</h2>
-
-        <p>
-          Growth metrics and creator performance insights.
-        </p>
-
-      </div>
-
-
-      <div class="quick-card" data-link="creatorstudio.html">
-
-        <div class="icon">🎥</div>
-
-        <h2>Creator Studio</h2>
-
-        <p>
-          Manage content, monetization and uploads.
-        </p>
-
-      </div>
-
-
-      <div class="quick-card" data-link="admanager.html">
-
-        <div class="icon">📡</div>
-
-        <h2>Ad Manager</h2>
-
-        <p>
-          Manage campaigns, revenue and regulations.
-        </p>
-
-      </div>
-
-
-      <div class="quick-card" data-link="emergency.html">
-
-        <div class="icon">🚨</div>
-
-        <h2>Emergency</h2>
-
-        <p>
-          Fast emergency accessibility response system.
-        </p>
-
-      </div>
-
-
-      <div class="quick-card" data-link="notifications.html">
-
-        <div class="icon">🔔</div>
-
-        <h2>Notifications</h2>
-
-        <p>
-          Stay updated with alerts and platform activities.
-        </p>
-
+        <p>Track growth and performance.</p>
       </div>
 
     </section>
@@ -403,10 +223,7 @@
 
     <!-- FLOATING BUTTON -->
 
-    <button
-      class="floating-button"
-      id="fabButton"
-    >
+    <button class="floating-button">
       +
     </button>
 
@@ -416,5 +233,4 @@
   <script src="dashboard.js"></script>
 
 </body>
-
 </html>
