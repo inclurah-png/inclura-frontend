@@ -1,0 +1,584 @@
+/* =========================================
+   INCLURA RESPONSIVE SYSTEM
+   Accessibility-First Responsive Engine
+========================================= */
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+
+@media(min-width:1600px){
+
+.main-content{
+
+max-width:1600px;
+margin-left:320px;
+padding:45px;
+}
+
+.grid-2{
+grid-template-columns:repeat(2,1fr);
+}
+
+.grid-3{
+grid-template-columns:repeat(3,1fr);
+}
+
+.grid-4{
+grid-template-columns:repeat(4,1fr);
+}
+
+.hero-title{
+font-size:72px;
+}
+
+}
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+@media(max-width:1400px){
+
+.main-content{
+padding:35px;
+}
+
+.hero-title{
+font-size:58px;
+}
+
+.analytics-grid{
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+}
+
+}
+
+/* =========================================
+   TABLET LANDSCAPE
+========================================= */
+
+@media(max-width:1100px){
+
+.sidebar{
+
+transform:translateX(-100%);
+}
+
+.sidebar.active{
+
+transform:translateX(0);
+}
+
+.main-content{
+
+margin-left:0;
+padding:90px 24px 35px;
+}
+
+.grid-2,
+.grid-3,
+.grid-4{
+
+grid-template-columns:1fr;
+}
+
+.hero-title{
+font-size:48px;
+}
+
+.card,
+.glass-card{
+
+padding:24px;
+}
+
+.table-wrapper{
+overflow-x:auto;
+}
+
+.mobile-stack{
+
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+}
+
+/* =========================================
+   TABLET PORTRAIT
+========================================= */
+
+@media(max-width:900px){
+
+.hero-title{
+font-size:42px;
+line-height:1.2;
+}
+
+.hero-subtitle{
+font-size:16px;
+line-height:1.8;
+}
+
+.section-title{
+font-size:30px;
+}
+
+.card,
+.glass-card{
+
+border-radius:24px;
+padding:22px;
+}
+
+.stat-card h2{
+font-size:34px;
+}
+
+.search-box{
+
+flex-direction:column;
+}
+
+.search-box input,
+.search-box button{
+
+width:100%;
+}
+
+.form-row{
+
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.video-grid,
+.creator-grid,
+.market-grid,
+.analytics-grid{
+
+grid-template-columns:1fr;
+}
+
+}
+
+/* =========================================
+   MOBILE LARGE
+========================================= */
+
+@media(max-width:700px){
+
+.main-content{
+
+padding:85px 18px 30px;
+}
+
+.hero-title{
+font-size:36px;
+}
+
+.section-title{
+font-size:28px;
+}
+
+.btn{
+
+width:100%;
+min-height:52px;
+}
+
+.input,
+.select,
+.textarea{
+
+padding:16px;
+font-size:16px;
+}
+
+.table th,
+.table td{
+
+padding:14px;
+font-size:14px;
+}
+
+.result-card,
+.market-card,
+.video-card{
+
+padding:20px;
+}
+
+.mobile-hidden{
+display:none;
+}
+
+.mobile-center{
+text-align:center;
+}
+
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media(max-width:500px){
+
+.main-content{
+
+padding:80px 14px 24px;
+}
+
+.hero-title{
+font-size:30px;
+}
+
+.section-title{
+font-size:24px;
+}
+
+.card,
+.glass-card{
+
+padding:18px;
+border-radius:20px;
+}
+
+.sidebar{
+
+width:88%;
+max-width:320px;
+}
+
+.sidebar-logo h1{
+font-size:24px;
+}
+
+.sidebar-nav a{
+
+padding:15px;
+font-size:14px;
+}
+
+.icon-box{
+
+width:58px;
+height:58px;
+
+font-size:26px;
+}
+
+.stat-card h2{
+font-size:28px;
+}
+
+}
+
+/* =========================================
+   ACCESSIBILITY RESPONSIVE FEATURES
+========================================= */
+
+/* HIGH ZOOM SUPPORT */
+
+@media(max-width:1200px){
+
+html{
+
+font-size:100%;
+}
+
+}
+
+/* SCREEN READER SUPPORT */
+
+.sr-only{
+
+position:absolute;
+
+width:1px;
+height:1px;
+
+padding:0;
+margin:-1px;
+
+overflow:hidden;
+
+clip:
+rect(0,0,0,0);
+
+white-space:nowrap;
+border:0;
+}
+
+/* KEYBOARD NAVIGATION */
+
+*:focus{
+
+outline:none;
+}
+
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus{
+
+box-shadow:
+0 0 0 4px rgba(0,212,255,0.18);
+
+border:
+1px solid rgba(0,212,255,0.4);
+}
+
+/* REDUCED MOTION */
+
+@media(prefers-reduced-motion:reduce){
+
+*{
+
+animation:none !important;
+transition:none !important;
+scroll-behavior:auto !important;
+}
+
+}
+
+/* HIGH CONTRAST MODE */
+
+@media(prefers-contrast:more){
+
+.card,
+.glass-card,
+.sidebar,
+.table{
+
+border:
+2px solid rgba(255,255,255,0.25);
+}
+
+.btn-primary{
+
+background:#005eff;
+}
+
+}
+
+/* DARK MODE ACCESSIBILITY */
+
+@media(prefers-color-scheme:dark){
+
+body{
+
+background:#071120;
+color:white;
+}
+
+}
+
+/* LIGHT MODE ACCESSIBILITY */
+
+@media(prefers-color-scheme:light){
+
+body{
+
+background:#f4f7fb;
+color:#071120;
+}
+
+.card,
+.glass-card{
+
+background:white;
+color:#071120;
+}
+
+}
+
+/* =========================================
+   LIVESTREAM RESPONSIVE SYSTEM
+========================================= */
+
+.live-video{
+
+width:100%;
+aspect-ratio:16/9;
+
+border-radius:28px;
+
+overflow:hidden;
+}
+
+.live-chat{
+
+height:600px;
+overflow-y:auto;
+}
+
+@media(max-width:900px){
+
+.live-layout{
+
+display:flex;
+flex-direction:column;
+gap:24px;
+}
+
+.live-chat{
+
+height:420px;
+}
+
+}
+
+/* =========================================
+   ACCESSIBILITY CHAT SUPPORT
+========================================= */
+
+.caption-box{
+
+padding:18px;
+
+background:
+rgba(255,255,255,0.08);
+
+border-radius:20px;
+
+line-height:1.8;
+}
+
+.sign-language-box{
+
+border:
+2px dashed rgba(0,212,255,0.3);
+
+border-radius:22px;
+
+padding:18px;
+}
+
+/* =========================================
+   RESPONSIVE TABLE SYSTEM
+========================================= */
+
+@media(max-width:700px){
+
+.responsive-table thead{
+display:none;
+}
+
+.responsive-table,
+.responsive-table tbody,
+.responsive-table tr,
+.responsive-table td{
+
+display:block;
+width:100%;
+}
+
+.responsive-table tr{
+
+margin-bottom:18px;
+
+background:
+rgba(255,255,255,0.06);
+
+border-radius:20px;
+
+padding:14px;
+}
+
+.responsive-table td{
+
+text-align:right;
+
+padding:12px;
+
+position:relative;
+}
+
+.responsive-table td::before{
+
+content:attr(data-label);
+
+position:absolute;
+left:12px;
+
+font-weight:700;
+color:#8fd3ff;
+}
+
+}
+
+/* =========================================
+   MULTILINGUAL SUPPORT
+========================================= */
+
+html{
+
+-webkit-text-size-adjust:100%;
+}
+
+body{
+
+word-wrap:break-word;
+overflow-wrap:break-word;
+}
+
+/* =========================================
+   TOUCH TARGETS
+========================================= */
+
+button,
+a,
+input,
+select{
+
+touch-action:manipulation;
+}
+
+.btn,
+.sidebar-nav a{
+
+min-height:48px;
+}
+
+/* =========================================
+   SAFE AREA SUPPORT
+========================================= */
+
+body{
+
+padding-bottom:
+env(safe-area-inset-bottom);
+}
+
+/* =========================================
+   PRINT SUPPORT
+========================================= */
+
+@media print{
+
+.sidebar,
+.mobile-menu-btn{
+
+display:none !important;
+}
+
+.main-content{
+
+margin:0;
+padding:0;
+}
+
+body{
+
+background:white;
+color:black;
+}
+
+}
