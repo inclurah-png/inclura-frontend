@@ -1,1 +1,822 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8" />
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
+
+<title>Inclura Moderation Center</title>
+
+<link
+rel="stylesheet"
+href="style-v2.css"
+/>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet"
+/>
+
+<style>
+
+.moderation-hero{
+
+background:
+linear-gradient(
+135deg,
+rgba(255,80,80,0.18),
+rgba(47,124,255,0.18)
+);
+
+padding:40px;
+border-radius:35px;
+margin-bottom:35px;
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+}
+
+.moderation-hero h1{
+font-size:52px;
+margin-bottom:18px;
+}
+
+.moderation-hero p{
+font-size:18px;
+line-height:1.8;
+max-width:900px;
+color:#d7e4ff;
+}
+
+.stats-grid{
+
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:24px;
+margin-top:35px;
+}
+
+.stats-card{
+
+background:
+rgba(255,255,255,0.06);
+
+padding:28px;
+border-radius:28px;
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+}
+
+.stats-card h2{
+font-size:42px;
+margin-bottom:12px;
+}
+
+.stats-card p{
+color:#d7e4ff;
+}
+
+.section-title{
+margin-top:50px;
+margin-bottom:25px;
+font-size:36px;
+}
+
+.control-grid{
+
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(320px,1fr));
+
+gap:24px;
+}
+
+.control-card{
+
+background:
+rgba(255,255,255,0.06);
+
+padding:30px;
+border-radius:30px;
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+}
+
+.control-card h3{
+font-size:24px;
+margin-bottom:20px;
+}
+
+.form-group{
+display:flex;
+flex-direction:column;
+gap:10px;
+margin-bottom:18px;
+}
+
+.form-group label{
+color:#d7e4ff;
+font-size:14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+
+padding:16px;
+
+border:none;
+border-radius:18px;
+
+background:
+rgba(255,255,255,0.08);
+
+color:white;
+outline:none;
+}
+
+.form-group textarea{
+min-height:120px;
+resize:none;
+}
+
+.action-btn{
+
+margin-top:12px;
+
+padding:16px 22px;
+
+border:none;
+border-radius:18px;
+
+background:
+linear-gradient(
+135deg,
+#2f7cff,
+#00d4ff
+);
+
+color:white;
+font-weight:700;
+cursor:pointer;
+}
+
+.report-table{
+width:100%;
+border-collapse:collapse;
+margin-top:25px;
+}
+
+.report-table th,
+.report-table td{
+
+padding:18px;
+text-align:left;
+
+border-bottom:
+1px solid rgba(255,255,255,0.08);
+
+}
+
+.report-table th{
+color:#8fd3ff;
+}
+
+.flag-box{
+
+background:
+rgba(255,80,80,0.12);
+
+padding:24px;
+border-radius:24px;
+
+border:
+1px solid rgba(255,80,80,0.25);
+
+margin-top:30px;
+}
+
+.flag-box h3{
+margin-bottom:14px;
+color:#ffdada;
+}
+
+.ai-grid{
+
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:24px;
+margin-top:25px;
+}
+
+.ai-card{
+
+background:
+rgba(255,255,255,0.06);
+
+padding:28px;
+border-radius:28px;
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+}
+
+.ai-card .icon{
+font-size:48px;
+margin-bottom:16px;
+}
+
+.ai-card h2{
+margin-bottom:14px;
+}
+
+.ai-card p{
+line-height:1.8;
+color:#d7e4ff;
+}
+
+@media(max-width:900px){
+
+.report-table{
+font-size:14px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body class="dashboard-body">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="sidebar-logo">
+
+<img
+src="inclura-logo.svg"
+alt="Inclura Logo"
+class="sidebar-logo-image"
+/>
+
+<h1>Inclura</h1>
+
+</div>
+
+<nav class="sidebar-nav">
+
+<a href="dashboard.html">🏠 Dashboard</a>
+
+<a href="moderation.html">🛡 Moderation</a>
+
+<a href="livestream.html">📺 Livestream</a>
+
+<a href="marketplace.html">🛒 Marketplace</a>
+
+<a href="creatorstudio.html">🎬 Creator Studio</a>
+
+<a href="analytics.html">📊 Analytics</a>
+
+<a href="wallet.html">💳 Wallet</a>
+
+<a href="settings.html">⚙ Settings</a>
+
+</nav>
+
+</aside>
+
+<!-- MAIN -->
+
+<main class="main-content">
+
+<!-- HERO -->
+
+<section class="moderation-hero">
+
+<h1>
+🛡 Inclura Trust & Safety Center
+</h1>
+
+<p>
+
+Manage platform-wide moderation,
+AI safety systems,
+creator protection,
+livestream integrity,
+marketplace trust,
+accessibility enforcement,
+anti-harassment systems
+and global compliance governance.
+
+</p>
+
+</section>
+
+<!-- STATS -->
+
+<section class="stats-grid">
+
+<div class="stats-card">
+<h2>12,480</h2>
+<p>Active Reports</p>
+</div>
+
+<div class="stats-card">
+<h2>4,120</h2>
+<p>Resolved Cases</p>
+</div>
+
+<div class="stats-card">
+<h2>98.2%</h2>
+<p>AI Detection Accuracy</p>
+</div>
+
+<div class="stats-card">
+<h2>182</h2>
+<p>Countries Protected</p>
+</div>
+
+</section>
+
+<!-- CONTENT MODERATION -->
+
+<h2 class="section-title">
+📄 Content Moderation
+</h2>
+
+<section class="control-grid">
+
+<div class="control-card">
+
+<h3>
+🎥 Video & Reel Moderation
+</h3>
+
+<div class="form-group">
+<label>AI Content Scanning</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Violence Detection</label>
+
+<select>
+<option>Strict</option>
+<option>Moderate</option>
+<option>Flexible</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Hate Speech Detection</label>
+
+<select>
+<option>Maximum Protection</option>
+<option>Balanced</option>
+<option>Flexible</option>
+</select>
+
+</div>
+
+<button class="action-btn">
+Save Moderation Rules
+</button>
+
+</div>
+
+<div class="control-card">
+
+<h3>
+💬 Comment & Chat Moderation
+</h3>
+
+<div class="form-group">
+<label>Spam Detection</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Bullying Protection</label>
+
+<select>
+<option>Strict</option>
+<option>Balanced</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Livestream Chat Filtering</label>
+
+<select>
+<option>AI Moderated</option>
+<option>Manual Review</option>
+</select>
+
+</div>
+
+<button class="action-btn">
+Save Chat Protection
+</button>
+
+</div>
+
+</section>
+
+<!-- ACCESSIBILITY -->
+
+<h2 class="section-title">
+♿ Accessibility Protection
+</h2>
+
+<section class="control-grid">
+
+<div class="control-card">
+
+<h3>
+🌍 Inclusion Enforcement
+</h3>
+
+<div class="form-group">
+<label>Accessibility Discrimination Detection</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Accessibility Caption Compliance</label>
+
+<select>
+<option>Required</option>
+<option>Optional</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Voice Navigation Enforcement</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<button class="action-btn">
+Save Accessibility Rules
+</button>
+
+</div>
+
+<div class="control-card">
+
+<h3>
+🚫 Anti-Harassment Systems
+</h3>
+
+<div class="form-group">
+<label>Protected Communities</label>
+
+<select>
+<option>Maximum Protection</option>
+<option>Balanced</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Disability Harassment Detection</label>
+
+<select>
+<option>AI Enabled</option>
+<option>Manual Only</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Instant Suspension Threshold</label>
+
+<select>
+<option>High</option>
+<option>Medium</option>
+<option>Low</option>
+</select>
+
+</div>
+
+<button class="action-btn">
+Save Protection Systems
+</button>
+
+</div>
+
+</section>
+
+<!-- MARKETPLACE -->
+
+<h2 class="section-title">
+🛒 Marketplace Protection
+</h2>
+
+<section class="control-grid">
+
+<div class="control-card">
+
+<h3>
+🔍 Fraud Detection
+</h3>
+
+<div class="form-group">
+<label>Scam Detection</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Seller Verification Requirement</label>
+
+<select>
+<option>Mandatory</option>
+<option>Optional</option>
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Escrow Enforcement</label>
+
+<select>
+<option>Enabled</option>
+<option>Disabled</option>
+</select>
+
+</div>
+
+<button class="action-btn">
+Save Marketplace Protection
+</button>
+
+</div>
+
+<div class="control-card">
+
+<h3>
+⚖ Dispute Resolution
+</h3>
+
+<div class="form-group">
+<label>Automatic Refund Threshold</label>
+<input type="number" placeholder="$100" />
+</div>
+
+<div class="form-group">
+<label>Dispute Escalation Time</label>
+<input type="text" placeholder="48 Hours" />
+</div>
+
+<div class="form-group">
+<label>Fraud Risk Monitoring</label>
+
+<select>
+<option>High</option>
+<option>Moderate</option>
+</select>
+
+</div>
+
+<button class="action-btn">
+Save Dispute Controls
+</button>
+
+</div>
+
+</section>
+
+<!-- REPORTS -->
+
+<h2 class="section-title">
+📋 Moderation Reports
+</h2>
+
+<table class="report-table">
+
+<tr>
+
+<th>
+Case ID
+</th>
+
+<th>
+Type
+</th>
+
+<th>
+Priority
+</th>
+
+<th>
+Status
+</th>
+
+</tr>
+
+<tr>
+<td>#INC-4831</td>
+<td>Harassment</td>
+<td>High</td>
+<td>Under Review</td>
+</tr>
+
+<tr>
+<td>#INC-4832</td>
+<td>Marketplace Fraud</td>
+<td>Critical</td>
+<td>Escalated</td>
+</tr>
+
+<tr>
+<td>#INC-4833</td>
+<td>Livestream Abuse</td>
+<td>Medium</td>
+<td>Resolved</td>
+</tr>
+
+<tr>
+<td>#INC-4834</td>
+<td>Accessibility Violation</td>
+<td>High</td>
+<td>Pending</td>
+</tr>
+
+</table>
+
+<!-- AI SYSTEMS -->
+
+<h2 class="section-title">
+🤖 AI Moderation Systems
+</h2>
+
+<section class="ai-grid">
+
+<div class="ai-card">
+
+<div class="icon">
+🧠
+</div>
+
+<h2>
+AI Content Detection
+</h2>
+
+<p>
+
+Detect harmful content,
+hate speech,
+violence,
+spam,
+misinformation
+and platform abuse automatically.
+
+</p>
+
+</div>
+
+<div class="ai-card">
+
+<div class="icon">
+⚡
+</div>
+
+<h2>
+Real-Time Livestream Moderation
+</h2>
+
+<p>
+
+Monitor livestreams,
+super chats,
+audience interactions
+and harmful behavior in real-time.
+
+</p>
+
+</div>
+
+<div class="ai-card">
+
+<div class="icon">
+🌐
+</div>
+
+<h2>
+Global Language Moderation
+</h2>
+
+<p>
+
+Moderate multilingual content across global audiences with AI-powered contextual analysis.
+
+</p>
+
+</div>
+
+<div class="ai-card">
+
+<div class="icon">
+♿
+</div>
+
+<h2>
+Accessibility Protection AI
+</h2>
+
+<p>
+
+Protect disabled communities from discrimination,
+harassment
+and exclusionary content.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- WARNING -->
+
+<div class="flag-box">
+
+<h3>
+⚠ Global Compliance Notice
+</h3>
+
+<p
+style="
+line-height:1.9;
+color:#ffdada;
+"
+>
+
+Inclura moderation systems comply with:
+GDPR,
+COPPA,
+UK GDPR,
+NDPR,
+POPIA,
+PIPEDA
+and international accessibility protection standards.
+
+All moderation systems prioritize:
+user safety,
+inclusion,
+creator protection,
+accessibility rights
+and ethical AI governance.
+
+</p>
+
+</div>
+
+</main>
+
+</body>
+</html>
