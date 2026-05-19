@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8" />
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
+
+<title>Inclura Search</title>
+
+<link
+rel="stylesheet"
+href="style-v2.css"
+/>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet"
+/>
+
+<style>
+
+.search-hero{
+
+background:
+linear-gradient(
+135deg,
+rgba(47,124,255,0.18),
+rgba(0,212,255,0.16)
+);
+
+padding:45px;
+border-radius:36px;
+margin-bottom:40px;
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+}
+
+.search-hero h1{
+font-size:56px;
+margin-bottom:18px;
+}
+
+.search-hero p{
+font-size:18px;
+line-height:1.8;
+max-width:900px;
+color:#d7e4ff;
+}
+
+.search-box{
+
+margin-top:35px;
+
+display:flex;
+gap:18px;
+flex-wrap:wrap;
+}
+
+.search-box input{
+
+flex:1;
+min-width:280px;
+
+padding:22px;
+
+border:none;
+border-radius:24px;
+
+background:
+rgba(255,255,255,0.08);
+
+color:white;
+font-size:18px;
+outline:none;
+}
+
+.search-btn{
+
+padding:22px 32px;
+
+border:none;
+border-radius:24px;
+
+background:
+linear-gradient(
+135deg,
+#2f7cff,
+#00d4ff
+);
+
+color:white;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+}
+
+.filter-row{
+
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+margin-top:28px;
+}
+
+.filter-chip{
+
+padding:14px 20px;
+
+border-radius:999px;
+
+background:
+rgba(255,255,255,0.08);
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+cursor:pointer;
+font-weight:600;
+}
+
+.filter-chip.active{
+
+background:
+linear-gradient(
+135deg,
+#2f7cff,
+#00d4ff
+);
+
+}
+
+.section-title{
+margin-top:55px;
+margin-bottom:26px;
+font-size:36px;
+}
+
+.results-grid{
+
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(320px,1fr));
+
+gap:24px;
+}
+
+.result-card{
+
+background:
+rgba(255,255,255,0.06);
+
+padding:28px;
+border-radius:30px;
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+}
+
+.result-top{
+
+display:flex;
+align-items:center;
+gap:18px;
+margin-bottom:18px;
+}
+
+.result-icon{
+
+width:70px;
+height:70px;
+
+border-radius:22px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:34px;
+
+background:
+linear-gradient(
+135deg,
+#13213d,
+#071120
+);
+
+}
+
+.result-card h2{
+margin-bottom:12px;
+font-size:24px;
+}
+
+.result-card p{
+line-height:1.8;
+color:#d7e4ff;
+}
+
+.result-tags{
+
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:18px;
+}
+
+.tag{
+
+padding:8px 14px;
+
+border-radius:999px;
+
+background:
+rgba(255,255,255,0.08);
+
+font-size:13px;
+color:#8fd3ff;
+}
+
+.ai-box{
+
+margin-top:50px;
+
+background:
+rgba(47,124,255,0.12);
+
+padding:30px;
+border-radius:30px;
+
+border:
+1px solid rgba(47,124,255,0.18);
+
+}
+
+.ai-box h2{
+margin-bottom:16px;
+}
+
+.ai-box p{
+line-height:1.9;
+color:#d7e4ff;
+}
+
+.language-grid{
+
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(180px,1fr));
+
+gap:18px;
+margin-top:25px;
+}
+
+.language-card{
+
+background:
+rgba(255,255,255,0.06);
+
+padding:22px;
+border-radius:24px;
+
+text-align:center;
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+}
+
+.language-card h3{
+margin-top:12px;
+}
+
+.accessibility-banner{
+
+margin-top:55px;
+
+background:
+rgba(255,255,255,0.05);
+
+padding:28px;
+border-radius:28px;
+
+}
+
+.accessibility-banner h2{
+margin-bottom:14px;
+}
+
+.accessibility-banner p{
+line-height:1.9;
+color:#d7e4ff;
+}
+
+@media(max-width:900px){
+
+.search-hero h1{
+font-size:42px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body class="dashboard-body">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="sidebar-logo">
+
+<img
+src="inclura-logo.svg"
+alt="Inclura Logo"
+class="sidebar-logo-image"
+/>
+
+<h1>Inclura</h1>
+
+</div>
+
+<nav class="sidebar-nav">
+
+<a href="dashboard.html">🏠 Dashboard</a>
+
+<a href="search.html">🔍 Search</a>
+
+<a href="creatorstudio.html">🎬 Creators</a>
+
+<a href="marketplace.html">🛒 Marketplace</a>
+
+<a href="livestream.html">📺 Livestream</a>
+
+<a href="mentorship.html">🎓 Mentorship</a>
+
+<a href="enterprise.html">🏢 Enterprise</a>
+
+<a href="accessibility-center.html">♿ Accessibility</a>
+
+<a href="settings.html">⚙ Settings</a>
+
+</nav>
+
+</aside>
+
+<!-- MAIN -->
+
+<main class="main-content">
+
+<!-- HERO -->
+
+<section class="search-hero">
+
+<h1>
+🔍 Inclura Discovery Engine
+</h1>
+
+<p>
+
+Discover creators,
+videos,
+livestreams,
+marketplace services,
+enterprise organizations,
+accessibility-friendly content,
+courses,
+mentors
+and multilingual communities across the Inclura ecosystem.
+
+</p>
+
+<!-- SEARCH -->
+
+<div class="search-box">
+
+<input
+type="text"
+placeholder="Search creators, videos, mentors, products, livestreams..."
+/>
+
+<button class="search-btn">
+🔍 Search
+</button>
+
+</div>
+
+<!-- FILTERS -->
+
+<div class="filter-row">
+
+<div class="filter-chip active">
+🌍 All
+</div>
+
+<div class="filter-chip">
+🎥 Videos
+</div>
+
+<div class="filter-chip">
+📺 Livestreams
+</div>
+
+<div class="filter-chip">
+🛒 Marketplace
+</div>
+
+<div class="filter-chip">
+🎓 Courses
+</div>
+
+<div class="filter-chip">
+👥 Creators
+</div>
+
+<div class="filter-chip">
+🏢 Enterprise
+</div>
+
+<div class="filter-chip">
+♿ Accessible Content
+</div>
+
+<div class="filter-chip">
+🤖 AI Suggestions
+</div>
+
+</div>
+
+</section>
+
+<!-- TRENDING -->
+
+<h2 class="section-title">
+🔥 Trending Discoveries
+</h2>
+
+<section class="results-grid">
+
+<!-- CARD -->
+
+<div class="result-card">
+
+<div class="result-top">
+
+<div class="result-icon">
+🎬
+</div>
+
+<div>
+
+<h2>
+Accessible Creator Academy
+</h2>
+
+<p style="color:#8fd3ff;">
+Creator Education
+</p>
+
+</div>
+
+</div>
+
+<p>
+
+Learn inclusive content creation,
+AI accessibility tools,
+caption optimization
+and creator monetization.
+
+</p>
+
+<div class="result-tags">
+
+<div class="tag">
+♿ Caption Ready
+</div>
+
+<div class="tag">
+🌐 Multilingual
+</div>
+
+<div class="tag">
+🎓 Education
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="result-card">
+
+<div class="result-top">
+
+<div class="result-icon">
+📺
+</div>
+
+<div>
+
+<h2>
+Global Inclusion Livestream
+</h2>
+
+<p style="color:#8fd3ff;">
+Live Now
+</p>
+
+</div>
+
+</div>
+
+<p>
+
+A multilingual accessibility conference livestream with live captions and sign-language overlays.
+
+</p>
+
+<div class="result-tags">
+
+<div class="tag">
+🔴 Live
+</div>
+
+<div class="tag">
+♿ Accessibility
+</div>
+
+<div class="tag">
+🌍 Global
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="result-card">
+
+<div class="result-top">
+
+<div class="result-icon">
+🛒
+</div>
+
+<div>
+
+<h2>
+Accessible Digital Marketplace
+</h2>
+
+<p style="color:#8fd3ff;">
+Marketplace
+</p>
+
+</div>
+
+</div>
+
+<p>
+
+Discover accessibility tools,
+digital templates,
+voice-navigation systems
+and creator assets.
+
+</p>
+
+<div class="result-tags">
+
+<div class="tag">
+🛍 Digital Assets
+</div>
+
+<div class="tag">
+♿ Inclusive
+</div>
+
+<div class="tag">
+💳 Verified
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="result-card">
+
+<div class="result-top">
+
+<div class="result-icon">
+🏢
+</div>
+
+<div>
+
+<h2>
+Enterprise Collaboration Hub
+</h2>
+
+<p style="color:#8fd3ff;">
+Organization Workspace
+</p>
+
+</div>
+
+</div>
+
+<p>
+
+Manage enterprise webinars,
+accessibility reporting,
+team collaboration
+and educational systems.
+
+</p>
+
+<div class="result-tags">
+
+<div class="tag">
+🏢 Enterprise
+</div>
+
+<div class="tag">
+📊 Analytics
+</div>
+
+<div class="tag">
+🤝 Collaboration
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- AI SEARCH -->
+
+<section class="ai-box">
+
+<h2>
+🤖 AI-Powered Discovery
+</h2>
+
+<p>
+
+Inclura AI Search uses semantic intelligence,
+multilingual understanding,
+creator relevance,
+accessibility optimization
+and personalized recommendation systems
+to deliver intelligent platform-wide discovery.
+
+AI systems prioritize:
+accessibility,
+ethical recommendations,
+creator visibility,
+regional relevance
+and inclusive search experiences.
+
+</p>
+
+</section>
+
+<!-- LANGUAGES -->
+
+<h2 class="section-title">
+🌐 Multilingual Discovery
+</h2>
+
+<section class="language-grid">
+
+<div class="language-card">
+🌍
+<h3>Global</h3>
+</div>
+
+<div class="language-card">
+🇬🇧
+<h3>English</h3>
+</div>
+
+<div class="language-card">
+🇪🇸
+<h3>Spanish</h3>
+</div>
+
+<div class="language-card">
+🇫🇷
+<h3>French</h3>
+</div>
+
+<div class="language-card">
+🇸🇦
+<h3>Arabic</h3>
+</div>
+
+<div class="language-card">
+🇨🇳
+<h3>Chinese</h3>
+</div>
+
+<div class="language-card">
+🇮🇳
+<h3>Hindi</h3>
+</div>
+
+<div class="language-card">
+🇳🇬
+<h3>Yoruba</h3>
+</div>
+
+<div class="language-card">
+🇳🇬
+<h3>Igbo</h3>
+</div>
+
+<div class="language-card">
+🌍
+<h3>Swahili</h3>
+</div>
+
+</section>
+
+<!-- ACCESSIBILITY -->
+
+<div class="accessibility-banner">
+
+<h2>
+♿ Accessibility Discovery Infrastructure
+</h2>
+
+<p>
+
+Search systems automatically prioritize:
+caption-ready content,
+screen-reader compatible experiences,
+multilingual accessibility,
+voice-navigation support,
+AI translations,
+sign-language enhanced media
+and cognitive accessibility optimization.
+
+Inclura discovery infrastructure is designed to make inclusive content easier to find globally.
+
+</p>
+
+</div>
+
+</main>
+
+</body>
+  </html>
