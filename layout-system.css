@@ -1,0 +1,46 @@
+/* =========================================
+   INCLURA GLOBAL LAYOUT SYSTEM
+========================================= */
+
+:root{
+
+/* COLORS */
+
+--bg-primary:#071120;
+--bg-secondary:#0b1730;
+--bg-card:#13213d;
+
+--text-primary:#ffffff;
+--text-secondary:#d7e4ff;
+--text-accent:#8fd3ff;
+
+--border-soft:
+rgba(255,255,255,0.08);
+
+--glass:
+rgba(255,255,255,0.06);
+
+--glass-strong:
+rgba(255,255,255,0.10);
+
+/* GRADIENTS */
+
+--gradient-primary:
+linear-gradient(
+135deg,
+#2f7cff,
+#00d4ff
+);
+
+--gradient-danger:
+linear-gradient(
+135deg,
+#ff5050,
+#ff7a7a
+);
+
+--gradient-success:
+linear-gradient(
+135deg,
+#00c896,
+#00e6b0
