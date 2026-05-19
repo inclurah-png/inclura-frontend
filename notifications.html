@@ -25,17 +25,21 @@ rel="stylesheet"
 <style>
 
 .notification-hero{
+
 background:
 linear-gradient(
 135deg,
 rgba(47,124,255,0.18),
-rgba(0,212,255,0.12)
+rgba(0,212,255,0.16)
 );
 
 padding:40px;
 border-radius:35px;
 margin-bottom:35px;
-border:1px solid rgba(255,255,255,0.08);
+
+border:
+1px solid rgba(255,255,255,0.08);
+
 }
 
 .notification-hero h1{
@@ -50,94 +54,706 @@ max-width:900px;
 color:#d7e4ff;
 }
 
-.notification-section{
-margin-top:50px;
-}
+.notification-layout{
 
-.notification-section h2{
-font-size:34px;
-margin-bottom:25px;
-}
-
-.notification-grid{
 display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(320px,1fr));
-
-gap:24px;
+grid-template-columns:320px 1fr;
+gap:28px;
+margin-top:35px;
 }
 
-.notification-card{
+.notification-sidebar{
+
+background:
+rgba(255,255,255,0.06);
+
+padding:28px;
+border-radius:30px;
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+height:fit-content;
+}
+
+.filter-btn{
+
+display:block;
+width:100%;
+
+padding:16px 18px;
+
+margin-bottom:14px;
+
+border:none;
+border-radius:18px;
+
 background:
 rgba(255,255,255,0.08);
 
-padding:30px;
-border-radius:30px;
-border:1px solid rgba(255,255,255,0.08);
+color:white;
+text-align:left;
 
-transition:0.3s;
+font-weight:600;
 cursor:pointer;
 }
 
-.notification-card:hover{
-transform:translateY(-8px);
+.filter-btn.active{
+
+background:
+linear-gradient(
+135deg,
+#2f7cff,
+#00d4ff
+);
+
 }
 
-.notification-card .icon{
-font-size:46px;
-margin-bottom:18px;
+.notification-feed{
+display:flex;
+flex-direction:column;
+gap:22px;
 }
 
-.notification-card h2{
+.notification-card{
+
+background:
+rgba(255,255,255,0.06);
+
+padding:28px;
+border-radius:30px;
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+display:flex;
+gap:22px;
+align-items:flex-start;
+}
+
+.notification-icon{
+
+width:70px;
+height:70px;
+
+border-radius:22px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:34px;
+
+background:
+linear-gradient(
+135deg,
+#13213d,
+#071120
+);
+
+flex-shrink:0;
+}
+
+.notification-content h2{
+margin-bottom:10px;
 font-size:24px;
-margin-bottom:14px;
 }
 
-.notification-card p{
+.notification-content p{
 line-height:1.8;
 color:#d7e4ff;
 }
 
-.alert-box{
+.notification-time{
+margin-top:12px;
+font-size:14px;
+color:#8fd3ff;
+}
+
+.priority-badge{
+
+display:inline-block;
+
+margin-top:14px;
+padding:8px 16px;
+
+border-radius:999px;
+
 background:
-rgba(255,255,255,0.08);
+rgba(255,80,80,0.16);
+
+color:#ffdada;
+
+font-weight:700;
+font-size:13px;
+}
+
+.settings-grid{
+
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:24px;
+margin-top:50px;
+}
+
+.settings-card{
+
+background:
+rgba(255,255,255,0.06);
 
 padding:28px;
 border-radius:28px;
-border:1px solid rgba(255,255,255,0.08);
 
-margin-top:24px;
+border:
+1px solid rgba(255,255,255,0.08);
+
 }
 
-.alert-header{
+.settings-card h2{
+margin-bottom:18px;
+}
+
+.toggle-row{
+
 display:flex;
 justify-content:space-between;
 align-items:center;
+
+margin-bottom:18px;
+}
+
+.toggle{
+
+width:55px;
+height:30px;
+
+border-radius:999px;
+
+background:
+linear-gradient(
+135deg,
+#2f7cff,
+#00d4ff
+);
+
+position:relative;
+}
+
+.toggle::after{
+
+content:"";
+
+position:absolute;
+
+top:4px;
+left:29px;
+
+width:22px;
+height:22px;
+
+border-radius:50%;
+background:white;
+}
+
+.alert-banner{
+
+margin-top:45px;
+
+background:
+rgba(255,80,80,0.12);
+
+padding:26px;
+border-radius:26px;
+
+border:
+1px solid rgba(255,80,80,0.22);
+
+}
+
+.alert-banner h3{
 margin-bottom:14px;
-gap:20px;
+color:#ffdada;
 }
 
-.alert-header h3{
-font-size:22px;
+.alert-banner p{
+line-height:1.9;
+color:#ffdada;
 }
 
-.alert-time{
-color:#8fd3ff;
-font-size:14px;
+@media(max-width:1000px){
+
+.notification-layout{
+grid-template-columns:1fr;
 }
 
-.alert-box p{
-line-height:1.8;
-color:#d7e4ff;
 }
 
-.priority{
-display:inline-block;
-padding:8px 14px;
-border-radius:14px;
-font-size:13px;
-font-weight:700;
-margin-top:18px;
-}
+</style>
 
-.high
+</head>
+
+<body class="dashboard-body">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="sidebar-logo">
+
+<img
+src="inclura-logo.svg"
+alt="Inclura Logo"
+class="sidebar-logo-image"
+/>
+
+<h1>Inclura</h1>
+
+</div>
+
+<nav class="sidebar-nav">
+
+<a href="dashboard.html">🏠 Dashboard</a>
+
+<a href="notifications.html">🔔 Notifications</a>
+
+<a href="livestream.html">📺 Livestream</a>
+
+<a href="wallet.html">💳 Wallet</a>
+
+<a href="marketplace.html">🛒 Marketplace</a>
+
+<a href="creatorstudio.html">🎬 Creator Studio</a>
+
+<a href="moderation.html">🛡 Moderation</a>
+
+<a href="settings.html">⚙ Settings</a>
+
+</nav>
+
+</aside>
+
+<!-- MAIN -->
+
+<main class="main-content">
+
+<!-- HERO -->
+
+<section class="notification-hero">
+
+<h1>
+🔔 Inclura Notification Center
+</h1>
+
+<p>
+
+Stay connected across the Inclura ecosystem with real-time alerts for creators,
+wallet transactions,
+livestreams,
+marketplace activity,
+moderation updates,
+accessibility tools,
+enterprise events
+and AI-powered platform notifications.
+
+</p>
+
+</section>
+
+<!-- LAYOUT -->
+
+<section class="notification-layout">
+
+<!-- FILTERS -->
+
+<div class="notification-sidebar">
+
+<button class="filter-btn active">
+🌍 All Notifications
+</button>
+
+<button class="filter-btn">
+❤️ Social Activity
+</button>
+
+<button class="filter-btn">
+🎥 Creator Economy
+</button>
+
+<button class="filter-btn">
+💳 Wallet & Payments
+</button>
+
+<button class="filter-btn">
+🛒 Marketplace
+</button>
+
+<button class="filter-btn">
+📺 Livestream Alerts
+</button>
+
+<button class="filter-btn">
+♿ Accessibility
+</button>
+
+<button class="filter-btn">
+🛡 Moderation & Safety
+</button>
+
+<button class="filter-btn">
+🏢 Enterprise
+</button>
+
+<button class="filter-btn">
+🤖 AI Notifications
+</button>
+
+</div>
+
+<!-- FEED -->
+
+<div class="notification-feed">
+
+<!-- CARD -->
+
+<div class="notification-card">
+
+<div class="notification-icon">
+💰
+</div>
+
+<div class="notification-content">
+
+<h2>
+New Donation Received
+</h2>
+
+<p>
+
+You received a $250 donation during your accessibility livestream event.
+
+</p>
+
+<div class="notification-time">
+5 minutes ago
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="notification-card">
+
+<div class="notification-icon">
+📺
+</div>
+
+<div class="notification-content">
+
+<h2>
+Livestream Starting Soon
+</h2>
+
+<p>
+
+Your scheduled enterprise webinar begins in 30 minutes.
+
+</p>
+
+<div class="notification-time">
+12 minutes ago
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="notification-card">
+
+<div class="notification-icon">
+🛒
+</div>
+
+<div class="notification-content">
+
+<h2>
+Marketplace Order Confirmed
+</h2>
+
+<p>
+
+A customer purchased your digital accessibility toolkit package.
+
+</p>
+
+<div class="notification-time">
+22 minutes ago
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="notification-card">
+
+<div class="notification-icon">
+♿
+</div>
+
+<div class="notification-content">
+
+<h2>
+Accessibility Translation Ready
+</h2>
+
+<p>
+
+AI-generated multilingual captions are now available for your uploaded training video.
+
+</p>
+
+<div class="notification-time">
+1 hour ago
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="notification-card">
+
+<div class="notification-icon">
+🛡
+</div>
+
+<div class="notification-content">
+
+<h2>
+Moderation Alert
+</h2>
+
+<p>
+
+A report involving livestream harassment has been resolved successfully.
+
+</p>
+
+<div class="notification-time">
+2 hours ago
+</div>
+
+<div class="priority-badge">
+HIGH PRIORITY
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="notification-card">
+
+<div class="notification-icon">
+🏢
+</div>
+
+<div class="notification-content">
+
+<h2>
+Enterprise Team Invite
+</h2>
+
+<p>
+
+You were invited to join the Global Inclusion Organization workspace.
+
+</p>
+
+<div class="notification-time">
+4 hours ago
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="notification-card">
+
+<div class="notification-icon">
+🤖
+</div>
+
+<div class="notification-content">
+
+<h2>
+AI Optimization Completed
+</h2>
+
+<p>
+
+Your campaign accessibility optimization and multilingual targeting are complete.
+
+</p>
+
+<div class="notification-time">
+Yesterday
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SETTINGS -->
+
+<section style="margin-top:55px;">
+
+<h2 style="margin-bottom:24px;">
+⚙ Notification Preferences
+</h2>
+
+<div class="settings-grid">
+
+<div class="settings-card">
+
+<h2>
+💳 Wallet Notifications
+</h2>
+
+<div class="toggle-row">
+<span>Payment Alerts</span>
+<div class="toggle"></div>
+</div>
+
+<div class="toggle-row">
+<span>Withdrawal Updates</span>
+<div class="toggle"></div>
+</div>
+
+<div class="toggle-row">
+<span>Crypto Transactions</span>
+<div class="toggle"></div>
+</div>
+
+</div>
+
+<div class="settings-card">
+
+<h2>
+📺 Livestream Alerts
+</h2>
+
+<div class="toggle-row">
+<span>Go Live Alerts</span>
+<div class="toggle"></div>
+</div>
+
+<div class="toggle-row">
+<span>Event Reminders</span>
+<div class="toggle"></div>
+</div>
+
+<div class="toggle-row">
+<span>Super Chat Alerts</span>
+<div class="toggle"></div>
+</div>
+
+</div>
+
+<div class="settings-card">
+
+<h2>
+♿ Accessibility Notifications
+</h2>
+
+<div class="toggle-row">
+<span>Caption Readiness</span>
+<div class="toggle"></div>
+</div>
+
+<div class="toggle-row">
+<span>Translation Availability</span>
+<div class="toggle"></div>
+</div>
+
+<div class="toggle-row">
+<span>Accessibility Warnings</span>
+<div class="toggle"></div>
+</div>
+
+</div>
+
+<div class="settings-card">
+
+<h2>
+🛡 Safety & Moderation
+</h2>
+
+<div class="toggle-row">
+<span>Security Alerts</span>
+<div class="toggle"></div>
+</div>
+
+<div class="toggle-row">
+<span>Appeal Updates</span>
+<div class="toggle"></div>
+</div>
+
+<div class="toggle-row">
+<span>Account Warnings</span>
+<div class="toggle"></div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ALERT -->
+
+<div class="alert-banner">
+
+<h3>
+⚠ Smart Notification Infrastructure
+</h3>
+
+<p>
+
+Inclura notifications are powered by intelligent AI systems that prioritize:
+accessibility,
+creator engagement,
+wallet safety,
+enterprise collaboration,
+marketplace integrity,
+livestream engagement
+and ethical moderation systems.
+
+Notifications support multilingual delivery,
+accessibility compatibility,
+real-time synchronization
+and cross-platform ecosystem integration.
+
+</p>
+
+</div>
+
+</main>
+
+</body>
+</html>
