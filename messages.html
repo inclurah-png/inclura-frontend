@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8" />
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
+
+<title>Inclura Messages</title>
+
+<link
+rel="stylesheet"
+href="style-v2.css"
+/>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet"
+/>
+
+<style>
+
+.messages-hero{
+background:
+linear-gradient(
+135deg,
+rgba(47,124,255,0.18),
+rgba(0,212,255,0.12)
+);
+
+padding:40px;
+border-radius:35px;
+margin-bottom:35px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.messages-hero h1{
+font-size:52px;
+margin-bottom:18px;
+}
+
+.messages-hero p{
+font-size:18px;
+line-height:1.8;
+max-width:900px;
+color:#d7e4ff;
+}
+
+.messages-layout{
+display:grid;
+grid-template-columns:320px 1fr;
+gap:24px;
+margin-top:30px;
+}
+
+.chat-sidebar{
+background:
+rgba(255,255,255,0.08);
+
+border-radius:30px;
+padding:24px;
+border:1px solid rgba(255,255,255,0.08);
+
+height:80vh;
+overflow-y:auto;
+}
+
+.chat-search{
+margin-bottom:24px;
+}
+
+.chat-search input{
+width:100%;
+padding:16px;
+border:none;
+border-radius:18px;
+background:rgba(255,255,255,0.08);
+color:white;
+outline:none;
+}
+
+.chat-user{
+display:flex;
+align-items:center;
+gap:16px;
+
+padding:18px;
+border-radius:20px;
+cursor:pointer;
+transition:0.3s;
+margin-bottom:14px;
+}
+
+.chat-user:hover{
+background:
+rgba(255,255,255,0.08);
+}
+
+.chat-avatar{
+width:58px;
+height:58px;
+border-radius:18px;
+
+background:
+linear-gradient(
+135deg,
+#2f7cff,
+#00d4ff
+);
+
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+font-weight:800;
+}
+
+.chat-info h3{
+font-size:18px;
+margin-bottom:6px;
+}
+
+.chat-info p{
+font-size:14px;
+color:#b9d4ff;
+}
+
+.chat-main{
+background:
+rgba(255,255,255,0.08);
+
+border-radius:30px;
+border:1px solid rgba(255,255,255,0.08);
+
+display:flex;
+flex-direction:column;
+height:80vh;
+overflow:hidden;
+}
+
+.chat-top{
+padding:24px;
+border-bottom:
+1px solid rgba(255,255,255,0.08);
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.chat-top h2{
+font-size:28px;
+}
+
+.chat-status{
+color:#8fd3ff;
+font-size:14px;
+}
+
+.chat-body{
+flex:1;
+padding:30px;
+overflow-y:auto;
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.message{
+max-width:70%;
+padding:18px 22px;
+border-radius:24px;
+line-height:1.8;
+}
+
+.received{
+background:
+rgba(255,255,255,0.08);
+
+align-self:flex-start;
+}
+
+.sent{
+background:
+linear-gradient(
+135deg,
+#2f7cff,
+#00d4ff
+);
+
+align-self:flex-end;
+}
+
+.chat-bottom{
+padding:24px;
+border-top:
+1px solid rgba(255,255,255,0.08);
+
+display:flex;
+gap:16px;
+align-items:center;
+}
+
+.chat-bottom input{
+flex:1;
+padding:18px;
+border:none;
+border-radius:20px;
+background:rgba(255,255,255,0.08);
+color:white;
+outline:none;
+}
+
+.send-btn{
+padding:18px 28px;
+border:none;
+border-radius:20px;
+
+background:
+linear-gradient(
+135deg,
+#2f7cff,
+#00d4ff
+);
+
+color:white;
+font-weight:700;
+cursor:pointer;
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:24px;
+margin-top:50px;
+}
+
+.feature-card{
+background:
+rgba(255,255,255,0.08);
+
+padding:28px;
+border-radius:28px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.feature-card .icon{
+font-size:42px;
+margin-bottom:18px;
+}
+
+.feature-card h2{
+font-size:24px;
+margin-bottom:14px;
+}
+
+.feature-card p{
+line-height:1.8;
+color:#d7e4ff;
+}
+
+@media(max-width:1000px){
+
+.messages-layout{
+grid-template-columns:1fr;
+}
+
+.chat-sidebar{
+height:auto;
+}
+
+.chat-main{
+height:auto;
+min-height:700px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body class="dashboard-body">
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="sidebar-logo">
+
+<img
+src="inclura-logo.svg"
+alt="Inclura Logo"
+class="sidebar-logo-image"
+/>
+
+<h1>Inclura</h1>
+
+</div>
+
+<nav class="sidebar-nav">
+
+<a href="dashboard.html">🏠 Dashboard</a>
+
+<a href="messages.html">💬 Messages</a>
+
+<a href="notifications.html">🔔 Notifications</a>
+
+<a href="wallet.html">💳 Wallet</a>
+
+<a href="marketplace.html">🛒 Marketplace</a>
+
+<a href="mentorship.html">🎓 Mentorship</a>
+
+<a href="caregigs.html">🤝 Care Gigs</a>
+
+<a href="subscriptions.html">💎 Subscriptions</a>
+
+<a href="settings.html">⚙ Settings</a>
+
+</nav>
+
+</aside>
+
+<!-- MAIN -->
+
+<main class="main-content">
+
+<!-- HERO -->
+
+<section class="messages-hero">
+
+<h1>
+💬 Inclura Messages
+</h1>
+
+<p>
+
+Communicate with creators,
+mentors,
+buyers,
+communities,
+care professionals,
+enterprises
+and collaborators through Inclura’s global real-time messaging infrastructure.
+
+</p>
+
+</section>
+
+<!-- MESSAGES -->
+
+<section class="messages-layout">
+
+<!-- SIDEBAR -->
+
+<div class="chat-sidebar">
+
+<div class="chat-search">
+
+<input
+type="text"
+placeholder="Search conversations..."
+/>
+
+</div>
+
+<!-- USERS -->
+
+<div class="chat-user">
+
+<div class="chat-avatar">
+A
+</div>
+
+<div class="chat-info">
+
+<h3>
+Alex Morgan
+</h3>
+
+<p>
+Mentorship Session
+</p>
+
+</div>
+
+</div>
+
+<div class="chat-user">
+
+<div class="chat-avatar">
+J
+</div>
+
+<div class="chat-info">
+
+<h3>
+Jane Creative
+</h3>
+
+<p>
+Marketplace Order
+</p>
+
+</div>
+
+</div>
+
+<div class="chat-user">
+
+<div class="chat-avatar">
+T
+</div>
+
+<div class="chat-info">
+
+<h3>
+Tech Enterprise
+</h3>
+
+<p>
+Business Collaboration
+</p>
+
+</div>
+
+</div>
+
+<div class="chat-user">
+
+<div class="chat-avatar">
+S
+</div>
+
+<div class="chat-info">
+
+<h3>
+Support Team
+</h3>
+
+<p>
+Verification Assistance
+</p>
+
+</div>
+
+</div>
+
+<div class="chat-user">
+
+<div class="chat-avatar">
+M
+</div>
+
+<div class="chat-info">
+
+<h3>
+Marketplace Seller
+</h3>
+
+<p>
+Product Shipment
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- MAIN CHAT -->
+
+<div class="chat-main">
+
+<div class="chat-top">
+
+<div>
+
+<h2>
+Alex Morgan
+</h2>
+
+<div class="chat-status">
+Online • Mentorship
+</div>
+
+</div>
+
+<div>
+🎥 📎 📞
+</div>
+
+</div>
+
+<!-- CHAT BODY -->
+
+<div class="chat-body">
+
+<div class="message received">
+
+Hello 👋
+
+Your mentorship session has been confirmed for tomorrow at 3PM.
+
+</div>
+
+<div class="message sent">
+
+Perfect.
+Thank you.
+I have also completed the payment.
+
+</div>
+
+<div class="message received">
+
+Great.
+The session link and training materials will be shared shortly.
+
+</div>
+
+<div class="message sent">
+
+Understood.
+Looking forward to it.
+
+</div>
+
+</div>
+
+<!-- CHAT INPUT -->
+
+<div class="chat-bottom">
+
+<input
+type="text"
+placeholder="Type your message..."
+/>
+
+<button class="send-btn">
+Send
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="feature-grid">
+
+<div class="feature-card">
+
+<div class="icon">
+🌍
+</div>
+
+<h2>
+Real-Time Messaging
+</h2>
+
+<p>
+
+Fast conversations between creators,
+buyers,
+mentors,
+communities
+and enterprises globally.
+
+</p>
+
+</div>
+
+<div class="feature-card">
+
+<div class="icon">
+🎙
+</div>
+
+<h2>
+Voice & Accessibility
+</h2>
+
+<p>
+
+Voice-to-text,
+screen-reader support,
+captioning
+and multilingual communication assistance.
+
+</p>
+
+</div>
+
+<div class="feature-card">
+
+<div class="icon">
+📎
+</div>
+
+<h2>
+Media & Documents
+</h2>
+
+<p>
+
+Share files,
+videos,
+images,
+voice notes,
+receipts,
+contracts
+and project documents.
+
+</p>
+
+</div>
+
+<div class="feature-card">
+
+<div class="icon">
+💳
+</div>
+
+<h2>
+Financial Conversations
+</h2>
+
+<p>
+
+Marketplace receipts,
+payment confirmations,
+creator invoices
+and wallet transaction support.
+
+</p>
+
+</div>
+
+<div class="feature-card">
+
+<div class="icon">
+👥
+</div>
+
+<h2>
+Communities & Groups
+</h2>
+
+<p>
+
+Create groups,
+creator teams,
+enterprise workspaces
+and accessibility communities.
+
+</p>
+
+</div>
+
+<div class="feature-card">
+
+<div class="icon">
+🔐
+</div>
+
+<h2>
+Secure Communication
+</h2>
+
+<p>
+
+Protected messaging architecture with privacy,
+moderation
+and safety controls.
+
+</p>
+
+</div>
+
+</section>
+
+<button class="floating-button">
++
+</button>
+
+</main>
+
+</body>
+</html>
