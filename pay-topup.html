@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inclura Pay & Top-Up</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-v2.css">
+  <link rel="stylesheet" href="layout-system.css">
+  <link rel="stylesheet" href="sidebar-system.css">
+  <link rel="stylesheet" href="component-system.css">
+  <link rel="stylesheet" href="responsive-system.css">
+
+  <style>
+
+    body{
+      background:#f4f7ff;
+      font-family:Arial, sans-serif;
+      color:#14213d;
+      margin:0;
+      padding:0;
+    }
+
+    .topup-wrapper{
+      max-width:1400px;
+      margin:auto;
+      padding:20px;
+    }
+
+    .topup-header{
+      background:linear-gradient(135deg,#0f172a,#2563eb);
+      border-radius:25px;
+      padding:30px;
+      color:white;
+      margin-bottom:25px;
+    }
+
+    .topup-header h1{
+      margin:0;
+      font-size:32px;
+    }
+
+    .topup-header p{
+      margin-top:10px;
+      opacity:.9;
+    }
+
+    .wallet-box{
+      background:white;
+      border-radius:20px;
+      padding:20px;
+      margin-top:20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:15px;
+    }
+
+    .wallet-balance{
+      font-size:28px;
+      font-weight:bold;
+      color:#2563eb;
+    }
+
+    .wallet-btn{
+      background:#2563eb;
+      color:white;
+      border:none;
+      padding:12px 24px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:bold;
+    }
+
+    .search-box{
+      margin:25px 0;
+    }
+
+    .search-box input{
+      width:100%;
+      padding:18px;
+      border-radius:15px;
+      border:1px solid #dbe4ff;
+      font-size:16px;
+    }
+
+    .category-tabs{
+      display:flex;
+      gap:15px;
+      overflow-x:auto;
+      margin-bottom:30px;
+      padding-bottom:10px;
+    }
+
+    .category-tabs button{
+      background:white;
+      border:2px solid #dbe4ff;
+      border-radius:50px;
+      padding:14px 22px;
+      font-weight:bold;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+
+    .category-tabs button.active{
+      background:#2563eb;
+      color:white;
+      border:none;
+    }
+
+    .section-title{
+      font-size:26px;
+      margin:40px 0 20px;
+      font-weight:bold;
+      color:#0f172a;
+    }
+
+    .service-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
+    }
+
+    .service-card{
+      background:white;
+      border-radius:22px;
+      padding:25px;
+      text-align:center;
+      transition:.3s;
+      border:1px solid #e5edff;
+      cursor:pointer;
+    }
+
+    .service-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+
+    .service-card img{
+      width:70px;
+      height:70px;
+      object-fit:contain;
+      margin-bottom:15px;
+    }
+
+    .service-card h3{
+      margin:10px 0;
+      font-size:20px;
+    }
+
+    .service-card p{
+      font-size:14px;
+      color:#64748b;
+      line-height:1.5;
+    }
+
+    .quick-actions{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:18px;
+      margin-top:25px;
+    }
+
+    .quick-box{
+      background:white;
+      border-radius:18px;
+      padding:20px;
+      text-align:center;
+      font-weight:bold;
+      border:1px solid #dbe4ff;
+    }
+
+    .history-section{
+      margin-top:50px;
+    }
+
+    .history-card{
+      background:white;
+      border-radius:18px;
+      padding:18px;
+      margin-bottom:15px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .history-status{
+      color:green;
+      font-weight:bold;
+    }
+
+    .accessibility-tools{
+      margin-top:50px;
+      background:white;
+      border-radius:25px;
+      padding:25px;
+    }
+
+    .accessibility-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:15px;
+      margin-top:20px;
+    }
+
+    .accessibility-item{
+      background:#f4f7ff;
+      padding:18px;
+      border-radius:15px;
+      font-weight:bold;
+    }
+
+    @media(max-width:768px){
+
+      .topup-header h1{
+        font-size:24px;
+      }
+
+      .wallet-balance{
+        font-size:22px;
+      }
+
+      .section-title{
+        font-size:22px;
+      }
+
+    }
+
+  </style>
+
+</head>
+<body>
+
+<div class="topup-wrapper">
+
+  <div class="topup-header">
+    <h1>Pay & Top-Up Center</h1>
+    <p>
+      Airtime, Data Bundles, Electricity Bills,
+      TV Subscription, Education Payments and International Top-Up.
+    </p>
+
+    <div class="wallet-box">
+      <div>
+        <small>Wallet Balance</small>
+        <div class="wallet-balance">₦245,000</div>
+      </div>
+
+      <button class="wallet-btn">
+        Fund Wallet
+      </button>
+    </div>
+  </div>
+
+  <div class="search-box">
+    <input type="text" placeholder="Search for airtime, electricity, TV, education services...">
+  </div>
+
+  <div class="category-tabs">
+    <button class="active">All</button>
+    <button>Airtime</button>
+    <button>Data</button>
+    <button>Electricity</button>
+    <button>TV Subscription</button>
+    <button>Education</button>
+  </div>
+
+  <div class="quick-actions">
+
+    <div class="quick-box">⚡ Buy Airtime</div>
+    <div class="quick-box">📶 Buy Data</div>
+    <div class="quick-box">💡 Pay Electricity</div>
+    <div class="quick-box">📺 TV Subscription</div>
+    <div class="quick-box">🎓 Education PIN</div>
+    <div class="quick-box">🌍 International Airtime</div>
+
+  </div>
+
+  <!-- AIRTIME -->
+
+  <div class="section-title">
+    Airtime VTU
+  </div>
+
+  <div class="service-grid">
+
+    <div class="service-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/New-mtn-logo.jpg">
+      <h3>MTN Airtime VTU</h3>
+      <p>MTN airtime instant top-up service.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Airtel_logo.svg">
+      <h3>Airtel Airtime VTU</h3>
+      <p>Airtel airtime instant top-up service.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="https://upload.wikimedia.org/wikipedia/en/6/65/Glo_logo.png">
+      <h3>Glo Airtime VTU</h3>
+      <p>Glo airtime instant top-up service.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="https://upload.wikimedia.org/wikipedia/en/9/96/9mobile_logo.svg">
+      <h3>9mobile Airtime VTU</h3>
+      <p>9mobile airtime instant top-up service.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="https://seeklogo.com/images/S/smile-logo-B7B9F3D8D6-seeklogo.com.png">
+      <h3>Smile Payment</h3>
+      <p>Smile airtime and internet airtime payment.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="https://upload.wikimedia.org/wikipedia/en/9/96/9mobile_logo.svg">
+      <h3>T2 (9mobile) Airtime VTU</h3>
+      <p>T2 Airtime instant top-up service.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+      <h3>International Airtime</h3>
+      <p>Purchase airtime across the globe.</p>
+    </div>
+
+  </div>
+
+  <!-- DATA -->
+
+  <div class="section-title">
+    Data Bundles
+  </div>
+
+  <div class="service-grid">
+
+    <div class="service-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/New-mtn-logo.jpg">
+      <h3>MTN Data</h3>
+      <p>MTN Data instant bundle purchase.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Airtel_logo.svg">
+      <h3>Airtel Data</h3>
+      <p>Airtel Data instant bundle purchase.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="https://upload.wikimedia.org/wikipedia/en/6/65/Glo_logo.png">
+      <h3>Glo Data</h3>
+      <p>Glo Data instant bundle purchase.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="https://upload.wikimedia.org/wikipedia/en/9/96/9mobile_logo.svg">
+      <h3>T2 (9mobile) Data</h3>
+      <p>T2 Data instant top-up service.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="https://seeklogo.com/images/S/smile-logo-B7B9F3D8D6-seeklogo.com.png">
+      <h3>Smile Payment Data</h3>
+      <p>Smile internet and data payment.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="https://upload.wikimedia.org/wikipedia/en/6/65/Glo_logo.png">
+      <h3>Glo Data (Best Value)</h3>
+      <p>Affordable SME and bulk Glo data bundles.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="https://upload.wikimedia.org/wikipedia/en/9/96/9mobile_logo.svg">
+      <h3>9mobile SME Data</h3>
+      <p>9mobile SME data instant top-up service.</p>
+    </div>
+
+  </div>
+
+  <!-- EDUCATION -->
+
+  <div class="section-title">
+    Education Payments
+  </div>
+
+  <div class="service-grid">
+
+    <div class="service-card">
+      <img src="https://upload.wikimedia.org/wikipedia/en/8/8f/Waec-logo.png">
+      <h3>WAEC Result Checker PIN</h3>
+      <p>WAEC Result Checking PIN and scratch card.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="https://upload.wikimedia.org/wikipedia/en/8/8f/Waec-logo.png">
+      <h3>WAEC Registration PIN</h3>
+      <p>WASSCE registration token for candidates.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="https://upload.wikimedia.org/wikipedia/en/5/5f/JAMB_logo.png">
+      <h3>JAMB PIN Vending</h3>
+      <p>UTME and Direct Entry PIN vending.</p>
+    </div>
+
+  </div>
+
+  <!-- ELECTRICITY -->
+
+  <div class="section-title">
+    Electricity Bills
+  </div>
+
+  <div class="service-grid">
+
+    <div class="service-card">
+      <h3>IKEDC</h3>
+      <p>Ikeja Electric payment.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>EKEDC</h3>
+      <p>Eko Electric payment.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>AEDC</h3>
+      <p>Abuja Electric payment.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>KEDCO</h3>
+      <p>Kano Electric bills payment.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>PHED</h3>
+      <p>Port Harcourt Electricity payment.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>JED</h3>
+      <p>Jos Electric bills payment.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>KAEDCO</h3>
+      <p>Kaduna Electricity payment.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>EEDC</h3>
+      <p>Enugu Electricity payment.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>IBEDC</h3>
+      <p>Ibadan Electricity payment.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>BEDC</h3>
+      <p>Benin Electricity payment.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>YEDC</h3>
+      <p>Yola Electricity payment.</p>
+    </div>
+
+  </div>
+
+  <!-- TV -->
+
+  <div class="section-title">
+    TV Subscription
+  </div>
+
+  <div class="service-grid">
+
+    <div class="service-card">
+      <h3>DSTV Subscription</h3>
+      <p>Easy DSTV bouquet subscription payment.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>GOTV Payment</h3>
+      <p>Easy GOTV bouquet subscription payment.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Startimes Subscription</h3>
+      <p>Startimes bouquet subscription payment.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Showmax</h3>
+      <p>Showmax viewing subscription payment.</p>
+    </div>
+
+  </div>
+
+  <!-- RECENT TRANSACTIONS -->
+
+  <div class="history-section">
+
+    <div class="section-title">
+      Recent Transactions
+    </div>
+
+    <div class="history-card">
+      <div>
+        <strong>MTN Airtime VTU</strong><br>
+        ₦2,000 Top-Up
+      </div>
+
+      <div class="history-status">
+        Successful
+      </div>
+    </div>
+
+    <div class="history-card">
+      <div>
+        <strong>DSTV Subscription</strong><br>
+        Compact Plan Renewal
+      </div>
+
+      <div class="history-status">
+        Successful
+      </div>
+    </div>
+
+    <div class="history-card">
+      <div>
+        <strong>IKEDC Electricity</strong><br>
+        ₦15,000 Bill Payment
+      </div>
+
+      <div class="history-status">
+        Successful
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ACCESSIBILITY -->
+
+  <div class="accessibility-tools">
+
+    <div class="section-title">
+      Accessibility Tools
+    </div>
+
+    <div class="accessibility-grid">
+
+      <div class="accessibility-item">
+        🔊 Voice Navigation
+      </div>
+
+      <div class="accessibility-item">
+        👁 High Contrast Mode
+      </div>
+
+      <div class="accessibility-item">
+        🔍 Large Text Mode
+      </div>
+
+      <div class="accessibility-item">
+        🎧 Audio Assistance
+      </div>
+
+      <div class="accessibility-item">
+        ♿ Screen Reader Support
+      </div>
+
+      <div class="accessibility-item">
+        🤟 Sign Language Help
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="navigation-system.js"></script>
+
+</body>
+  </html>
