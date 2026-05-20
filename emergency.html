@@ -1,1 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8"/>
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
+
+<title>
+Emergency Center • Inclura
+</title>
+
+<!-- =========================================
+CORE SYSTEMS
+========================================= -->
+
+<link rel="stylesheet" href="style.css"/>
+<link rel="stylesheet" href="style-v2.css"/>
+<link rel="stylesheet" href="layout-system.css"/>
+<link rel="stylesheet" href="sidebar-system.css"/>
+<link rel="stylesheet" href="component-system.css"/>
+<link rel="stylesheet" href="responsive-system.css"/>
+
+<!-- =========================================
+FONTS
+========================================= -->
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet"
+/>
+
+<style>
+
+.emergency-hero{
+background:
+linear-gradient(
+135deg,
+rgba(255,50,50,0.22),
+rgba(255,120,0,0.16),
+rgba(47,124,255,0.12)
+);
+
+padding:42px;
+border-radius:36px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.alert-box{
+background:
+rgba(255,50,50,0.14);
+
+padding:24px;
+border-radius:26px;
+border:1px solid rgba(255,80,80,0.30);
+margin-top:28px;
+}
+
+.alert-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:22px;
+margin-top:28px;
+}
+
+.alert-card{
+background:rgba(255,255,255,0.06);
+padding:28px;
+border-radius:28px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.emergency-layout{
+display:grid;
+grid-template-columns:1fr 380px;
+gap:28px;
+margin-top:35px;
+}
+
+.sos-panel{
+background:
+linear-gradient(
+135deg,
+rgba(255,50,50,0.18),
+rgba(0,0,0,0.30)
+);
+
+padding:34px;
+border-radius:30px;
+text-align:center;
+}
+
+.sos-button{
+width:220px;
+height:220px;
+border-radius:50%;
+border:none;
+background:
+linear-gradient(
+135deg,
+#ff3030,
+#ff5a5a
+);
+
+color:white;
+font-size:38px;
+font-weight:800;
+cursor:pointer;
+margin-top:25px;
+box-shadow:
+0 0 40px rgba(255,50,50,0.4);
+}
+
+.service-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:18px;
+margin-top:24px;
+}
+
+.service-card{
+background:rgba(255,255,255,0.05);
+padding:24px;
+border-radius:24px;
+}
+
+.feed-box{
+height:480px;
+overflow-y:auto;
+display:flex;
+flex-direction:column;
+gap:18px;
+margin-top:20px;
+}
+
+.feed-item{
+background:rgba(255,255,255,0.05);
+padding:18px;
+border-radius:20px;
+}
+
+@media(max-width:980px){
+
+.emergency-layout{
+grid-template-columns:1fr;
+}
+
+.sos-button{
+width:180px;
+height:180px;
+font-size:30px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body class="dashboard-body">
+
+<!-- =========================================
+MOBILE MENU
+========================================= -->
+
+<button class="mobile-menu-btn">
+☰
+</button>
+
+<div class="sidebar-overlay"></div>
+
+<!-- =========================================
+SIDEBAR
+========================================= -->
+
+<aside class="sidebar">
+
+<div class="sidebar-logo">
+
+<img
+src="inclura-logo.svg"
+alt="Inclura"
+class="sidebar-logo-image"
+/>
+
+<h1>
+Inclura
+</h1>
+
+</div>
+
+<nav class="sidebar-nav">
+
+<a href="dashboard.html">
+🏠 Dashboard
+</a>
+
+<a href="explore.html">
+🌍 Explore
+</a>
+
+<a href="reels.html">
+🎬 Reels
+</a>
+
+<a href="videos.html">
+📺 Videos
+</a>
+
+<a href="livestream.html">
+🔴 Livestream
+</a>
+
+<a href="messages.html">
+💬 Messages
+</a>
+
+<a href="marketplace.html">
+🛒 Marketplace
+</a>
+
+<a href="mentorship.html">
+🎓 Mentorship
+</a>
+
+<a href="emergency.html" class="active">
+🚨 Emergency
+</a>
+
+<a href="wallet.html">
+💳 Wallet
+</a>
+
+<a href="creatorstudio.html">
+🎥 Creator Studio
+</a>
+
+<a href="enterprise.html">
+🏢 Enterprise
+</a>
+
+<a href="accessibility-center.html">
+♿ Accessibility
+</a>
+
+<a href="profile.html">
+👤 Profile
+</a>
+
+<a href="settings.html">
+⚙ Settings
+</a>
+
+</nav>
+
+<div class="enterprise-tag">
+HUMANITARIAN SYSTEM
+</div>
+
+</aside>
+
+<!-- =========================================
+MAIN CONTENT
+========================================= -->
+
+<main class="main-content">
+
+<!-- =========================================
+HERO
+========================================= -->
+
+<section class="emergency-hero">
+
+<div class="grid-2">
+
+<div>
+
+<span class="badge badge-danger">
+GLOBAL SAFETY INFRASTRUCTURE
+</span>
+
+<h1
+class="hero-title"
+style="margin-top:20px;"
+>
+
+Inclura Emergency Center 🚨
+
+</h1>
+
+<p
+class="hero-subtitle"
+style="
+margin-top:18px;
+max-width:760px;
+"
+>
+
+Access emergency assistance,
+community rescue systems,
+medical support,
+accessibility-first safety tools,
+disaster communication
+and realtime crisis coordination.
+
+</p>
+
+</div>
+
+<div class="mobile-hidden">
+
+<div class="alert-card">
+
+<h3>
+🛡 Emergency Systems Active
+</h3>
+
+<div
+style="
+margin-top:20px;
+display:flex;
+flex-direction:column;
+gap:14px;
+"
+>
+
+<div class="badge badge-danger">
+🚨 SOS Enabled
+</div>
+
+<div class="badge badge-success">
+🌍 Realtime Crisis Monitoring
+</div>
+
+<div class="badge badge-warning">
+♿ Accessibility Emergency Support
+</div>
+
+<div class="badge badge-primary">
+📡 Emergency Livestream Ready
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ALERT -->
+
+<div class="alert-box">
+
+<h3 style="margin-bottom:14px;">
+⚠ Important Safety Notice
+</h3>
+
+<p
+style="
+line-height:1.9;
+color:#ffe3e3;
+"
+>
+
+Inclura Emergency Center provides community coordination,
+emergency communication,
+accessibility assistance
+and crisis-response support tools.
+
+Always contact official emergency services
+for life-threatening situations.
+
+</p>
+
+</div>
+
+<!-- STATS -->
+
+<div class="alert-grid">
+
+<div class="alert-card">
+
+<h3>
+🚨 Emergency Requests
+</h3>
+
+<h1
+style="
+margin-top:18px;
+font-size:42px;
+"
+>
+
+18K
+
+</h1>
+
+<p style="margin-top:10px;">
+Global emergency interactions
+</p>
+
+</div>
+
+<div class="alert-card">
+
+<h3>
+🌍 Regions Covered
+</h3>
+
+<h1
+style="
+margin-top:18px;
+font-size:42px;
+"
+>
+
+96
+
+</h1>
+
+<p style="margin-top:10px;">
+Worldwide safety infrastructure
+</p>
+
+</div>
+
+<div class="alert-card">
+
+<h3>
+♿ Accessibility Support
+</h3>
+
+<h1
+style="
+margin-top:18px;
+font-size:42px;
+"
+>
+
+4.3K
+
+</h1>
+
+<p style="margin-top:10px;">
+Inclusive emergency interactions
+</p>
+
+</div>
+
+<div class="alert-card">
+
+<h3>
+📡 Crisis Broadcasts
+</h3>
+
+<h1
+style="
+margin-top:18px;
+font-size:42px;
+"
+>
+
+920
+
+</h1>
+
+<p style="margin-top:10px;">
+Realtime emergency livestreams
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================
+LAYOUT
+========================================= -->
+
+<section class="emergency-layout">
+
+<!-- =========================================
+LEFT
+========================================= -->
+
+<div>
+
+<!-- SOS -->
+
+<div class="alert-card">
+
+<h2 class="section-title">
+🚨 Emergency SOS
+</h2>
+
+<div class="sos-panel">
+
+<h2>
+Emergency Assistance
+</h2>
+
+<p
+style="
+margin-top:14px;
+line-height:1.9;
+"
+>
+
+Trigger emergency alerts,
+share location,
+notify trusted contacts
+and activate community response systems.
+
+</p>
+
+<button class="sos-button">
+SOS
+</button>
+
+<div
+style="
+margin-top:28px;
+display:flex;
+gap:14px;
+justify-content:center;
+flex-wrap:wrap;
+"
+>
+
+<button class="btn btn-danger">
+📍 Share Location
+</button>
+
+<button class="btn btn-secondary">
+📞 Emergency Contacts
+</button>
+
+<button class="btn btn-secondary">
+🔴 Start Emergency Live
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- SERVICES -->
+
+<div
+class="alert-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+🛡 Emergency Services
+</h2>
+
+<div class="service-grid">
+
+<div class="service-card">
+
+<h3>
+🚑 Medical Assistance
+</h3>
+
+<p style="margin-top:12px;">
+Health emergency coordination.
+</p>
+
+</div>
+
+<div class="service-card">
+
+<h3>
+🚓 Security Support
+</h3>
+
+<p style="margin-top:12px;">
+Community safety reporting.
+</p>
+
+</div>
+
+<div class="service-card">
+
+<h3>
+♿ Accessibility Help
+</h3>
+
+<p style="margin-top:12px;">
+Support for disabled users.
+</p>
+
+</div>
+
+<div class="service-card">
+
+<h3>
+🌪 Disaster Response
+</h3>
+
+<p style="margin-top:12px;">
+Natural disaster coordination.
+</p>
+
+</div>
+
+<div class="service-card">
+
+<h3>
+🧠 Mental Wellness
+</h3>
+
+<p style="margin-top:12px;">
+Emotional & crisis support.
+</p>
+
+</div>
+
+<div class="service-card">
+
+<h3>
+📡 Crisis Livestream
+</h3>
+
+<p style="margin-top:12px;">
+Realtime emergency broadcasting.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ACCESSIBILITY -->
+
+<div
+class="alert-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+♿ Accessibility Emergency Systems
+</h2>
+
+<p
+style="
+margin-top:14px;
+line-height:1.9;
+"
+>
+
+Emergency systems support:
+voice activation,
+screen readers,
+AI captions,
+visual emergency alerts,
+speech-to-text assistance
+and caregiver emergency communication.
+
+</p>
+
+<div
+style="
+margin-top:22px;
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+"
+>
+
+<div class="badge badge-success">
+🔊 Voice SOS
+</div>
+
+<div class="badge badge-primary">
+♿ Screen Reader
+</div>
+
+<div class="badge badge-warning">
+📝 AI Captions
+</div>
+
+<div class="badge badge-danger">
+🚨 Visual Alerts
+</div>
+
+</div>
+
+</div>
+
+<!-- LIVE CRISIS -->
+
+<div
+class="alert-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+📡 Emergency Livestream
+</h2>
+
+<p
+style="
+margin-top:14px;
+line-height:1.9;
+"
+>
+
+Start emergency livestreams for:
+community awareness,
+disaster communication,
+humanitarian coordination
+and realtime safety updates.
+
+</p>
+
+<div
+style="
+margin-top:20px;
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+"
+>
+
+<button class="btn btn-danger">
+🔴 Start Crisis Stream
+</button>
+
+<button class="btn btn-secondary">
+📢 Broadcast Alert
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =========================================
+RIGHT
+========================================= -->
+
+<div>
+
+<!-- FEED -->
+
+<div class="alert-card">
+
+<h2 class="section-title">
+🌍 Emergency Feed
+</h2>
+
+<div class="feed-box">
+
+<div class="feed-item">
+
+<strong>
+🚨 Weather Alert
+</strong>
+
+<p style="margin-top:10px;">
+Heavy rainfall warning issued in selected regions.
+</p>
+
+</div>
+
+<div class="feed-item">
+
+<strong>
+♿ Accessibility Assistance
+</strong>
+
+<p style="margin-top:10px;">
+Realtime caregiver volunteers available nearby.
+</p>
+
+</div>
+
+<div class="feed-item">
+
+<strong>
+📡 Crisis Broadcast
+</strong>
+
+<p style="margin-top:10px;">
+Community livestream activated for emergency updates.
+</p>
+
+</div>
+
+<div class="feed-item">
+
+<strong>
+🧠 Wellness Support
+</strong>
+
+<p style="margin-top:10px;">
+Mental wellness emergency channels now active.
+</p>
+
+</div>
+
+<div class="feed-item">
+
+<strong>
+🚑 Medical Response
+</strong>
+
+<p style="margin-top:10px;">
+Emergency coordination system activated.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- LOCATION -->
+
+<div
+class="alert-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+📍 Safe Location Sharing
+</h2>
+
+<p
+style="
+margin-top:14px;
+line-height:1.9;
+"
+>
+
+Securely share live location
+with trusted contacts,
+caregivers,
+community responders
+and emergency support systems.
+
+</p>
+
+</div>
+
+<!-- AI SAFETY -->
+
+<div
+class="alert-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+🧠 AI Safety Assistant
+</h2>
+
+<p
+style="
+margin-top:14px;
+line-height:1.9;
+"
+>
+
+AI-powered guidance for:
+crisis response,
+evacuation tips,
+accessibility assistance,
+emergency communication
+and safety coordination.
+
+</p>
+
+</div>
+
+<!-- COMMUNITY -->
+
+<div
+class="alert-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+🤝 Community Rescue
+</h2>
+
+<p
+style="
+margin-top:14px;
+line-height:1.9;
+"
+>
+
+Community-based humanitarian support,
+volunteer coordination,
+caregiver assistance
+and local emergency collaboration systems.
+
+</p>
+
+</div>
+
+<!-- COMPLIANCE -->
+
+<div
+class="alert-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+⚖ Safety & Privacy Compliance
+</h2>
+
+<p
+style="
+margin-top:14px;
+line-height:1.9;
+"
+>
+
+Emergency systems comply with:
+GDPR,
+NDPR,
+PIPEDA,
+POPIA
+and accessibility-first safety communication standards.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<!-- =========================================
+NAVIGATION SYSTEM
+========================================= -->
+
+<script src="navigation-system.js"></script>
+
+</body>
+  </html>
