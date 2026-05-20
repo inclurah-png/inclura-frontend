@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8" />
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
+
+<title>
+Profile • Inclura
+</title>
+
+<!-- =========================================
+CORE STYLES
+========================================= -->
+
+<link
+rel="stylesheet"
+href="style.css"
+/>
+
+<link
+rel="stylesheet"
+href="style-v2.css"
+/>
+
+<link
+rel="stylesheet"
+href="layout-system.css"
+/>
+
+<link
+rel="stylesheet"
+href="sidebar-system.css"
+/>
+
+<link
+rel="stylesheet"
+href="component-system.css"
+/>
+
+<link
+rel="stylesheet"
+href="responsive-system.css"
+/>
+
+<!-- =========================================
+FONTS
+========================================= -->
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet"
+/>
+
+<style>
+
+.profile-cover{
+height:320px;
+border-radius:34px;
+background:
+linear-gradient(
+135deg,
+rgba(47,124,255,0.7),
+rgba(0,212,255,0.4),
+rgba(255,80,80,0.4)
+);
+
+position:relative;
+overflow:hidden;
+}
+
+.profile-avatar{
+width:170px;
+height:170px;
+border-radius:50%;
+border:8px solid rgba(15,15,20,1);
+background:
+linear-gradient(
+135deg,
+#2f7cff,
+#00d4ff
+);
+
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:58px;
+font-weight:800;
+color:white;
+
+position:absolute;
+bottom:-85px;
+left:50px;
+}
+
+.profile-main{
+margin-top:120px;
+display:grid;
+grid-template-columns:1fr 360px;
+gap:28px;
+}
+
+.profile-card{
+background:rgba(255,255,255,0.06);
+border-radius:30px;
+padding:28px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.profile-stats{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(180px,1fr));
+
+gap:18px;
+margin-top:30px;
+}
+
+.profile-stat{
+background:rgba(255,255,255,0.05);
+padding:22px;
+border-radius:24px;
+text-align:center;
+}
+
+.profile-gallery{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:20px;
+margin-top:24px;
+}
+
+.gallery-item{
+background:rgba(255,255,255,0.05);
+border-radius:24px;
+overflow:hidden;
+}
+
+.gallery-item img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+@media(max-width:980px){
+
+.profile-main{
+grid-template-columns:1fr;
+}
+
+.profile-avatar{
+left:50%;
+transform:translateX(-50%);
+}
+
+}
+
+</style>
+
+</head>
+
+<body class="dashboard-body">
+
+<!-- =========================================
+MOBILE MENU
+========================================= -->
+
+<button class="mobile-menu-btn">
+☰
+</button>
+
+<!-- =========================================
+OVERLAY
+========================================= -->
+
+<div class="sidebar-overlay"></div>
+
+<!-- =========================================
+SIDEBAR
+========================================= -->
+
+<aside class="sidebar">
+
+<div class="sidebar-logo">
+
+<img
+src="inclura-logo.svg"
+alt="Inclura Logo"
+class="sidebar-logo-image"
+/>
+
+<h1>
+Inclura
+</h1>
+
+</div>
+
+<nav class="sidebar-nav">
+
+<a href="dashboard.html">
+🏠 Dashboard
+</a>
+
+<a href="explore.html">
+🌍 Explore
+</a>
+
+<a href="reels.html">
+🎬 Reels
+</a>
+
+<a href="videos.html">
+📺 Videos
+</a>
+
+<a href="livestream.html">
+🔴 Livestream
+</a>
+
+<a href="messages.html">
+💬 Messages
+</a>
+
+<a href="marketplace.html">
+🛒 Marketplace
+</a>
+
+<a href="mentorship.html">
+🎓 Mentorship
+</a>
+
+<a href="wallet.html">
+💳 Wallet
+</a>
+
+<a href="creatorstudio.html">
+🎥 Creator Studio
+</a>
+
+<a href="analytics.html">
+📊 Analytics
+</a>
+
+<a href="enterprise.html">
+🏢 Enterprise
+</a>
+
+<a href="accessibility-center.html">
+♿ Accessibility
+</a>
+
+<a href="profile.html" class="active">
+👤 Profile
+</a>
+
+<a href="settings.html">
+⚙ Settings
+</a>
+
+</nav>
+
+<div class="enterprise-tag">
+IDENTITY ENGINE
+</div>
+
+</aside>
+
+<!-- =========================================
+MAIN CONTENT
+========================================= -->
+
+<main class="main-content">
+
+<!-- =========================================
+PROFILE COVER
+========================================= -->
+
+<section class="profile-cover">
+
+<div class="profile-avatar">
+A
+</div>
+
+</section>
+
+<!-- =========================================
+PROFILE MAIN
+========================================= -->
+
+<section class="profile-main">
+
+<!-- =========================================
+LEFT CONTENT
+========================================= -->
+
+<div>
+
+<!-- PROFILE INFO -->
+
+<div class="profile-card">
+
+<div
+style="
+display:flex;
+justify-content:space-between;
+gap:20px;
+flex-wrap:wrap;
+align-items:flex-start;
+"
+>
+
+<div>
+
+<div
+style="
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+align-items:center;
+"
+>
+
+<h1 class="hero-title">
+Adebamiji Adedokun
+</h1>
+
+<div class="badge badge-primary">
+✔ Verified
+</div>
+
+<div class="badge badge-success">
+♿ Accessibility Advocate
+</div>
+
+</div>
+
+<p
+style="
+margin-top:18px;
+line-height:1.9;
+max-width:760px;
+"
+>
+
+Creator,
+ecosystem architect,
+accessibility innovator
+and global digital infrastructure builder focused on inclusive technology,
+creator economy systems,
+enterprise collaboration
+and multilingual social experiences.
+
+</p>
+
+<div
+style="
+margin-top:24px;
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+"
+>
+
+<div class="badge badge-primary">
+🌍 Multilingual
+</div>
+
+<div class="badge badge-success">
+♿ Inclusive Creator
+</div>
+
+<div class="badge badge-warning">
+🎓 Mentor
+</div>
+
+<div class="badge badge-primary">
+🏢 Enterprise
+</div>
+
+<div class="badge badge-success">
+💸 Monetized
+</div>
+
+</div>
+
+</div>
+
+<div
+style="
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+"
+>
+
+<button class="btn btn-primary">
+Follow
+</button>
+
+<button class="btn btn-secondary">
+Message
+</button>
+
+<button class="btn btn-secondary">
+Share
+</button>
+
+</div>
+
+</div>
+
+<!-- STATS -->
+
+<div class="profile-stats">
+
+<div class="profile-stat">
+
+<h2>
+2.4M
+</h2>
+
+<p>
+Followers
+</p>
+
+</div>
+
+<div class="profile-stat">
+
+<h2>
+340
+</h2>
+
+<p>
+Videos
+</p>
+
+</div>
+
+<div class="profile-stat">
+
+<h2>
+94
+</h2>
+
+<p>
+Mentorship Sessions
+</p>
+
+</div>
+
+<div class="profile-stat">
+
+<h2>
+18
+</h2>
+
+<p>
+Enterprise Partnerships
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CREATOR CONTENT -->
+
+<div
+class="profile-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+🎬 Creator Content
+</h2>
+
+<div class="profile-gallery">
+
+<div class="gallery-item">
+
+<img
+src="https://via.placeholder.com/500x300"
+alt="Content"
+/>
+
+<div style="padding:20px;">
+
+<h3>
+Accessibility & AI Systems
+</h3>
+
+<p style="margin-top:10px;">
+Building inclusive creator infrastructure globally.
+</p>
+
+</div>
+
+</div>
+
+<div class="gallery-item">
+
+<img
+src="https://via.placeholder.com/500x300"
+alt="Content"
+/>
+
+<div style="padding:20px;">
+
+<h3>
+Creator Economy Masterclass
+</h3>
+
+<p style="margin-top:10px;">
+Professional monetization systems for creators.
+</p>
+
+</div>
+
+</div>
+
+<div class="gallery-item">
+
+<img
+src="https://via.placeholder.com/500x300"
+alt="Content"
+/>
+
+<div style="padding:20px;">
+
+<h3>
+Enterprise Inclusion Summit
+</h3>
+
+<p style="margin-top:10px;">
+Enterprise accessibility and collaboration infrastructure.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- MENTORSHIP -->
+
+<div
+class="profile-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+🎓 Mentorship Programs
+</h2>
+
+<div class="grid-3">
+
+<div class="card">
+
+<h3>
+AI & Accessibility
+</h3>
+
+<p style="margin-top:12px;">
+Learn inclusive AI architecture and accessibility systems.
+</p>
+
+<div
+style="
+margin-top:18px;
+"
+>
+
+<div class="badge badge-success">
+$80/session
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>
+Creator Economy
+</h3>
+
+<p style="margin-top:12px;">
+Monetization systems,
+creator scaling
+and global audience growth.
+</p>
+
+<div
+style="
+margin-top:18px;
+"
+>
+
+<div class="badge badge-primary">
+$120/session
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>
+Enterprise Infrastructure
+</h3>
+
+<p style="margin-top:12px;">
+Enterprise collaboration,
+governance
+and scalable architecture.
+</p>
+
+<div
+style="
+margin-top:18px;
+"
+>
+
+<div class="badge badge-warning">
+$250/session
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ACCESSIBILITY -->
+
+<div
+class="profile-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+♿ Accessibility Infrastructure
+</h2>
+
+<p
+style="
+margin-top:14px;
+line-height:1.9;
+"
+>
+
+This creator profile currently supports:
+screen readers,
+AI captions,
+voice navigation,
+multilingual communication,
+high contrast interfaces,
+speech-to-text workflows,
+future sign-language integration
+and accessibility-first creator interactions.
+
+</p>
+
+<div
+style="
+margin-top:22px;
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+"
+>
+
+<div class="badge badge-success">
+🔊 Screen Reader Ready
+</div>
+
+<div class="badge badge-primary">
+🌍 AI Translation
+</div>
+
+<div class="badge badge-warning">
+🎤 Voice Navigation
+</div>
+
+<div class="badge badge-success">
+📝 Live Captions
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =========================================
+RIGHT SIDEBAR
+========================================= -->
+
+<div>
+
+<!-- PROFILE STATUS -->
+
+<div class="profile-card">
+
+<h2 class="section-title">
+🌍 Profile Status
+</h2>
+
+<div
+style="
+margin-top:22px;
+display:flex;
+flex-direction:column;
+gap:16px;
+"
+>
+
+<div class="badge badge-success">
+✔ Verification Active
+</div>
+
+<div class="badge badge-primary">
+💸 Monetization Enabled
+</div>
+
+<div class="badge badge-warning">
+🎓 Mentorship Enabled
+</div>
+
+<div class="badge badge-success">
+🛒 Marketplace Seller
+</div>
+
+<div class="badge badge-primary">
+🏢 Enterprise Connected
+</div>
+
+<div class="badge badge-success">
+♿ Accessibility Optimized
+</div>
+
+</div>
+
+</div>
+
+<!-- MONETIZATION -->
+
+<div
+class="profile-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+💸 Monetization
+</h2>
+
+<div
+style="
+margin-top:22px;
+display:flex;
+flex-direction:column;
+gap:18px;
+"
+>
+
+<div class="card">
+
+<h3>
+🎁 Donations
+</h3>
+
+<p style="margin-top:10px;">
+Support this creator directly.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+⭐ Subscriptions
+</h3>
+
+<p style="margin-top:10px;">
+Premium creator membership access.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+📺 Premium Videos
+</h3>
+
+<p style="margin-top:10px;">
+Exclusive educational and training content.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ENTERPRISE -->
+
+<div
+class="profile-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+🏢 Enterprise Profile
+</h2>
+
+<p
+style="
+margin-top:14px;
+line-height:1.8;
+"
+>
+
+Connected to:
+organizations,
+accessibility institutions,
+creator agencies,
+educational systems
+and enterprise collaboration networks.
+
+</p>
+
+<div
+style="
+margin-top:20px;
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+"
+>
+
+<div class="badge badge-primary">
+Enterprise Ready
+</div>
+
+<div class="badge badge-success">
+API Connected
+</div>
+
+</div>
+
+</div>
+
+<!-- COMPLIANCE -->
+
+<div
+class="profile-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+⚖ Compliance
+</h2>
+
+<p
+style="
+margin-top:14px;
+line-height:1.8;
+"
+>
+
+This profile complies with:
+GDPR,
+COPPA,
+UK GDPR,
+NDPR,
+POPIA,
+PIPEDA
+and accessibility-first identity standards.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<!-- =========================================
+NAVIGATION ENGINE
+========================================= -->
+
+<script src="navigation-system.js"></script>
+
+</body>
+</html>
