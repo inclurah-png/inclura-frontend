@@ -1,1 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8"/>
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
+
+<title>
+Care Gigs • Inclura
+</title>
+
+<!-- =========================================
+CORE SYSTEMS
+========================================= -->
+
+<link rel="stylesheet" href="style.css"/>
+<link rel="stylesheet" href="style-v2.css"/>
+<link rel="stylesheet" href="layout-system.css"/>
+<link rel="stylesheet" href="sidebar-system.css"/>
+<link rel="stylesheet" href="component-system.css"/>
+<link rel="stylesheet" href="responsive-system.css"/>
+
+<!-- =========================================
+FONTS
+========================================= -->
+
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet"
+/>
+
+<style>
+
+.care-hero{
+background:
+linear-gradient(
+135deg,
+rgba(0,212,255,0.16),
+rgba(47,124,255,0.14),
+rgba(0,255,170,0.10)
+);
+
+padding:42px;
+border-radius:36px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.care-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(240px,1fr));
+
+gap:22px;
+margin-top:28px;
+}
+
+.care-card{
+background:rgba(255,255,255,0.06);
+padding:28px;
+border-radius:28px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.care-layout{
+display:grid;
+grid-template-columns:1fr 380px;
+gap:28px;
+margin-top:35px;
+}
+
+.service-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(260px,1fr));
+
+gap:22px;
+margin-top:28px;
+}
+
+.service-card{
+background:rgba(255,255,255,0.05);
+border-radius:28px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.service-image{
+height:220px;
+background:
+linear-gradient(
+135deg,
+rgba(47,124,255,0.22),
+rgba(0,0,0,0.3)
+);
+
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+font-weight:700;
+}
+
+.service-content{
+padding:24px;
+}
+
+.tool-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:18px;
+margin-top:24px;
+}
+
+.tool-card{
+background:rgba(255,255,255,0.05);
+padding:24px;
+border-radius:24px;
+}
+
+.booking-card{
+background:rgba(255,255,255,0.05);
+padding:22px;
+border-radius:22px;
+margin-top:18px;
+}
+
+@media(max-width:980px){
+
+.care-layout{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+</head>
+
+<body class="dashboard-body">
+
+<button class="mobile-menu-btn">
+☰
+</button>
+
+<div class="sidebar-overlay"></div>
+
+<!-- =========================================
+SIDEBAR
+========================================= -->
+
+<aside class="sidebar">
+
+<div class="sidebar-logo">
+
+<img
+src="inclura-logo.svg"
+alt="Inclura"
+class="sidebar-logo-image"
+/>
+
+<h1>
+Inclura
+</h1>
+
+</div>
+
+<nav class="sidebar-nav">
+
+<a href="dashboard.html">🏠 Dashboard</a>
+<a href="explore.html">🌍 Explore</a>
+<a href="reels.html">🎬 Reels</a>
+<a href="videos.html">📺 Videos</a>
+<a href="livestream.html">🔴 Livestream</a>
+<a href="messages.html">💬 Messages</a>
+<a href="marketplace.html">🛒 Marketplace</a>
+<a href="mentorship.html">🎓 Mentorship</a>
+<a href="emergency.html">🚨 Emergency</a>
+<a href="care-gigs.html" class="active">🤝 Care Gigs</a>
+<a href="wallet.html">💳 Wallet</a>
+<a href="creatorstudio.html">🎥 Creator Studio</a>
+<a href="analytics.html">📊 Analytics</a>
+<a href="enterprise.html">🏢 Enterprise</a>
+<a href="accessibility-center.html">♿ Accessibility</a>
+<a href="profile.html">👤 Profile</a>
+<a href="settings.html">⚙ Settings</a>
+
+</nav>
+
+<div class="enterprise-tag">
+CARE ECONOMY SYSTEM
+</div>
+
+</aside>
+
+<!-- =========================================
+MAIN
+========================================= -->
+
+<main class="main-content">
+
+<!-- HERO -->
+
+<section class="care-hero">
+
+<div class="grid-2">
+
+<div>
+
+<span class="badge badge-primary">
+INCLUSIVE CARE MARKETPLACE
+</span>
+
+<h1
+class="hero-title"
+style="margin-top:20px;"
+>
+
+Inclura Care Gigs 🤝
+
+</h1>
+
+<p
+class="hero-subtitle"
+style="
+margin-top:18px;
+max-width:760px;
+"
+>
+
+Book caregivers,
+accessibility support professionals,
+wellness assistants,
+childcare providers,
+elderly support workers
+and emergency care services globally.
+
+</p>
+
+</div>
+
+<div class="mobile-hidden">
+
+<div class="care-card">
+
+<h3>
+🌍 Care Infrastructure Active
+</h3>
+
+<div
+style="
+margin-top:20px;
+display:flex;
+flex-direction:column;
+gap:14px;
+"
+>
+
+<div class="badge badge-success">
+🤝 Care Matching Enabled
+</div>
+
+<div class="badge badge-primary">
+♿ Accessibility Support Active
+</div>
+
+<div class="badge badge-warning">
+🚨 Emergency Booking Ready
+</div>
+
+<div class="badge badge-success">
+💳 Wallet Payments Connected
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- STATS -->
+
+<div class="care-grid">
+
+<div class="care-card">
+
+<h3>
+🤝 Active Caregivers
+</h3>
+
+<h1 style="margin-top:18px;font-size:42px;">
+420K
+</h1>
+
+<p style="margin-top:10px;">
+Verified providers worldwide
+</p>
+
+</div>
+
+<div class="care-card">
+
+<h3>
+♿ Accessibility Support
+</h3>
+
+<h1 style="margin-top:18px;font-size:42px;">
+180K
+</h1>
+
+<p style="margin-top:10px;">
+Inclusive care requests
+</p>
+
+</div>
+
+<div class="care-card">
+
+<h3>
+🌍 Countries
+</h3>
+
+<h1 style="margin-top:18px;font-size:42px;">
+72
+</h1>
+
+<p style="margin-top:10px;">
+Care economy coverage
+</p>
+
+</div>
+
+<div class="care-card">
+
+<h3>
+💳 Transactions
+</h3>
+
+<h1 style="margin-top:18px;font-size:42px;">
+$8.2M
+</h1>
+
+<p style="margin-top:10px;">
+Care marketplace volume
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- LAYOUT -->
+
+<section class="care-layout">
+
+<!-- LEFT -->
+
+<div>
+
+<!-- SERVICES -->
+
+<div class="care-card">
+
+<h2 class="section-title">
+🤝 Care Services
+</h2>
+
+<div class="service-grid">
+
+<!-- CARD -->
+
+<div class="service-card">
+
+<div class="service-image">
+♿
+</div>
+
+<div class="service-content">
+
+<h3>
+Accessibility Support
+</h3>
+
+<p
+style="
+margin-top:12px;
+line-height:1.7;
+"
+>
+
+Support for mobility,
+vision,
+hearing
+and communication assistance.
+
+</p>
+
+<div
+style="
+margin-top:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+"
+>
+
+<strong>
+$25/hr
+</strong>
+
+<button class="btn btn-primary">
+Book
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="service-card">
+
+<div class="service-image">
+👵
+</div>
+
+<div class="service-content">
+
+<h3>
+Elderly Care
+</h3>
+
+<p
+style="
+margin-top:12px;
+line-height:1.7;
+"
+>
+
+Daily assistance,
+companionship
+and wellness support.
+
+</p>
+
+<div
+style="
+margin-top:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+"
+>
+
+<strong>
+$18/hr
+</strong>
+
+<button class="btn btn-primary">
+Hire
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="service-card">
+
+<div class="service-image">
+👶
+</div>
+
+<div class="service-content">
+
+<h3>
+Childcare Services
+</h3>
+
+<p
+style="
+margin-top:12px;
+line-height:1.7;
+"
+>
+
+Trusted caregiver
+and childcare booking systems.
+
+</p>
+
+<div
+style="
+margin-top:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+"
+>
+
+<strong>
+$20/hr
+</strong>
+
+<button class="btn btn-primary">
+Book
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- BOOKING -->
+
+<div
+class="care-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+📅 Booking System
+</h2>
+
+<div class="booking-card">
+
+<h3>
+🚨 Emergency Care Booking
+</h3>
+
+<p style="margin-top:12px;">
+Urgent caregiver visibility and fast support matching.
+</p>
+
+<div style="margin-top:18px;">
+<div class="badge badge-danger">
++$15 Emergency Visibility Fee
+</div>
+</div>
+
+</div>
+
+<div class="booking-card">
+
+<h3>
+💳 Platform Commission
+</h3>
+
+<p style="margin-top:12px;">
+Inclura commission for care transactions and marketplace protection.
+</p>
+
+<div style="margin-top:18px;">
+<div class="badge badge-warning">
+8% Service Fee
+</div>
+</div>
+
+</div>
+
+<div class="booking-card">
+
+<h3>
+🎓 Mentorship & Wellness
+</h3>
+
+<p style="margin-top:12px;">
+Professional wellness coaching and support sessions.
+</p>
+
+<div style="margin-top:18px;">
+<div class="badge badge-primary">
+12% Mentorship Commission
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- TOOLS -->
+
+<div
+class="care-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+⚡ Care Economy Systems
+</h2>
+
+<div class="tool-grid">
+
+<div class="tool-card">
+
+<h3>
+🤖 AI Care Matching
+</h3>
+
+<p style="margin-top:12px;">
+Smart caregiver recommendations.
+</p>
+
+</div>
+
+<div class="tool-card">
+
+<h3>
+💳 Wallet Integration
+</h3>
+
+<p style="margin-top:12px;">
+Realtime secure payments.
+</p>
+
+</div>
+
+<div class="tool-card">
+
+<h3>
+📍 Location Services
+</h3>
+
+<p style="margin-top:12px;">
+Nearby caregiver discovery.
+</p>
+
+</div>
+
+<div class="tool-card">
+
+<h3>
+🧠 Wellness Support
+</h3>
+
+<p style="margin-top:12px;">
+Mental and emotional care systems.
+</p>
+
+</div>
+
+<div class="tool-card">
+
+<h3>
+🚨 Emergency Matching
+</h3>
+
+<p style="margin-top:12px;">
+Urgent caregiver allocation.
+</p>
+
+</div>
+
+<div class="tool-card">
+
+<h3>
+🌍 Translation Systems
+</h3>
+
+<p style="margin-top:12px;">
+Multilingual caregiver communication.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ACCESSIBILITY -->
+
+<div
+class="care-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+♿ Accessibility Care Systems
+</h2>
+
+<p
+style="
+margin-top:14px;
+line-height:1.9;
+"
+>
+
+Inclura Care Gigs supports:
+voice navigation,
+screen readers,
+AI captions,
+speech assistance,
+caregiver accessibility tools
+and inclusive communication systems.
+
+</p>
+
+<div
+style="
+margin-top:22px;
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+"
+>
+
+<div class="badge badge-success">
+🔊 Voice Support
+</div>
+
+<div class="badge badge-primary">
+♿ Screen Reader
+</div>
+
+<div class="badge badge-warning">
+🌍 AI Translation
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div>
+
+<!-- PAYOUT -->
+
+<div class="care-card">
+
+<h2 class="section-title">
+💰 Caregiver Earnings
+</h2>
+
+<div
+style="
+margin-top:20px;
+display:flex;
+flex-direction:column;
+gap:18px;
+"
+>
+
+<div class="card">
+
+<h3>
+💳 Weekly Payouts
+</h3>
+
+<p style="margin-top:10px;">
+Automated provider withdrawals.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+🎁 Tips & Donations
+</h3>
+
+<p style="margin-top:10px;">
+Optional client appreciation system.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+📈 Premium Visibility
+</h3>
+
+<p style="margin-top:10px;">
+Boost caregiver profile visibility.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- SUBSIDY -->
+
+<div
+class="care-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+🌍 Accessibility Subsidies
+</h2>
+
+<p
+style="
+margin-top:14px;
+line-height:1.9;
+"
+>
+
+Reduced pricing,
+community grants,
+NGO sponsorship
+and accessibility assistance funding systems.
+
+</p>
+
+</div>
+
+<!-- ENTERPRISE -->
+
+<div
+class="care-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+🏢 Enterprise Care
+</h2>
+
+<p
+style="
+margin-top:14px;
+line-height:1.9;
+"
+>
+
+Corporate wellness,
+hospital integrations,
+NGO partnerships
+and enterprise caregiver infrastructure.
+
+</p>
+
+</div>
+
+<!-- COMMUNITY -->
+
+<div
+class="care-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+🤝 Community Support
+</h2>
+
+<p
+style="
+margin-top:14px;
+line-height:1.9;
+"
+>
+
+Community-based caregiving,
+volunteer support,
+inclusive assistance
+and humanitarian collaboration systems.
+
+</p>
+
+</div>
+
+<!-- COMPLIANCE -->
+
+<div
+class="care-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+⚖ Care Compliance
+</h2>
+
+<p
+style="
+margin-top:14px;
+line-height:1.9;
+"
+>
+
+Care systems comply with:
+GDPR,
+NDPR,
+POPIA,
+PIPEDA
+and accessibility-first safety standards.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<script src="navigation-system.js"></script>
+
+</body>
+  </html>
