@@ -10,12 +10,47 @@ name="viewport"
 content="width=device-width, initial-scale=1.0"
 />
 
-<title>Inclura Messages</title>
+<title>
+Messages • Inclura
+</title>
+
+<!-- =========================================
+CORE STYLES
+========================================= -->
+
+<link
+rel="stylesheet"
+href="style.css"
+/>
 
 <link
 rel="stylesheet"
 href="style-v2.css"
 />
+
+<link
+rel="stylesheet"
+href="layout-system.css"
+/>
+
+<link
+rel="stylesheet"
+href="sidebar-system.css"
+/>
+
+<link
+rel="stylesheet"
+href="component-system.css"
+/>
+
+<link
+rel="stylesheet"
+href="responsive-system.css"
+/>
+
+<!-- =========================================
+FONTS
+========================================= -->
 
 <link
 href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
@@ -24,87 +59,55 @@ rel="stylesheet"
 
 <style>
 
-.messages-hero{
-background:
-linear-gradient(
-135deg,
-rgba(47,124,255,0.18),
-rgba(0,212,255,0.12)
-);
-
-padding:40px;
-border-radius:35px;
-margin-bottom:35px;
-border:1px solid rgba(255,255,255,0.08);
-}
-
-.messages-hero h1{
-font-size:52px;
-margin-bottom:18px;
-}
-
-.messages-hero p{
-font-size:18px;
-line-height:1.8;
-max-width:900px;
-color:#d7e4ff;
-}
-
 .messages-layout{
 display:grid;
-grid-template-columns:320px 1fr;
+grid-template-columns:340px 1fr;
 gap:24px;
 margin-top:30px;
 }
 
-.chat-sidebar{
-background:
-rgba(255,255,255,0.08);
-
-border-radius:30px;
-padding:24px;
+.conversation-list{
+background:rgba(255,255,255,0.06);
+border-radius:28px;
+padding:22px;
 border:1px solid rgba(255,255,255,0.08);
-
-height:80vh;
+height:calc(100vh - 180px);
 overflow-y:auto;
 }
 
-.chat-search{
-margin-bottom:24px;
-}
-
-.chat-search input{
-width:100%;
-padding:16px;
-border:none;
-border-radius:18px;
-background:rgba(255,255,255,0.08);
-color:white;
-outline:none;
+.chat-window{
+background:rgba(255,255,255,0.06);
+border-radius:28px;
+padding:24px;
+border:1px solid rgba(255,255,255,0.08);
+display:flex;
+flex-direction:column;
+height:calc(100vh - 180px);
 }
 
 .chat-user{
 display:flex;
 align-items:center;
-gap:16px;
-
-padding:18px;
-border-radius:20px;
+gap:14px;
+padding:16px;
+border-radius:18px;
 cursor:pointer;
+margin-bottom:12px;
 transition:0.3s;
-margin-bottom:14px;
 }
 
 .chat-user:hover{
-background:
-rgba(255,255,255,0.08);
+background:rgba(255,255,255,0.06);
 }
 
-.chat-avatar{
-width:58px;
-height:58px;
-border-radius:18px;
+.chat-user.active{
+background:rgba(47,124,255,0.18);
+}
 
+.avatar{
+width:54px;
+height:54px;
+border-radius:50%;
 background:
 linear-gradient(
 135deg,
@@ -115,76 +118,34 @@ linear-gradient(
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:22px;
-font-weight:800;
+font-size:20px;
+font-weight:700;
+color:white;
 }
 
-.chat-info h3{
-font-size:18px;
-margin-bottom:6px;
-}
-
-.chat-info p{
-font-size:14px;
-color:#b9d4ff;
-}
-
-.chat-main{
-background:
-rgba(255,255,255,0.08);
-
-border-radius:30px;
-border:1px solid rgba(255,255,255,0.08);
-
-display:flex;
-flex-direction:column;
-height:80vh;
-overflow:hidden;
-}
-
-.chat-top{
-padding:24px;
-border-bottom:
-1px solid rgba(255,255,255,0.08);
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.chat-top h2{
-font-size:28px;
-}
-
-.chat-status{
-color:#8fd3ff;
-font-size:14px;
-}
-
-.chat-body{
+.message-stream{
 flex:1;
-padding:30px;
 overflow-y:auto;
+padding:24px 0;
 display:flex;
 flex-direction:column;
-gap:20px;
+gap:18px;
 }
 
 .message{
 max-width:70%;
-padding:18px 22px;
-border-radius:24px;
-line-height:1.8;
+padding:18px;
+border-radius:22px;
+line-height:1.7;
+font-size:15px;
 }
 
-.received{
-background:
-rgba(255,255,255,0.08);
-
+.message.received{
+background:rgba(255,255,255,0.08);
 align-self:flex-start;
 }
 
-.sent{
+.message.sent{
 background:
 linear-gradient(
 135deg,
@@ -193,91 +154,51 @@ linear-gradient(
 );
 
 align-self:flex-end;
+color:white;
 }
 
-.chat-bottom{
-padding:24px;
-border-top:
-1px solid rgba(255,255,255,0.08);
+.message-tools{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-top:10px;
+}
 
+.chat-input-area{
+margin-top:20px;
 display:flex;
 gap:16px;
-align-items:center;
+flex-wrap:wrap;
 }
 
-.chat-bottom input{
+.chat-input-area input{
 flex:1;
 padding:18px;
 border:none;
 border-radius:20px;
 background:rgba(255,255,255,0.08);
 color:white;
+font-size:15px;
 outline:none;
 }
 
-.send-btn{
-padding:18px 28px;
-border:none;
-border-radius:20px;
-
-background:
-linear-gradient(
-135deg,
-#2f7cff,
-#00d4ff
-);
-
-color:white;
-font-weight:700;
-cursor:pointer;
-}
-
-.feature-grid{
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(260px,1fr));
-
-gap:24px;
-margin-top:50px;
-}
-
-.feature-card{
-background:
-rgba(255,255,255,0.08);
-
-padding:28px;
-border-radius:28px;
-border:1px solid rgba(255,255,255,0.08);
-}
-
-.feature-card .icon{
-font-size:42px;
-margin-bottom:18px;
-}
-
-.feature-card h2{
-font-size:24px;
-margin-bottom:14px;
-}
-
-.feature-card p{
-line-height:1.8;
-color:#d7e4ff;
-}
-
-@media(max-width:1000px){
+@media(max-width:950px){
 
 .messages-layout{
 grid-template-columns:1fr;
 }
 
-.chat-sidebar{
+.conversation-list{
 height:auto;
 }
 
-.chat-main{
+.chat-window{
 height:auto;
 min-height:700px;
+}
+
+.message{
+max-width:100%;
 }
 
 }
@@ -288,7 +209,23 @@ min-height:700px;
 
 <body class="dashboard-body">
 
-<!-- SIDEBAR -->
+<!-- =========================================
+MOBILE MENU
+========================================= -->
+
+<button class="mobile-menu-btn">
+☰
+</button>
+
+<!-- =========================================
+OVERLAY
+========================================= -->
+
+<div class="sidebar-overlay"></div>
+
+<!-- =========================================
+SIDEBAR
+========================================= -->
 
 <aside class="sidebar">
 
@@ -300,93 +237,235 @@ alt="Inclura Logo"
 class="sidebar-logo-image"
 />
 
-<h1>Inclura</h1>
+<h1>
+Inclura
+</h1>
 
 </div>
 
 <nav class="sidebar-nav">
 
-<a href="dashboard.html">🏠 Dashboard</a>
+<a href="dashboard.html">
+🏠 Dashboard
+</a>
 
-<a href="messages.html">💬 Messages</a>
+<a href="explore.html">
+🌍 Explore
+</a>
 
-<a href="notifications.html">🔔 Notifications</a>
+<a href="reels.html">
+🎬 Reels
+</a>
 
-<a href="wallet.html">💳 Wallet</a>
+<a href="videos.html">
+📺 Videos
+</a>
 
-<a href="marketplace.html">🛒 Marketplace</a>
+<a href="livestream.html">
+🔴 Livestream
+</a>
 
-<a href="mentorship.html">🎓 Mentorship</a>
+<a href="messages.html" class="active">
+💬 Messages
+</a>
 
-<a href="caregigs.html">🤝 Care Gigs</a>
+<a href="marketplace.html">
+🛒 Marketplace
+</a>
 
-<a href="subscriptions.html">💎 Subscriptions</a>
+<a href="mentorship.html">
+🎓 Mentorship
+</a>
 
-<a href="settings.html">⚙ Settings</a>
+<a href="wallet.html">
+💳 Wallet
+</a>
+
+<a href="creatorstudio.html">
+🎥 Creator Studio
+</a>
+
+<a href="analytics.html">
+📊 Analytics
+</a>
+
+<a href="enterprise.html">
+🏢 Enterprise
+</a>
+
+<a href="accessibility-center.html">
+♿ Accessibility
+</a>
+
+<a href="profile.html">
+👤 Profile
+</a>
+
+<a href="settings.html">
+⚙ Settings
+</a>
 
 </nav>
 
+<div class="enterprise-tag">
+COMMUNICATION ENGINE
+</div>
+
 </aside>
 
-<!-- MAIN -->
+<!-- =========================================
+MAIN CONTENT
+========================================= -->
 
 <main class="main-content">
 
 <!-- HERO -->
 
-<section class="messages-hero">
+<section class="glass-card">
 
-<h1>
-💬 Inclura Messages
+<div class="grid-2">
+
+<div>
+
+<span class="badge badge-primary">
+GLOBAL COMMUNICATION
+</span>
+
+<h1
+class="hero-title"
+style="margin-top:20px;"
+>
+
+Inclura Messaging 💬
+
 </h1>
 
-<p>
+<p
+class="hero-subtitle"
+style="
+margin-top:18px;
+max-width:760px;
+"
+>
 
 Communicate with creators,
+fans,
 mentors,
-buyers,
-communities,
-care professionals,
-enterprises
-and collaborators through Inclura’s global real-time messaging infrastructure.
+marketplace sellers,
+enterprise teams,
+organizations
+and accessibility communities
+through multilingual,
+inclusive
+and AI-enhanced messaging infrastructure.
 
 </p>
 
+</div>
+
+<div class="mobile-hidden">
+
+<div class="glass-card">
+
+<h3>
+🌍 Messaging Systems
+</h3>
+
+<div
+style="
+margin-top:20px;
+display:flex;
+flex-direction:column;
+gap:14px;
+"
+>
+
+<div class="badge badge-success">
+🌐 Realtime Architecture Preparing
+</div>
+
+<div class="badge badge-primary">
+♿ Accessibility Messaging Enabled
+</div>
+
+<div class="badge badge-warning">
+🤖 AI Translation Preparing
+</div>
+
+<div class="badge badge-success">
+🔒 Enterprise Secure Messaging
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- MESSAGES -->
+<!-- =========================================
+MESSAGING LAYOUT
+========================================= -->
 
 <section class="messages-layout">
 
-<!-- SIDEBAR -->
+<!-- =========================================
+LEFT PANEL
+========================================= -->
 
-<div class="chat-sidebar">
+<div class="conversation-list">
 
-<div class="chat-search">
+<h2 class="section-title">
+💬 Conversations
+</h2>
+
+<div
+style="
+margin-top:24px;
+"
+>
 
 <input
 type="text"
 placeholder="Search conversations..."
+style="
+width:100%;
+padding:16px;
+border:none;
+border-radius:18px;
+background:rgba(255,255,255,0.08);
+color:white;
+outline:none;
+"
 />
 
 </div>
 
-<!-- USERS -->
+<!-- CHAT USER -->
 
-<div class="chat-user">
+<div
+style="
+margin-top:28px;
+"
+>
 
-<div class="chat-avatar">
+<div class="chat-user active">
+
+<div class="avatar">
 A
 </div>
 
-<div class="chat-info">
+<div>
 
 <h3>
-Alex Morgan
+Accessibility Hub
 </h3>
 
-<p>
-Mentorship Session
+<p style="margin-top:6px;">
+Voice navigation update available.
 </p>
 
 </div>
@@ -395,78 +474,78 @@ Mentorship Session
 
 <div class="chat-user">
 
-<div class="chat-avatar">
-J
-</div>
-
-<div class="chat-info">
-
-<h3>
-Jane Creative
-</h3>
-
-<p>
-Marketplace Order
-</p>
-
-</div>
-
-</div>
-
-<div class="chat-user">
-
-<div class="chat-avatar">
-T
-</div>
-
-<div class="chat-info">
-
-<h3>
-Tech Enterprise
-</h3>
-
-<p>
-Business Collaboration
-</p>
-
-</div>
-
-</div>
-
-<div class="chat-user">
-
-<div class="chat-avatar">
-S
-</div>
-
-<div class="chat-info">
-
-<h3>
-Support Team
-</h3>
-
-<p>
-Verification Assistance
-</p>
-
-</div>
-
-</div>
-
-<div class="chat-user">
-
-<div class="chat-avatar">
+<div class="avatar">
 M
 </div>
 
-<div class="chat-info">
+<div>
 
 <h3>
-Marketplace Seller
+Mentorship Academy
 </h3>
 
-<p>
-Product Shipment
+<p style="margin-top:6px;">
+Next mentorship session starts tomorrow.
+</p>
+
+</div>
+
+</div>
+
+<div class="chat-user">
+
+<div class="avatar">
+E
+</div>
+
+<div>
+
+<h3>
+Enterprise Workspace
+</h3>
+
+<p style="margin-top:6px;">
+New collaboration invite received.
+</p>
+
+</div>
+
+</div>
+
+<div class="chat-user">
+
+<div class="avatar">
+C
+</div>
+
+<div>
+
+<h3>
+Creator Network
+</h3>
+
+<p style="margin-top:6px;">
+Your reel is trending globally.
+</p>
+
+</div>
+
+</div>
+
+<div class="chat-user">
+
+<div class="avatar">
+L
+</div>
+
+<div>
+
+<h3>
+Livestream Team
+</h3>
+
+<p style="margin-top:6px;">
+Livestream moderation activated.
 </p>
 
 </div>
@@ -475,225 +554,447 @@ Product Shipment
 
 </div>
 
-<!-- MAIN CHAT -->
+</div>
 
-<div class="chat-main">
+<!-- =========================================
+CHAT WINDOW
+========================================= -->
 
-<div class="chat-top">
+<div class="chat-window">
+
+<!-- TOP -->
+
+<div
+style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:20px;
+flex-wrap:wrap;
+"
+>
+
+<div
+style="
+display:flex;
+align-items:center;
+gap:16px;
+"
+>
+
+<div class="avatar">
+A
+</div>
 
 <div>
 
 <h2>
-Alex Morgan
+Accessibility Hub
 </h2>
 
-<div class="chat-status">
-Online • Mentorship
-</div>
+<p style="margin-top:6px;">
+Online • Accessibility Systems Active
+</p>
 
-</div>
-
-<div>
-🎥 📎 📞
 </div>
 
 </div>
 
-<!-- CHAT BODY -->
+<div
+style="
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+"
+>
 
-<div class="chat-body">
+<div class="badge badge-success">
+🌐 Translation Enabled
+</div>
+
+<div class="badge badge-primary">
+♿ Accessibility Active
+</div>
+
+<div class="badge badge-warning">
+🤖 AI Assist
+</div>
+
+</div>
+
+</div>
+
+<!-- STREAM -->
+
+<div class="message-stream">
 
 <div class="message received">
 
 Hello 👋
 
-Your mentorship session has been confirmed for tomorrow at 3PM.
+Welcome to the Inclura accessibility communication infrastructure.
+
+Realtime captions,
+voice support,
+screen-reader optimization
+and multilingual messaging are currently active.
+
+<div class="message-tools">
+
+<div class="badge badge-primary">
+🌍 Translate
+</div>
+
+<div class="badge badge-success">
+🔊 Read Aloud
+</div>
+
+<div class="badge badge-warning">
+📝 Transcript
+</div>
+
+</div>
+
+</div>
+
+<div class="message sent">
+
+Amazing.
+
+We are currently integrating accessibility systems into creator communication,
+enterprise messaging
+and mentorship collaboration.
+
+</div>
+
+<div class="message received">
+
+Excellent.
+
+Inclura messaging also supports:
+multilingual communities,
+AI moderation,
+accessibility translation,
+future voice rooms,
+livestream chat infrastructure
+and enterprise collaboration systems.
+
+<div class="message-tools">
+
+<div class="badge badge-primary">
+🌍 Translate
+</div>
+
+<div class="badge badge-success">
+🎤 Voice Support
+</div>
+
+<div class="badge badge-warning">
+♿ Accessibility
+</div>
+
+</div>
 
 </div>
 
 <div class="message sent">
 
 Perfect.
-Thank you.
-I have also completed the payment.
+
+We want physically challenged users
+and non-disabled users
+to communicate seamlessly together globally.
 
 </div>
 
 <div class="message received">
 
-Great.
-The session link and training materials will be shared shortly.
-
-</div>
-
-<div class="message sent">
-
-Understood.
-Looking forward to it.
+That architecture is now embedded into the Inclura ecosystem.
 
 </div>
 
 </div>
 
-<!-- CHAT INPUT -->
+<!-- INPUT -->
 
-<div class="chat-bottom">
+<div class="chat-input-area">
 
 <input
 type="text"
-placeholder="Type your message..."
+placeholder="Type a message..."
 />
 
-<button class="send-btn">
+<button class="btn btn-secondary">
+🎤 Voice
+</button>
+
+<button class="btn btn-secondary">
+📎 Attach
+</button>
+
+<button class="btn btn-primary">
 Send
 </button>
 
 </div>
 
+<!-- TOOLS -->
+
+<div
+style="
+margin-top:22px;
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+"
+>
+
+<div class="badge badge-primary">
+🌐 AI Translation
 </div>
 
-</section>
-
-<!-- FEATURES -->
-
-<section class="feature-grid">
-
-<div class="feature-card">
-
-<div class="icon">
-🌍
+<div class="badge badge-success">
+🔊 Screen Reader Ready
 </div>
 
-<h2>
-Real-Time Messaging
-</h2>
-
-<p>
-
-Fast conversations between creators,
-buyers,
-mentors,
-communities
-and enterprises globally.
-
-</p>
-
+<div class="badge badge-warning">
+🧠 Smart Replies
 </div>
 
-<div class="feature-card">
-
-<div class="icon">
-🎙
+<div class="badge badge-primary">
+🎥 Video Messaging Preparing
 </div>
 
-<h2>
-Voice & Accessibility
-</h2>
-
-<p>
-
-Voice-to-text,
-screen-reader support,
-captioning
-and multilingual communication assistance.
-
-</p>
-
+<div class="badge badge-success">
+🔴 Livestream Chat Connected
 </div>
 
-<div class="feature-card">
-
-<div class="icon">
-📎
 </div>
-
-<h2>
-Media & Documents
-</h2>
-
-<p>
-
-Share files,
-videos,
-images,
-voice notes,
-receipts,
-contracts
-and project documents.
-
-</p>
-
-</div>
-
-<div class="feature-card">
-
-<div class="icon">
-💳
-</div>
-
-<h2>
-Financial Conversations
-</h2>
-
-<p>
-
-Marketplace receipts,
-payment confirmations,
-creator invoices
-and wallet transaction support.
-
-</p>
-
-</div>
-
-<div class="feature-card">
-
-<div class="icon">
-👥
-</div>
-
-<h2>
-Communities & Groups
-</h2>
-
-<p>
-
-Create groups,
-creator teams,
-enterprise workspaces
-and accessibility communities.
-
-</p>
-
-</div>
-
-<div class="feature-card">
-
-<div class="icon">
-🔐
-</div>
-
-<h2>
-Secure Communication
-</h2>
-
-<p>
-
-Protected messaging architecture with privacy,
-moderation
-and safety controls.
-
-</p>
 
 </div>
 
 </section>
 
-<button class="floating-button">
-+
-</button>
+<!-- =========================================
+COMMUNICATION TYPES
+========================================= -->
+
+<section class="section">
+
+<h2 class="section-title">
+🚀 Communication Infrastructure
+</h2>
+
+<div class="grid-4">
+
+<div class="card">
+
+<div class="icon-box">
+🎓
+</div>
+
+<h3 style="margin-top:18px;">
+Mentorship Messaging
+</h3>
+
+<p style="margin-top:12px;">
+Students,
+mentors
+and educational communication systems.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="icon-box">
+🛒
+</div>
+
+<h3 style="margin-top:18px;">
+Marketplace Chat
+</h3>
+
+<p style="margin-top:12px;">
+Buyers,
+sellers,
+service providers
+and transaction support.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="icon-box">
+🏢
+</div>
+
+<h3 style="margin-top:18px;">
+Enterprise Workspace
+</h3>
+
+<p style="margin-top:12px;">
+Organizations,
+teams,
+collaboration
+and professional communication.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="icon-box">
+♿
+</div>
+
+<h3 style="margin-top:18px;">
+Accessibility Messaging
+</h3>
+
+<p style="margin-top:12px;">
+Voice support,
+captions,
+sign-language workflows
+and inclusive communication.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================
+AI SYSTEMS
+========================================= -->
+
+<section class="section">
+
+<div class="glass-card">
+
+<h2 class="section-title">
+🤖 AI Messaging Systems
+</h2>
+
+<p
+class="section-subtitle"
+style="margin-top:12px;"
+>
+
+Inclura messaging architecture supports:
+AI translation,
+smart replies,
+moderation assistance,
+voice transcription,
+language conversion,
+accessibility adaptation
+and future realtime AI communication systems.
+
+</p>
+
+<div
+style="
+margin-top:24px;
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+"
+>
+
+<div class="badge badge-primary">
+AI Translation
+</div>
+
+<div class="badge badge-success">
+Realtime Captions
+</div>
+
+<div class="badge badge-warning">
+Smart Moderation
+</div>
+
+<div class="badge badge-primary">
+Voice Recognition
+</div>
+
+<div class="badge badge-success">
+Accessibility AI
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================
+ACCESSIBILITY
+========================================= -->
+
+<section class="section">
+
+<div class="alert alert-info">
+
+<h3>
+♿ Accessibility Messaging Enabled
+</h3>
+
+<p style="margin-top:12px;">
+
+Inclura messaging currently supports:
+screen readers,
+voice navigation,
+speech-to-text,
+AI captions,
+multilingual translation,
+high contrast experiences,
+future sign-language integrations
+and accessibility-first communication infrastructure.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- =========================================
+COMPLIANCE
+========================================= -->
+
+<section class="section">
+
+<div class="alert alert-warning">
+
+<h3>
+⚖ Messaging Compliance Infrastructure
+</h3>
+
+<p style="margin-top:12px;">
+
+Inclura messaging complies with:
+GDPR,
+COPPA,
+UK GDPR,
+NDPR,
+POPIA,
+PIPEDA
+and enterprise-grade communication standards globally.
+
+</p>
+
+</div>
+
+</section>
 
 </main>
+
+<!-- =========================================
+NAVIGATION ENGINE
+========================================= -->
+
+<script src="navigation-system.js"></script>
 
 </body>
 </html>
