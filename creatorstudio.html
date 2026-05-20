@@ -10,12 +10,47 @@ name="viewport"
 content="width=device-width, initial-scale=1.0"
 />
 
-<title>Inclura Creator Studio</title>
+<title>
+Creator Studio • Inclura
+</title>
+
+<!-- =========================================
+CORE SYSTEMS
+========================================= -->
+
+<link
+rel="stylesheet"
+href="style.css"
+/>
 
 <link
 rel="stylesheet"
 href="style-v2.css"
 />
+
+<link
+rel="stylesheet"
+href="layout-system.css"
+/>
+
+<link
+rel="stylesheet"
+href="sidebar-system.css"
+/>
+
+<link
+rel="stylesheet"
+href="component-system.css"
+/>
+
+<link
+rel="stylesheet"
+href="responsive-system.css"
+/>
+
+<!-- =========================================
+FONTS
+========================================= -->
 
 <link
 href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
@@ -28,194 +63,86 @@ rel="stylesheet"
 background:
 linear-gradient(
 135deg,
-rgba(47,124,255,0.25),
-rgba(0,212,255,0.12)
+rgba(47,124,255,0.18),
+rgba(0,212,255,0.14),
+rgba(255,80,80,0.12)
 );
 
-padding:40px;
-border-radius:35px;
-margin-bottom:35px;
+padding:42px;
+border-radius:36px;
 border:1px solid rgba(255,255,255,0.08);
 }
 
-.studio-hero h1{
-font-size:48px;
-margin-bottom:18px;
-}
-
-.studio-hero p{
-font-size:18px;
-line-height:1.8;
-color:#d7e4ff;
-max-width:800px;
-}
-
-.studio-actions{
+.studio-grid{
 display:grid;
 grid-template-columns:
-repeat(auto-fit,minmax(240px,1fr));
-
-gap:24px;
-margin-top:40px;
-}
-
-.studio-action-card{
-background:
-rgba(255,255,255,0.08);
-
-padding:28px;
-border-radius:28px;
-border:1px solid rgba(255,255,255,0.08);
-
-transition:0.3s;
-cursor:pointer;
-}
-
-.studio-action-card:hover{
-transform:translateY(-8px);
-}
-
-.studio-action-card .icon{
-font-size:42px;
-margin-bottom:18px;
-}
-
-.studio-action-card h2{
-margin-bottom:12px;
-font-size:24px;
-}
-
-.studio-action-card p{
-color:#bdd7ff;
-line-height:1.7;
-}
-
-.creator-stats{
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(220px,1fr));
-
-gap:24px;
-margin-bottom:40px;
-}
-
-.creator-stat-card{
-background:
-rgba(255,255,255,0.08);
-
-padding:28px;
-border-radius:28px;
-border:1px solid rgba(255,255,255,0.08);
-}
-
-.creator-stat-card h3{
-color:#b9d4ff;
-margin-bottom:12px;
-font-size:17px;
-}
-
-.creator-stat-card h1{
-font-size:38px;
-}
-
-.content-section{
-margin-top:40px;
-}
-
-.content-section h2{
-font-size:34px;
-margin-bottom:25px;
-}
-
-.content-grid{
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(300px,1fr));
-
-gap:25px;
-}
-
-.content-card{
-background:
-rgba(255,255,255,0.08);
-
-border-radius:28px;
-overflow:hidden;
-border:1px solid rgba(255,255,255,0.08);
-transition:0.3s;
-}
-
-.content-card:hover{
-transform:translateY(-8px);
-}
-
-.content-card img{
-width:100%;
-height:220px;
-object-fit:cover;
-}
-
-.content-info{
-padding:24px;
-}
-
-.content-info h3{
-font-size:22px;
-margin-bottom:14px;
-}
-
-.content-meta{
-display:flex;
-justify-content:space-between;
-margin-bottom:14px;
-color:#9fc2ff;
-font-size:14px;
-}
-
-.accessibility-tools{
-margin-top:50px;
-background:
-linear-gradient(
-135deg,
-rgba(0,212,255,0.12),
-rgba(47,124,255,0.16)
-);
-
-padding:35px;
-border-radius:35px;
-border:1px solid rgba(255,255,255,0.08);
-}
-
-.accessibility-tools h2{
-font-size:34px;
-margin-bottom:20px;
-}
-
-.tools-grid{
-display:grid;
-grid-template-columns:
-repeat(auto-fit,minmax(220px,1fr));
+repeat(auto-fit,minmax(260px,1fr));
 
 gap:22px;
-margin-top:30px;
+margin-top:28px;
+}
+
+.studio-card{
+background:rgba(255,255,255,0.06);
+padding:28px;
+border-radius:28px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.creator-layout{
+display:grid;
+grid-template-columns:1fr 380px;
+gap:28px;
+margin-top:35px;
+}
+
+.upload-box{
+border:2px dashed rgba(255,255,255,0.12);
+border-radius:28px;
+padding:40px;
+text-align:center;
+background:rgba(255,255,255,0.04);
+}
+
+.tool-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:18px;
+margin-top:24px;
 }
 
 .tool-card{
-background:
-rgba(255,255,255,0.08);
-
+background:rgba(255,255,255,0.05);
 padding:24px;
 border-radius:24px;
-border:1px solid rgba(255,255,255,0.08);
 }
 
-.tool-card h3{
-margin-bottom:12px;
+.analytics-table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
 }
 
-.tool-card p{
-line-height:1.7;
-color:#d7e4ff;
+.analytics-table th,
+.analytics-table td{
+padding:18px;
+text-align:left;
+border-bottom:
+1px solid rgba(255,255,255,0.08);
+}
+
+.analytics-table th{
+color:#8fd3ff;
+}
+
+@media(max-width:980px){
+
+.creator-layout{
+grid-template-columns:1fr;
+}
+
 }
 
 </style>
@@ -224,7 +151,23 @@ color:#d7e4ff;
 
 <body class="dashboard-body">
 
-<!-- SIDEBAR -->
+<!-- =========================================
+MOBILE MENU
+========================================= -->
+
+<button class="mobile-menu-btn">
+☰
+</button>
+
+<!-- =========================================
+OVERLAY
+========================================= -->
+
+<div class="sidebar-overlay"></div>
+
+<!-- =========================================
+SIDEBAR
+========================================= -->
 
 <aside class="sidebar">
 
@@ -236,403 +179,937 @@ alt="Inclura Logo"
 class="sidebar-logo-image"
 />
 
-<h1>Inclura</h1>
+<h1>
+Inclura
+</h1>
 
 </div>
 
 <nav class="sidebar-nav">
 
-<a href="dashboard.html">🏠 Dashboard</a>
+<a href="dashboard.html">
+🏠 Dashboard
+</a>
 
-<a href="posts.html">📝 Posts</a>
+<a href="explore.html">
+🌍 Explore
+</a>
 
-<a href="reels.html">🎬 Reels</a>
+<a href="reels.html">
+🎬 Reels
+</a>
 
-<a href="videos.html">📺 Videos</a>
+<a href="videos.html">
+📺 Videos
+</a>
 
-<a href="wallet.html">💳 Wallet</a>
+<a href="livestream.html">
+🔴 Livestream
+</a>
 
-<a href="creatorstudio.html">🎥 Creator Studio</a>
+<a href="messages.html">
+💬 Messages
+</a>
 
-<a href="analytics.html">📊 Analytics</a>
+<a href="marketplace.html">
+🛒 Marketplace
+</a>
 
-<a href="notifications.html">🔔 Notifications</a>
+<a href="mentorship.html">
+🎓 Mentorship
+</a>
 
-<a href="settings.html">⚙ Settings</a>
+<a href="wallet.html">
+💳 Wallet
+</a>
+
+<a href="creatorstudio.html" class="active">
+🎥 Creator Studio
+</a>
+
+<a href="analytics.html">
+📊 Analytics
+</a>
+
+<a href="enterprise.html">
+🏢 Enterprise
+</a>
+
+<a href="accessibility-center.html">
+♿ Accessibility
+</a>
+
+<a href="profile.html">
+👤 Profile
+</a>
+
+<a href="settings.html">
+⚙ Settings
+</a>
 
 </nav>
 
+<div class="enterprise-tag">
+CREATOR OPERATING SYSTEM
+</div>
+
 </aside>
 
-<!-- MAIN CONTENT -->
+<!-- =========================================
+MAIN CONTENT
+========================================= -->
 
 <main class="main-content">
 
-<!-- TOPBAR -->
-
-<div class="dashboard-topbar">
-
-<div class="search-bar">
-
-<input
-type="text"
-placeholder="Search content, uploads, creator tools..."
-/>
-
-</div>
-
-<div class="topbar-actions">
-
-<button class="topbar-btn">
-📤
-</button>
-
-<button class="topbar-btn">
-🔔
-</button>
-
-<button class="topbar-btn">
-♿
-</button>
-
-</div>
-
-</div>
-
-<!-- HERO -->
+<!-- =========================================
+HERO
+========================================= -->
 
 <section class="studio-hero">
 
-<h1>
-🎥 Creator Studio
+<div class="grid-2">
+
+<div>
+
+<span class="badge badge-primary">
+GLOBAL CREATOR INFRASTRUCTURE
+</span>
+
+<h1
+class="hero-title"
+style="margin-top:20px;"
+>
+
+Creator Studio 🎥
+
 </h1>
 
-<p>
+<p
+class="hero-subtitle"
+style="
+margin-top:18px;
+max-width:760px;
+"
+>
 
-Manage your content, accessibility tools,
-creator monetization, uploads, performance
-and audience engagement all in one professional dashboard.
+Manage reels,
+videos,
+livestreams,
+monetization,
+creator analytics,
+AI creator tools,
+enterprise partnerships,
+accessibility publishing
+and digital product infrastructure.
 
-</p>
-
-<div class="studio-actions">
-
-<div class="studio-action-card">
-
-<div class="icon">
-📝
-</div>
-
-<h2>
-Create Post
-</h2>
-
-<p>
-Publish accessible posts and social content.
 </p>
 
 </div>
 
-<div class="studio-action-card">
+<div class="mobile-hidden">
 
-<div class="icon">
-🎬
+<div class="studio-card">
+
+<h3>
+🚀 Creator Systems Active
+</h3>
+
+<div
+style="
+margin-top:20px;
+display:flex;
+flex-direction:column;
+gap:14px;
+"
+>
+
+<div class="badge badge-success">
+🎬 Reel Monetization Enabled
 </div>
 
-<h2>
-Upload Reel
-</h2>
-
-<p>
-Short-form accessible creator video system.
-</p>
-
+<div class="badge badge-primary">
+📺 Video Publishing Active
 </div>
 
-<div class="studio-action-card">
-
-<div class="icon">
-📺
+<div class="badge badge-warning">
+🔴 Livestream Systems Ready
 </div>
 
-<h2>
-Upload Video
-</h2>
-
-<p>
-Long-form creator and educational content.
-</p>
-
+<div class="badge badge-success">
+♿ Accessibility Publishing Enabled
 </div>
 
-<div class="studio-action-card">
-
-<div class="icon">
-💰
 </div>
-
-<h2>
-Monetization
-</h2>
-
-<p>
-Manage earnings, ads, subscriptions and payouts.
-</p>
 
 </div>
 
 </div>
 
-</section>
+</div>
 
 <!-- STATS -->
 
-<section class="creator-stats">
+<div class="studio-grid">
 
-<div class="creator-stat-card">
+<div class="studio-card">
 
 <h3>
-Total Views
+🎬 Reel Views
 </h3>
 
-<h1>
-2.4M
+<h1
+style="
+margin-top:18px;
+font-size:42px;
+"
+>
+
+12.8M
+
 </h1>
+
+<p style="margin-top:10px;">
+Short-form audience reach
+</p>
 
 </div>
 
-<div class="creator-stat-card">
+<div class="studio-card">
 
 <h3>
-Followers
+📺 Video Revenue
 </h3>
 
-<h1>
-84K
+<h1
+style="
+margin-top:18px;
+font-size:42px;
+"
+>
+
+$24,800
+
 </h1>
+
+<p style="margin-top:10px;">
+Long-form monetization
+</p>
 
 </div>
 
-<div class="creator-stat-card">
+<div class="studio-card">
 
 <h3>
-Content Uploaded
+🎁 Donations
 </h3>
 
-<h1>
-1,240
+<h1
+style="
+margin-top:18px;
+font-size:42px;
+"
+>
+
+$6,900
+
 </h1>
+
+<p style="margin-top:10px;">
+Supporter contributions
+</p>
 
 </div>
 
-<div class="creator-stat-card">
+<div class="studio-card">
 
 <h3>
-Revenue Generated
+🏢 Enterprise Deals
 </h3>
 
-<h1>
-$42K
+<h1
+style="
+margin-top:18px;
+font-size:42px;
+"
+>
+
+18
+
 </h1>
+
+<p style="margin-top:10px;">
+Brand & enterprise partnerships
+</p>
+
+</div>
 
 </div>
 
 </section>
 
-<!-- CONTENT -->
+<!-- =========================================
+CREATOR LAYOUT
+========================================= -->
 
-<section class="content-section">
+<section class="creator-layout">
 
-<h2>
-📂 Recent Content
+<!-- =========================================
+LEFT
+========================================= -->
+
+<div>
+
+<!-- CONTENT UPLOAD -->
+
+<div class="studio-card">
+
+<h2 class="section-title">
+📤 Upload & Publish
 </h2>
 
-<div class="content-grid">
+<div class="upload-box">
 
-<!-- CARD -->
+<h2>
+Drag & Drop Content
+</h2>
 
-<div class="content-card">
+<p
+style="
+margin-top:16px;
+line-height:1.9;
+"
+>
 
-<img
-src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200"
-/>
+Upload reels,
+videos,
+podcasts,
+livestream assets,
+courses,
+premium content
+and multilingual creator media.
 
-<div class="content-info">
+</p>
 
-<h3>
-Future of Accessibility Platforms
-</h3>
+<div
+style="
+margin-top:24px;
+display:flex;
+justify-content:center;
+gap:14px;
+flex-wrap:wrap;
+"
+>
 
-<div class="content-meta">
+<button class="btn btn-primary">
+Upload Reel
+</button>
 
-<span>
-248K Views
-</span>
+<button class="btn btn-secondary">
+Upload Video
+</button>
 
-<span>
-Video
-</span>
+<button class="btn btn-secondary">
+Go Live
+</button>
+
+<button class="btn btn-secondary">
+Create Course
+</button>
 
 </div>
 
-<p>
-Educational accessibility-focused creator content.
+</div>
+
+</div>
+
+<!-- AI TOOLS -->
+
+<div
+class="studio-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+🤖 AI Creator Tools
+</h2>
+
+<div class="tool-grid">
+
+<div class="tool-card">
+
+<h3>
+📝 AI Captions
+</h3>
+
+<p style="margin-top:12px;">
+Automatic multilingual captions.
+</p>
+
+</div>
+
+<div class="tool-card">
+
+<h3>
+🌍 AI Translation
+</h3>
+
+<p style="margin-top:12px;">
+Global audience translation engine.
+</p>
+
+</div>
+
+<div class="tool-card">
+
+<h3>
+🎤 Speech-to-Text
+</h3>
+
+<p style="margin-top:12px;">
+Voice transcription infrastructure.
+</p>
+
+</div>
+
+<div class="tool-card">
+
+<h3>
+🎬 AI Editing
+</h3>
+
+<p style="margin-top:12px;">
+Smart creator editing workflows.
+</p>
+
+</div>
+
+<div class="tool-card">
+
+<h3>
+♿ Accessibility AI
+</h3>
+
+<p style="margin-top:12px;">
+Accessibility-first publishing systems.
+</p>
+
+</div>
+
+<div class="tool-card">
+
+<h3>
+📈 AI Optimization
+</h3>
+
+<p style="margin-top:12px;">
+Audience & engagement optimization.
 </p>
 
 </div>
 
 </div>
 
-<!-- CARD -->
+</div>
 
-<div class="content-card">
+<!-- CONTENT PERFORMANCE -->
 
-<img
-src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200"
-/>
+<div
+class="studio-card"
+style="margin-top:28px;"
+>
 
-<div class="content-info">
+<h2 class="section-title">
+📊 Content Performance
+</h2>
 
-<h3>
-Creator Economy Growth Strategies
-</h3>
+<table class="analytics-table">
 
-<div class="content-meta">
+<tr>
 
-<span>
-118K Views
-</span>
+<th>
+Content
+</th>
 
-<span>
-Reel
-</span>
+<th>
+Views
+</th>
+
+<th>
+Revenue
+</th>
+
+<th>
+Status
+</th>
+
+</tr>
+
+<tr>
+
+<td>
+🎬 Accessibility Reel
+</td>
+
+<td>
+2.4M
+</td>
+
+<td>
+$1,800
+</td>
+
+<td>
+Trending
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+📺 Creator Economy Masterclass
+</td>
+
+<td>
+840K
+</td>
+
+<td>
+$8,400
+</td>
+
+<td>
+Premium
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+🔴 Enterprise Livestream
+</td>
+
+<td>
+120K
+</td>
+
+<td>
+$3,100
+</td>
+
+<td>
+Live Replay
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+🎓 Mentorship Course
+</td>
+
+<td>
+78K
+</td>
+
+<td>
+$2,200
+</td>
+
+<td>
+Published
+</td>
+
+</tr>
+
+</table>
 
 </div>
 
-<p>
-Short-form creator monetization insights.
+<!-- MONETIZATION -->
+
+<div
+class="studio-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+💸 Monetization Systems
+</h2>
+
+<div class="grid-3">
+
+<div class="card">
+
+<h3>
+🎁 Donations
+</h3>
+
+<p style="margin-top:12px;">
+Supporter-based creator contributions.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+⭐ Subscriptions
+</h3>
+
+<p style="margin-top:12px;">
+Premium membership creator infrastructure.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+📺 Premium Videos
+</h3>
+
+<p style="margin-top:12px;">
+Exclusive educational content monetization.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+🛒 Digital Products
+</h3>
+
+<p style="margin-top:12px;">
+Sell courses,
+templates
+and creator assets.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+🎓 Mentorship
+</h3>
+
+<p style="margin-top:12px;">
+Professional creator consultation sessions.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+🏢 Enterprise Deals
+</h3>
+
+<p style="margin-top:12px;">
+Brand sponsorships & enterprise partnerships.
 </p>
 
 </div>
 
 </div>
 
-<!-- CARD -->
-
-<div class="content-card">
-
-<img
-src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200"
-/>
-
-<div class="content-info">
-
-<h3>
-Building Inclusive Communities
-</h3>
-
-<div class="content-meta">
-
-<span>
-94K Views
-</span>
-
-<span>
-Post
-</span>
-
 </div>
-
-<p>
-Community inclusion and mentorship discussions.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
 
 <!-- ACCESSIBILITY -->
 
-<section class="accessibility-tools">
+<div
+class="studio-card"
+style="margin-top:28px;"
+>
 
-<h2>
-♿ Accessibility Creator Tools
+<h2 class="section-title">
+♿ Accessibility Publishing
 </h2>
 
-<div class="tools-grid">
+<p
+style="
+margin-top:14px;
+line-height:1.9;
+"
+>
 
-<div class="tool-card">
+Inclura Creator Studio supports:
+AI captions,
+screen readers,
+voice publishing,
+multilingual translation,
+transcripts,
+high contrast publishing,
+future sign-language overlays
+and accessibility-first creator workflows.
+
+</p>
+
+<div
+style="
+margin-top:22px;
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+"
+>
+
+<div class="badge badge-success">
+📝 Live Captions
+</div>
+
+<div class="badge badge-primary">
+🔊 Screen Reader
+</div>
+
+<div class="badge badge-warning">
+🎤 Voice Publishing
+</div>
+
+<div class="badge badge-success">
+🌍 AI Translation
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =========================================
+RIGHT
+========================================= -->
+
+<div>
+
+<!-- QUICK ACTIONS -->
+
+<div class="studio-card">
+
+<h2 class="section-title">
+⚡ Quick Actions
+</h2>
+
+<div
+style="
+margin-top:22px;
+display:flex;
+flex-direction:column;
+gap:16px;
+"
+>
+
+<button class="btn btn-primary">
+🎬 Create Reel
+</button>
+
+<button class="btn btn-secondary">
+📺 Upload Video
+</button>
+
+<button class="btn btn-secondary">
+🔴 Start Livestream
+</button>
+
+<button class="btn btn-secondary">
+🎓 Create Course
+</button>
+
+<button class="btn btn-secondary">
+🛒 Sell Product
+</button>
+
+</div>
+
+</div>
+
+<!-- LIVESTREAM -->
+
+<div
+class="studio-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+🔴 Livestream Systems
+</h2>
+
+<p
+style="
+margin-top:14px;
+line-height:1.8;
+"
+>
+
+Manage livestream scheduling,
+viewer donations,
+moderation systems,
+accessibility overlays,
+AI captions
+and enterprise webinars.
+
+</p>
+
+<div
+style="
+margin-top:20px;
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+"
+>
+
+<div class="badge badge-danger">
+LIVE READY
+</div>
+
+<div class="badge badge-primary">
+DONATIONS ENABLED
+</div>
+
+</div>
+
+</div>
+
+<!-- CREATOR STORE -->
+
+<div
+class="studio-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+🛒 Creator Store
+</h2>
+
+<div
+style="
+margin-top:20px;
+display:flex;
+flex-direction:column;
+gap:18px;
+"
+>
+
+<div class="card">
 
 <h3>
-Auto Captions
+📘 Accessibility Course
 </h3>
 
-<p>
-Generate subtitles and captions automatically.
+<p style="margin-top:10px;">
+$49
 </p>
 
 </div>
 
-<div class="tool-card">
+<div class="card">
 
 <h3>
-Transcript Generator
+🎬 Creator Templates
 </h3>
 
-<p>
-Create readable transcripts for every upload.
+<p style="margin-top:10px;">
+$25
 </p>
 
 </div>
 
-<div class="tool-card">
+<div class="card">
 
 <h3>
-Audio Enhancement
+📊 Enterprise Toolkit
 </h3>
 
-<p>
-Improve voice clarity for accessibility support.
+<p style="margin-top:10px;">
+$120
 </p>
 
 </div>
 
-<div class="tool-card">
-
-<h3>
-Sign Language Overlay
-</h3>
-
-<p>
-Add sign-language accessibility to videos.
-</p>
+</div>
 
 </div>
 
-<div class="tool-card">
+<!-- ENTERPRISE -->
 
-<h3>
-Accessibility Scoring
-</h3>
+<div
+class="studio-card"
+style="margin-top:28px;"
+>
 
-<p>
-Measure how inclusive your content is.
+<h2 class="section-title">
+🏢 Enterprise Collaboration
+</h2>
+
+<p
+style="
+margin-top:14px;
+line-height:1.9;
+"
+>
+
+Connect with:
+brands,
+organizations,
+accessibility institutions,
+educational partners
+and enterprise creator ecosystems.
+
 </p>
+
+<div
+style="
+margin-top:20px;
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+"
+>
+
+<div class="badge badge-success">
+Enterprise Ready
+</div>
+
+<div class="badge badge-primary">
+Brand Safe
+</div>
 
 </div>
 
-<div class="tool-card">
+</div>
 
-<h3>
-Voice Navigation
-</h3>
+<!-- COMPLIANCE -->
 
-<p>
-Enable voice-based creator interactions.
+<div
+class="studio-card"
+style="margin-top:28px;"
+>
+
+<h2 class="section-title">
+⚖ Compliance
+</h2>
+
+<p
+style="
+margin-top:14px;
+line-height:1.9;
+"
+>
+
+Creator publishing infrastructure complies with:
+GDPR,
+COPPA,
+NDPR,
+UK GDPR,
+POPIA,
+PIPEDA
+and accessibility-first digital publishing standards.
+
 </p>
 
 </div>
@@ -641,11 +1118,13 @@ Enable voice-based creator interactions.
 
 </section>
 
-<button class="floating-button">
-+
-</button>
-
 </main>
 
+<!-- =========================================
+NAVIGATION ENGINE
+========================================= -->
+
+<script src="navigation-system.js"></script>
+
 </body>
-  </html>
+</html>
