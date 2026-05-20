@@ -10,12 +10,47 @@ name="viewport"
 content="width=device-width, initial-scale=1.0"
 />
 
-<title>Inclura Dashboard</title>
+<title>
+Inclura Dashboard
+</title>
+
+<!-- =========================================
+CORE STYLES
+========================================= -->
+
+<link
+rel="stylesheet"
+href="style.css"
+/>
 
 <link
 rel="stylesheet"
 href="style-v2.css"
 />
+
+<link
+rel="stylesheet"
+href="layout-system.css"
+/>
+
+<link
+rel="stylesheet"
+href="sidebar-system.css"
+/>
+
+<link
+rel="stylesheet"
+href="component-system.css"
+/>
+
+<link
+rel="stylesheet"
+href="responsive-system.css"
+/>
+
+<!-- =========================================
+FONTS
+========================================= -->
 
 <link
 href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
@@ -26,9 +61,27 @@ rel="stylesheet"
 
 <body class="dashboard-body">
 
-<!-- SIDEBAR -->
+<!-- =========================================
+MOBILE MENU
+========================================= -->
+
+<button class="mobile-menu-btn">
+☰
+</button>
+
+<!-- =========================================
+OVERLAY
+========================================= -->
+
+<div class="sidebar-overlay"></div>
+
+<!-- =========================================
+GLOBAL SIDEBAR
+========================================= -->
 
 <aside class="sidebar">
+
+<!-- LOGO -->
 
 <div class="sidebar-logo">
 
@@ -38,219 +91,1037 @@ alt="Inclura Logo"
 class="sidebar-logo-image"
 />
 
-<h1>Inclura</h1>
+<h1>
+Inclura
+</h1>
 
 </div>
+
+<!-- NAVIGATION -->
 
 <nav class="sidebar-nav">
 
-<a href="dashboard.html">🏠 Dashboard</a>
+<a href="dashboard.html">
 
-<a href="posts.html">📝 Posts</a>
+<span>
+🏠
+</span>
 
-<a href="reels.html">🎬 Reels</a>
+<strong>
+Dashboard
+</strong>
 
-<a href="videos.html">📺 Videos</a>
+</a>
 
-<a href="market.html">🛒 Marketplace</a>
+<a href="explore.html">
 
-<a href="mentorhub.html">🧭 Mentor Hub</a>
+<span>
+🌍
+</span>
 
-<a href="caregigs.html">🤝 Care Gigs</a>
+<strong>
+Explore
+</strong>
 
-<a href="resume.html">📋 Resume</a>
+</a>
 
-<a href="wallet.html">💳 Wallet</a>
+<a href="reels.html">
 
-<a href="analytics.html">📊 Analytics</a>
+<span>
+🎬
+</span>
 
-<a href="creatorstudio.html">🎥 Creator Studio</a>
+<strong>
+Reels
+</strong>
 
-<a href="admanager.html">📡 Ad Manager</a>
+</a>
 
-<a href="emergency.html">🚨 Emergency</a>
+<a href="videos.html">
 
-<a href="notifications.html">🔔 Notifications</a>
+<span>
+📺
+</span>
 
-<a href="settings.html">⚙ Settings</a>
+<strong>
+Videos
+</strong>
+
+</a>
+
+<a href="livestream.html">
+
+<span>
+🔴
+</span>
+
+<strong>
+Livestream
+</strong>
+
+<span class="nav-badge alert">
+LIVE
+</span>
+
+</a>
+
+<a href="messages.html">
+
+<span>
+💬
+</span>
+
+<strong>
+Messages
+</strong>
+
+<span class="nav-badge messages-badge">
+3
+</span>
+
+</a>
+
+<a href="notifications.html">
+
+<span>
+🔔
+</span>
+
+<strong>
+Notifications
+</strong>
+
+<span class="nav-badge notifications-badge">
+12
+</span>
+
+</a>
+
+<!-- CREATOR ECONOMY -->
+
+<div class="sidebar-section-title">
+Creator Economy
+</div>
+
+<a href="creatorstudio.html">
+
+<span>
+🎥
+</span>
+
+<strong>
+Creator Studio
+</strong>
+
+</a>
+
+<a href="analytics.html">
+
+<span>
+📊
+</span>
+
+<strong>
+Analytics
+</strong>
+
+</a>
+
+<a href="wallet.html">
+
+<span>
+💳
+</span>
+
+<strong>
+Wallet
+</strong>
+
+</a>
+
+<a href="payments-history.html">
+
+<span>
+💰
+</span>
+
+<strong>
+Payments
+</strong>
+
+</a>
+
+<a href="withdrawals.html">
+
+<span>
+🏦
+</span>
+
+<strong>
+Withdrawals
+</strong>
+
+</a>
+
+<a href="subscriptions.html">
+
+<span>
+⭐
+</span>
+
+<strong>
+Subscriptions
+</strong>
+
+</a>
+
+<!-- MARKETPLACE -->
+
+<div class="sidebar-section-title">
+Marketplace
+</div>
+
+<a href="marketplace.html">
+
+<span>
+🛒
+</span>
+
+<strong>
+Marketplace
+</strong>
+
+</a>
+
+<a href="mentorship.html">
+
+<span>
+🎓
+</span>
+
+<strong>
+Mentorship
+</strong>
+
+</a>
+
+<a href="caregigs.html">
+
+<span>
+🩺
+</span>
+
+<strong>
+Care Gigs
+</strong>
+
+</a>
+
+<a href="jobs.html">
+
+<span>
+💼
+</span>
+
+<strong>
+Jobs
+</strong>
+
+</a>
+
+<!-- ACCESSIBILITY -->
+
+<div class="sidebar-section-title">
+Accessibility & AI
+</div>
+
+<a href="accessibility-center.html">
+
+<span>
+♿
+</span>
+
+<strong>
+Accessibility
+</strong>
+
+</a>
+
+<a href="ai-assistant.html">
+
+<span>
+🤖
+</span>
+
+<strong>
+AI Assistant
+</strong>
+
+</a>
+
+<!-- ENTERPRISE -->
+
+<div class="sidebar-section-title">
+Enterprise
+</div>
+
+<a href="enterprise.html">
+
+<span>
+🏢
+</span>
+
+<strong>
+Enterprise
+</strong>
+
+</a>
+
+<a href="organization-workspace.html">
+
+<span>
+🧩
+</span>
+
+<strong>
+Workspace
+</strong>
+
+</a>
+
+<a href="api-center.html">
+
+<span>
+🔗
+</span>
+
+<strong>
+API Center
+</strong>
+
+</a>
+
+<!-- ADMIN -->
+
+<div class="sidebar-section-title">
+Administration
+</div>
+
+<a href="admin-dashboard.html">
+
+<span>
+🛡
+</span>
+
+<strong>
+Admin Dashboard
+</strong>
+
+</a>
+
+<a href="admin-users.html">
+
+<span>
+👥
+</span>
+
+<strong>
+Admin Users
+</strong>
+
+</a>
+
+<a href="admin-reports.html">
+
+<span>
+🚨
+</span>
+
+<strong>
+Reports
+</strong>
+
+</a>
+
+<a href="admin-monetization.html">
+
+<span>
+💸
+</span>
+
+<strong>
+Monetization
+</strong>
+
+</a>
+
+<a href="moderation.html">
+
+<span>
+⚖
+</span>
+
+<strong>
+Moderation
+</strong>
+
+</a>
+
+<a href="compliance.html">
+
+<span>
+📜
+</span>
+
+<strong>
+Compliance
+</strong>
+
+</a>
+
+<!-- SETTINGS -->
+
+<div class="sidebar-section-title">
+System
+</div>
+
+<a href="profile.html">
+
+<span>
+👤
+</span>
+
+<strong>
+Profile
+</strong>
+
+</a>
+
+<a href="settings.html">
+
+<span>
+⚙
+</span>
+
+<strong>
+Settings
+</strong>
+
+</a>
+
+<a href="saved.html">
+
+<span>
+📁
+</span>
+
+<strong>
+Saved
+</strong>
+
+</a>
 
 </nav>
 
+<!-- TAG -->
+
+<div class="enterprise-tag">
+INCLURA ECOSYSTEM
+</div>
+
 </aside>
 
-<!-- MAIN CONTENT -->
+<!-- =========================================
+MAIN CONTENT
+========================================= -->
 
 <main class="main-content">
 
-<!-- TOPBAR -->
-
-<div class="dashboard-topbar">
-
-<div class="search-bar">
-
-<input
-type="text"
-placeholder="Search creators, videos, gigs..."
-/>
-
-</div>
-
-<div class="topbar-actions">
-
-<button class="topbar-btn">🔔</button>
-
-<button class="topbar-btn">🌙</button>
-
-<button class="topbar-btn">♿</button>
-
-</div>
-
-</div>
-
 <!-- HERO -->
 
-<section class="hero-profile">
+<section class="glass-card">
 
-<div class="hero-left">
+<div class="grid-2">
 
-<img
-src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800"
-class="hero-avatar"
-/>
+<div>
 
-<div class="hero-user-info">
+<span class="badge badge-primary">
+INCLURA ECOSYSTEM
+</span>
 
-<h2>Inclura Creator</h2>
+<h1
+class="hero-title"
+style="
+margin-top:22px;
+"
+>
 
-<p>
-Accessibility Advocate • Creator • Mentor
+Welcome Back 👋
+
+</h1>
+
+<p
+class="hero-subtitle"
+style="
+margin-top:18px;
+max-width:720px;
+"
+>
+
+Manage your creator economy,
+enterprise tools,
+wallet,
+accessibility systems,
+livestreams,
+marketplace activity,
+mentorship sessions
+and global monetization infrastructure
+from one unified dashboard.
+
 </p>
 
+<div
+style="
+margin-top:28px;
+display:flex;
+gap:18px;
+flex-wrap:wrap;
+"
+>
+
+<a
+href="creatorstudio.html"
+class="btn btn-primary"
+>
+
+🎥 Creator Studio
+
+</a>
+
+<a
+href="wallet.html"
+class="btn btn-secondary"
+>
+
+💳 Wallet
+
+</a>
+
+</div>
+
+</div>
+
+<div class="mobile-hidden">
+
+<div class="glass-card">
+
+<h3>
+🌍 Ecosystem Status
+</h3>
+
+<div
+style="
+margin-top:24px;
+display:flex;
+flex-direction:column;
+gap:18px;
+"
+>
+
+<div class="badge badge-success">
+✔ Accessibility Systems Active
+</div>
+
+<div class="badge badge-primary">
+🌐 Multilingual Infrastructure Ready
+</div>
+
+<div class="badge badge-warning">
+⚡ Realtime Systems Preparing
+</div>
+
+<div class="badge badge-success">
+💰 Monetization Systems Connected
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PLATFORM OVERVIEW -->
+
+<section class="section">
+
+<h2 class="section-title">
+📊 Platform Overview
+</h2>
+
+<div class="grid-4">
+
+<div class="stat-card">
+
+<div class="icon-box">
+🎬
+</div>
+
+<h2>
+248
+</h2>
+
 <p>
-Connect Without Limits, Includes Everyone.
+Active Reels
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<div class="icon-box">
+💰
+</div>
+
+<h2>
+$12.4K
+</h2>
+
+<p>
+Monthly Revenue
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<div class="icon-box">
+🌍
+</div>
+
+<h2>
+32
+</h2>
+
+<p>
+Countries Reached
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<div class="icon-box">
+♿
+</div>
+
+<h2>
+98%
+</h2>
+
+<p>
+Accessibility Score
 </p>
 
 </div>
 
 </div>
 
-<button class="topbar-btn">
-✏️
-</button>
-
 </section>
 
-<!-- STATS -->
+<!-- SHORTCUTS -->
 
-<section class="stats-grid">
+<section class="section">
 
-<div class="stat-card">
+<h2 class="section-title">
+🚀 Ecosystem Shortcuts
+</h2>
 
-<h3>Followers</h3>
+<div class="grid-3">
 
-<h1>24.8K</h1>
+<a
+href="reels.html"
+class="card"
+style="text-decoration:none;"
+>
 
+<div class="icon-box">
+🎬
 </div>
 
-<div class="stat-card">
+<h2 style="margin-top:18px;">
+Reels
+</h2>
 
-<h3>Posts</h3>
+<p style="margin-top:10px;">
+Create, manage and monetize short-form content.
+</p>
 
-<h1>1,240</h1>
+</a>
 
+<a
+href="marketplace.html"
+class="card"
+style="text-decoration:none;"
+>
+
+<div class="icon-box">
+🛒
 </div>
 
-<div class="stat-card">
+<h2 style="margin-top:18px;">
+Marketplace
+</h2>
 
-<h3>Total Earned</h3>
+<p style="margin-top:10px;">
+Sell products, services and digital experiences.
+</p>
 
-<h1>$18.4K</h1>
+</a>
 
+<a
+href="mentorship.html"
+class="card"
+style="text-decoration:none;"
+>
+
+<div class="icon-box">
+🎓
 </div>
 
-<div class="stat-card">
+<h2 style="margin-top:18px;">
+Mentorship
+</h2>
 
-<h3>Seller Rating</h3>
+<p style="margin-top:10px;">
+Host mentorship sessions and learning experiences.
+</p>
 
-<h1>⭐ 4.9</h1>
-
-</div>
-
-</section>
-
-<!-- QUICK GRID -->
-
-<section class="quick-grid">
-
-<div class="quick-card">
-
-<div class="icon">📝</div>
-
-<h2>Posts</h2>
-
-<p>Create accessible creator posts.</p>
-
-</div>
-
-<div class="quick-card">
-
-<div class="icon">🎬</div>
-
-<h2>Reels</h2>
-
-<p>Short-form accessibility videos.</p>
-
-</div>
-
-<div class="quick-card">
-
-<div class="icon">📺</div>
-
-<h2>Videos</h2>
-
-<p>Long-form creator experiences.</p>
-
-</div>
-
-<div class="quick-card">
-
-<div class="icon">🛒</div>
-
-<h2>Marketplace</h2>
-
-<p>Buy and sell products/services.</p>
-
-</div>
-
-<div class="quick-card">
-
-<div class="icon">💳</div>
-
-<h2>Wallet</h2>
-
-<p>Payments, payouts and monetization.</p>
-
-</div>
-
-<div class="quick-card">
-
-<div class="icon">📊</div>
-
-<h2>Analytics</h2>
-
-<p>Creator growth and performance.</p>
+</a>
 
 </div>
 
 </section>
 
-<button class="floating-button">
-+
-</button>
+<!-- QUICK ACTIONS -->
+
+<section class="section">
+
+<h2 class="section-title">
+⚡ Quick Actions
+</h2>
+
+<div class="grid-4">
+
+<a
+href="admanager.html"
+class="card"
+style="text-decoration:none;"
+>
+
+<div class="icon-box">
+📢
+</div>
+
+<h3 style="margin-top:18px;">
+Ads Manager
+</h3>
+
+</a>
+
+<a
+href="livestream-room.html"
+class="card"
+style="text-decoration:none;"
+>
+
+<div class="icon-box">
+🔴
+</div>
+
+<h3 style="margin-top:18px;">
+Go Live
+</h3>
+
+</a>
+
+<a
+href="messages.html"
+class="card"
+style="text-decoration:none;"
+>
+
+<div class="icon-box">
+💬
+</div>
+
+<h3 style="margin-top:18px;">
+Messages
+</h3>
+
+</a>
+
+<a
+href="verification.html"
+class="card"
+style="text-decoration:none;"
+>
+
+<div class="icon-box">
+✔
+</div>
+
+<h3 style="margin-top:18px;">
+Verification
+</h3>
+
+</a>
+
+</div>
+
+</section>
+
+<!-- ACCESSIBILITY -->
+
+<section class="section">
+
+<div class="alert alert-info">
+
+<h3>
+♿ Accessibility Infrastructure Active
+</h3>
+
+<p
+style="
+margin-top:12px;
+"
+>
+
+Inclura accessibility systems currently support:
+screen readers,
+captions,
+sign-language workflows,
+voice navigation,
+AI transcription,
+multilingual interaction,
+speech assistance,
+inclusive creator participation
+and accessibility-first collaboration infrastructure.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- CREATOR ECONOMY -->
+
+<section class="section">
+
+<h2 class="section-title">
+💸 Creator Economy
+</h2>
+
+<div class="grid-3">
+
+<div class="card">
+
+<h3>
+🎥 Video Monetization
+</h3>
+
+<p style="margin-top:14px;">
+Long-form educational videos,
+training systems,
+creator subscriptions
+and premium learning experiences.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+🎁 Donations & Grants
+</h3>
+
+<p style="margin-top:14px;">
+Receive fan support,
+accessibility grants,
+funding campaigns
+and nonprofit sponsorships.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+🌍 Enterprise Partnerships
+</h3>
+
+<p style="margin-top:14px;">
+Collaborate with brands,
+organizations,
+enterprises
+and accessibility partners globally.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- RECENT ACTIVITY -->
+
+<section class="section">
+
+<h2 class="section-title">
+🕒 Recent Activity
+</h2>
+
+<div class="glass-card">
+
+<div
+style="
+display:flex;
+flex-direction:column;
+gap:22px;
+"
+>
+
+<div class="badge badge-success">
+✔ Reel monetization payout completed
+</div>
+
+<div class="badge badge-primary">
+🎬 New livestream scheduled
+</div>
+
+<div class="badge badge-warning">
+📢 Campaign awaiting approval
+</div>
+
+<div class="badge badge-success">
+🌍 Accessibility translation enabled
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ENTERPRISE STATUS -->
+
+<section class="section">
+
+<div class="glass-card">
+
+<div class="grid-2">
+
+<div>
+
+<h2 class="section-title">
+🏢 Enterprise Infrastructure
+</h2>
+
+<p class="section-subtitle">
+
+Inclura enterprise ecosystem supports:
+organizations,
+universities,
+accessibility institutions,
+governments,
+creator agencies,
+training systems,
+enterprise analytics
+and scalable API integrations.
+
+</p>
+
+<a
+href="enterprise.html"
+class="btn btn-primary"
+>
+
+Open Enterprise Center
+
+</a>
+
+</div>
+
+<div class="mobile-hidden">
+
+<div class="stat-card">
+
+<div class="icon-box">
+🏢
+</div>
+
+<h2>
+184
+</h2>
+
+<p>
+Enterprise Accounts
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- GLOBAL COMPLIANCE -->
+
+<section class="section">
+
+<div class="alert alert-warning">
+
+<h3>
+⚖ Global Compliance Active
+</h3>
+
+<p
+style="
+margin-top:12px;
+"
+>
+
+Inclura currently enforces:
+GDPR,
+COPPA,
+UK GDPR,
+NDPR,
+POPIA,
+PIPEDA,
+accessibility compliance,
+age protection,
+financial monitoring
+and global creator economy standards.
+
+</p>
+
+</div>
+
+</section>
 
 </main>
 
-<script src="dashboard.js"></script>
+<!-- =========================================
+GLOBAL NAVIGATION ENGINE
+========================================= -->
+
+<script src="navigation-system.js"></script>
 
 </body>
 </html>
