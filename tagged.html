@@ -1,1 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inclura Tagged Center</title>
 
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-v2.css">
+  <link rel="stylesheet" href="layout-system.css">
+  <link rel="stylesheet" href="sidebar-system.css">
+  <link rel="stylesheet" href="component-system.css">
+  <link rel="stylesheet" href="responsive-system.css">
+
+  <style>
+
+    body{
+      margin:0;
+      background:#f4f7ff;
+      font-family:Arial,sans-serif;
+      color:#14213d;
+    }
+
+    .tagged-wrapper{
+      max-width:1600px;
+      margin:auto;
+      padding:20px;
+    }
+
+    .hero{
+      background:linear-gradient(135deg,#0f172a,#2563eb);
+      color:white;
+      border-radius:30px;
+      padding:35px;
+      margin-bottom:25px;
+    }
+
+    .hero h1{
+      margin:0;
+      font-size:38px;
+    }
+
+    .hero p{
+      margin-top:12px;
+      line-height:1.8;
+      opacity:.92;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
+      margin-top:30px;
+    }
+
+    .hero-card{
+      background:rgba(255,255,255,.12);
+      border-radius:20px;
+      padding:22px;
+      backdrop-filter:blur(10px);
+    }
+
+    .hero-card h2{
+      margin-top:10px;
+      font-size:30px;
+    }
+
+    .main-grid{
+      display:grid;
+      grid-template-columns:2fr 1fr;
+      gap:25px;
+    }
+
+    .panel{
+      background:white;
+      border-radius:25px;
+      padding:25px;
+      margin-bottom:25px;
+      box-shadow:0 5px 25px rgba(0,0,0,.04);
+    }
+
+    .panel-title{
+      font-size:24px;
+      margin-bottom:20px;
+      font-weight:bold;
+    }
+
+    .search-box{
+      margin-bottom:25px;
+    }
+
+    .search-box input{
+      width:100%;
+      padding:18px;
+      border-radius:15px;
+      border:1px solid #dbe4ff;
+      font-size:16px;
+      outline:none;
+    }
+
+    .category-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:15px;
+    }
+
+    .category-card{
+      background:#eef4ff;
+      border-radius:18px;
+      padding:18px;
+      text-align:center;
+      font-weight:bold;
+      transition:.3s;
+      cursor:pointer;
+    }
+
+    .category-card:hover{
+      transform:translateY(-4px);
+      background:#dbe7ff;
+    }
+
+    .feed-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:20px;
+    }
+
+    .feed-card{
+      background:#fff;
+      border:1px solid #dbe4ff;
+      border-radius:22px;
+      overflow:hidden;
+      transition:.3s;
+    }
+
+    .feed-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 12px 25px rgba(0,0,0,.08);
+    }
+
+    .feed-image{
+      height:240px;
+      background:#dbe7ff;
+      position:relative;
+    }
+
+    .feed-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .tag-badge{
+      position:absolute;
+      top:15px;
+      left:15px;
+      background:#2563eb;
+      color:white;
+      padding:7px 14px;
+      border-radius:50px;
+      font-size:12px;
+      font-weight:bold;
+    }
+
+    .feed-content{
+      padding:20px;
+    }
+
+    .feed-content h3{
+      margin:0 0 10px;
+    }
+
+    .feed-content p{
+      color:#64748b;
+      line-height:1.6;
+    }
+
+    .feed-actions{
+      display:flex;
+      gap:10px;
+      margin-top:15px;
+      flex-wrap:wrap;
+    }
+
+    .action-btn{
+      background:#eef4ff;
+      border:none;
+      padding:10px 15px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:bold;
+    }
+
+    .identity-card{
+      display:flex;
+      gap:15px;
+      align-items:center;
+      background:#f8fbff;
+      border-radius:18px;
+      padding:18px;
+      margin-bottom:15px;
+    }
+
+    .identity-avatar{
+      width:65px;
+      height:65px;
+      border-radius:50%;
+      overflow:hidden;
+      background:#dbe4ff;
+    }
+
+    .identity-avatar img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .verified{
+      color:#2563eb;
+      font-weight:bold;
+      font-size:14px;
+    }
+
+    .accessibility-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:15px;
+      margin-top:20px;
+    }
+
+    .access-card{
+      background:#eef4ff;
+      padding:18px;
+      border-radius:15px;
+      font-weight:bold;
+    }
+
+    .mention-card{
+      background:#f8fbff;
+      border-radius:18px;
+      padding:18px;
+      margin-bottom:15px;
+    }
+
+    .mention-status{
+      margin-top:10px;
+      font-weight:bold;
+      color:#2563eb;
+    }
+
+    .ai-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:18px;
+    }
+
+    .ai-card{
+      background:#f8fbff;
+      border-radius:18px;
+      padding:20px;
+      border:1px solid #dbe4ff;
+    }
+
+    .masonry-grid{
+      column-count:3;
+      column-gap:15px;
+    }
+
+    .masonry-item{
+      background:#fff;
+      border-radius:18px;
+      overflow:hidden;
+      margin-bottom:15px;
+      break-inside:avoid;
+      border:1px solid #dbe4ff;
+    }
+
+    .masonry-item img{
+      width:100%;
+      display:block;
+    }
+
+    .masonry-item div{
+      padding:15px;
+    }
+
+    @media(max-width:1000px){
+
+      .main-grid{
+        grid-template-columns:1fr;
+      }
+
+      .masonry-grid{
+        column-count:2;
+      }
+
+    }
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:28px;
+      }
+
+      .panel-title{
+        font-size:22px;
+      }
+
+      .masonry-grid{
+        column-count:1;
+      }
+
+    }
+
+  </style>
+
+</head>
+<body>
+
+<div class="tagged-wrapper">
+
+  <!-- HERO -->
+
+  <div class="hero">
+
+    <h1>Inclura Tagged Center</h1>
+
+    <p>
+      Discover posts, reels, businesses, creators, products,
+      accessibility services and smart AI mentions connected to you.
+    </p>
+
+    <div class="hero-grid">
+
+      <div class="hero-card">
+        <small>Total Mentions</small>
+        <h2>12,490</h2>
+      </div>
+
+      <div class="hero-card">
+        <small>Tagged Posts</small>
+        <h2>8,210</h2>
+      </div>
+
+      <div class="hero-card">
+        <small>Business Tags</small>
+        <h2>2,940</h2>
+      </div>
+
+      <div class="hero-card">
+        <small>Accessibility Tags</small>
+        <h2>1,180</h2>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="main-grid">
+
+    <!-- LEFT SIDE -->
+
+    <div>
+
+      <!-- SEARCH -->
+
+      <div class="panel">
+
+        <div class="panel-title">
+          Search Tags & Mentions
+        </div>
+
+        <div class="search-box">
+          <input type="text" placeholder="Search people, products, locations, services, hashtags...">
+        </div>
+
+        <div class="category-grid">
+
+          <div class="category-card">👤 People</div>
+          <div class="category-card">🏢 Businesses</div>
+          <div class="category-card">🛍 Products</div>
+          <div class="category-card">📍 Locations</div>
+          <div class="category-card">🎉 Events</div>
+          <div class="category-card">♿ Accessibility</div>
+          <div class="category-card">🎓 Skills</div>
+          <div class="category-card">💼 Services</div>
+
+        </div>
+
+      </div>
+
+      <!-- TAGGED FEED -->
+
+      <div class="panel">
+
+        <div class="panel-title">
+          Tagged Feed
+        </div>
+
+        <div class="feed-grid">
+
+          <div class="feed-card">
+
+            <div class="feed-image">
+
+              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
+
+              <div class="tag-badge">
+                Tagged in Photo
+              </div>
+
+            </div>
+
+            <div class="feed-content">
+
+              <h3>Business Conference 2026</h3>
+
+              <p>
+                You were tagged in a creator collaboration post.
+              </p>
+
+              <div class="feed-actions">
+
+                <button class="action-btn">View</button>
+                <button class="action-btn">Remove Tag</button>
+                <button class="action-btn">Share</button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="feed-card">
+
+            <div class="feed-image">
+
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330">
+
+              <div class="tag-badge">
+                Accessibility Tag
+              </div>
+
+            </div>
+
+            <div class="feed-content">
+
+              <h3>Wheelchair Accessible Event</h3>
+
+              <p>
+                Tagged for accessibility support participation.
+              </p>
+
+              <div class="feed-actions">
+
+                <button class="action-btn">View</button>
+                <button class="action-btn">Approve</button>
+                <button class="action-btn">Report</button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="feed-card">
+
+            <div class="feed-image">
+
+              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3">
+
+              <div class="tag-badge">
+                Marketplace Mention
+              </div>
+
+            </div>
+
+            <div class="feed-content">
+
+              <h3>Tech Product Promotion</h3>
+
+              <p>
+                You were mentioned in a sponsored marketplace listing.
+              </p>
+
+              <div class="feed-actions">
+
+                <button class="action-btn">View</button>
+                <button class="action-btn">Hide</button>
+                <button class="action-btn">Save</button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- AI RECOGNITION -->
+
+      <div class="panel">
+
+        <div class="panel-title">
+          AI Smart Recognition
+        </div>
+
+        <div class="ai-grid">
+
+          <div class="ai-card">
+            <h3>🧠 Face Recognition</h3>
+            <p>
+              Detects tagged users appearing in uploaded media.
+            </p>
+          </div>
+
+          <div class="ai-card">
+            <h3>🎤 Voice Mentions</h3>
+            <p>
+              AI identifies spoken mentions in videos and livestreams.
+            </p>
+          </div>
+
+          <div class="ai-card">
+            <h3>🛍 Product Recognition</h3>
+            <p>
+              Detect products and marketplace items automatically.
+            </p>
+          </div>
+
+          <div class="ai-card">
+            <h3>📍 Smart Location Tags</h3>
+            <p>
+              Auto-recognize business and event locations.
+            </p>
+          </div>
+
+          <div class="ai-card">
+            <h3>📝 Caption Analysis</h3>
+            <p>
+              AI detects mentions inside captions and comments.
+            </p>
+          </div>
+
+          <div class="ai-card">
+            <h3>🤝 Collaboration Detection</h3>
+            <p>
+              Identify creator collaborations automatically.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- MEDIA GRID -->
+
+      <div class="panel">
+
+        <div class="panel-title">
+          Tagged Media Gallery
+        </div>
+
+        <div class="masonry-grid">
+
+          <div class="masonry-item">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e">
+            <div>Creator Collaboration Reel</div>
+          </div>
+
+          <div class="masonry-item">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9">
+            <div>Livestream Snapshot</div>
+          </div>
+
+          <div class="masonry-item">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1">
+            <div>Marketplace Mention</div>
+          </div>
+
+          <div class="masonry-item">
+            <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df">
+            <div>Accessibility Community Event</div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ACCESSIBILITY -->
+
+      <div class="panel">
+
+        <div class="panel-title">
+          Accessibility Tagging
+        </div>
+
+        <div class="accessibility-grid">
+
+          <div class="access-card">
+            👁 Blind-Friendly
+          </div>
+
+          <div class="access-card">
+            🤟 Sign-Language Support
+          </div>
+
+          <div class="access-card">
+            ♿ Wheelchair Accessible
+          </div>
+
+          <div class="access-card">
+            🔊 Voice Assistance
+          </div>
+
+          <div class="access-card">
+            🎧 Audio Guidance
+          </div>
+
+          <div class="access-card">
+            🧏 Deaf-Friendly
+          </div>
+
+          <div class="access-card">
+            🩺 Caregiver Support
+          </div>
+
+          <div class="access-card">
+            ⌨ Keyboard Navigation
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+
+    <div>
+
+      <!-- IDENTITY CARDS -->
+
+      <div class="panel">
+
+        <div class="panel-title">
+          Tagged Profiles
+        </div>
+
+        <div class="identity-card">
+
+          <div class="identity-avatar">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+          </div>
+
+          <div>
+
+            <strong>Sarah Johnson</strong><br>
+
+            UI/UX Designer<br>
+
+            <span class="verified">
+              ✔ Verified Creator
+            </span>
+
+          </div>
+
+        </div>
+
+        <div class="identity-card">
+
+          <div class="identity-avatar">
+            <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png">
+          </div>
+
+          <div>
+
+            <strong>Michael Lee</strong><br>
+
+            Accessibility Consultant<br>
+
+            <span class="verified">
+              ♿ Accessibility Verified
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- NOTIFICATIONS -->
+
+      <div class="panel">
+
+        <div class="panel-title">
+          Mention Notifications
+        </div>
+
+        <div class="mention-card">
+
+          <strong>You were tagged in a livestream</strong>
+
+          <div class="mention-status">
+            Pending Approval
+          </div>
+
+        </div>
+
+        <div class="mention-card">
+
+          <strong>Your business was mentioned</strong>
+
+          <div class="mention-status">
+            Published
+          </div>
+
+        </div>
+
+        <div class="mention-card">
+
+          <strong>Accessibility service mention</strong>
+
+          <div class="mention-status">
+            Needs Review
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- PRIVACY -->
+
+      <div class="panel">
+
+        <div class="panel-title">
+          Privacy Controls
+        </div>
+
+        <div class="mention-card">
+          Require approval before tags appear
+        </div>
+
+        <div class="mention-card">
+          Hide offensive mentions automatically
+        </div>
+
+        <div class="mention-card">
+          Restrict public profile tagging
+        </div>
+
+        <div class="mention-card">
+          Accessibility privacy settings
+        </div>
+
+      </div>
+
+      <!-- COLLABORATION -->
+
+      <div class="panel">
+
+        <div class="panel-title">
+          Creator Collaboration Tags
+        </div>
+
+        <div class="mention-card">
+          🤝 Co-Author Tagging
+        </div>
+
+        <div class="mention-card">
+          💰 Sponsored Partner Tags
+        </div>
+
+        <div class="mention-card">
+          👥 Team Contributor Tags
+        </div>
+
+        <div class="mention-card">
+          🎬 Reel Collaboration System
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="navigation-system.js"></script>
+
+</body>
+</html>
